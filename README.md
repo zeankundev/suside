@@ -35,3 +35,11 @@ Now, this is where all the fun begins. Type this line in your terminal after ins
 $ npm start
 ```
 Have fun hacking on Suside! 🥳:tada:
+
+## Script References
+
+These are references for scripts to do certain commands. Here are some list. Just run ```npm run <script>```
+* ```buildwin``` - Makes the Windows version of Suside. Output is on the ```build``` folder
+* ```buildmac``` - Makes the Mac version of Suside. Output is still in the ```build``` folder
+* ```buildlinux``` - Makes the Linux version of Suside. Output is still in the ```build``` folder
+* ```builddeb``` - Compiles the Linux version of Suside into a .deb formate. You have to run ```buildlinux``` command before running this.
