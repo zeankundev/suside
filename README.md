@@ -18,6 +18,7 @@ To get started, you must have the following.
 * Node.js version 7.9
 * npm version 1.0.x
 * Electron 13.1.17
+* Python 3.9.6
 
 
 Next, you got to clone the repository, change the directory to suside, and installing all dependencies by typing this line
