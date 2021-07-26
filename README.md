@@ -16,12 +16,34 @@ terminal for debugging.
 ## Usage
 To get started, you must have the following.
 * Node.js version 7.9
+* Git
 * npm version 1.0.x
 * Electron 13.1.17
 * Python 3.9.6
 
+I have tested this on my local Linux machine (Mint). This build method is only for Windows and Linux (I don't have the build process for macOS, or is it the same?)
 
-Next, you got to clone the repository, change the directory to suside, and installing all dependencies by typing this line
+Next, you got to clone the repository, change the directory to suside, and installing all dependencies. There are 2 methods.
+### Method 1 (The easy way but a little bit hard)
+1. Go to this repository and find the Code button.
+2. Make sure to click Download ZIP as shown.
+
+![method](assets/Untitled2.png)
+
+3. Go to your terminal and type the ```cd``` command along with the directory on where you extracted Suside.
+
+**NOTE: You must extract the entire Suside ZIP file before continuing to Step 3.**
+
+Let's say I extracted in my home directory. So, I have to type this.
+```shell
+cd /home/user/suside-master
+```
+For the path, you must PROVIDE the full path. If you extract in your home directory, you just only enter ```cd suside-master```.
+
+After you enter the repository that you just extracted, you can install the dependencies and run it.
+
+### Method 2 (The quick and fast way, but irritating for beginners.)
+To quickly just only clone at your current directory, just type the following commands.
 ```shell
 # Clone the repository
 $ git clone https://github.com/zeankundev/suside
