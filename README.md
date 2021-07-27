@@ -3,10 +3,10 @@ A fully fledged text editor built with Electron.
 Flexible, minimal and comfortable text editor.
 <br>
 
-![AppVeyor](https://img.shields.io/appveyor/build/zeankundev/suside)
-![GitHub all releases](https://img.shields.io/github/downloads/zeankundev/suside/total)
-![GitHub release (latest by date and asset)](https://img.shields.io/github/downloads/zeankundev/suside/1.4.4/suside_1.4.4_amd64.deb)
-![SourceForge](https://img.shields.io/sourceforge/dm/suside?color=green)
+![AppVeyor](https://img.shields.io/appveyor/build/zeankundev/suside?style=for-the-badge)
+![GitHub all releases](https://img.shields.io/github/downloads/zeankundev/suside/total?style=for-the-badge)
+![GitHub release (latest by date and asset)](https://img.shields.io/github/downloads/zeankundev/suside/1.4.4/suside_1.4.4_amd64.deb?style=for-the-badge)
+![SourceForge](https://img.shields.io/sourceforge/dm/suside?color=green&style=for-the-badge)
 
 ## What does it do? 
 Suside is a code editor which can do in a normal editor, but there are
