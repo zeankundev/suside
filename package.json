@@ -36,7 +36,7 @@
     "xterm": "^3.12.0"
   },
   "build": {
-    "appId": "com.chhekur.colon",
+    "appId": "com.zeankundev.suside",
     "mac": {
       "category": "",
       "target": [
@@ -66,8 +66,8 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "chhekur",
-        "repo": "colon-ide"
+        "owner": "zeankundev",
+        "repo": "suside"
       }
     ]
   }
