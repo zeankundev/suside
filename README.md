@@ -1,4 +1,4 @@
-<img src="assets/logo.png" style="text-align: center;">
+<img src="logo.png" style="text-align: center;">
 A fully fledged text editor built with Electron.
 Flexible, minimal and comfortable text editor.
 <br>
@@ -34,7 +34,7 @@ Next, you got to clone the repository, change the directory to suside, and insta
 1. Go to this repository and find the Code button.
 2. Make sure to click Download ZIP as shown.
 
-![method](assets/Untitled2.png)
+![method](Untitled2.png)
 
 3. Go to your terminal and type the ```cd``` command along with the directory on where you extracted Suside.
 
