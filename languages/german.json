@@ -1,0 +1,208 @@
+{
+	"name": "Deutsch",
+	"locale": "de",
+	"translations": {
+		"menus": {
+			"File": {
+				"File": "Datei",
+				"OpenFolder": "Ordner öffnen",
+				"OpenFile": "Datei öffnen",
+				"Projects": {
+					"Projects": "Projekte",
+					"OpenProjects": "Projekte öffnen"
+				},
+				"Workspaces": {
+					"Workspaces": "Arbeitsplätze",
+					"OpenWorkspaces": "Arbeitsplätze öffnen",
+					"OpenFromFile": "Von Datei öffnen",
+					"AddFolderToWorkspace": "Ordner zum Arbeitsplatz hinzufügen",
+					"SaveWorkspace": "Arbeitsplatz speichern"
+				}
+			},
+			"Edit": {
+				"Edit": "Bearbeiten",
+				"Undo": "Rückgängig machen",
+				"Redo": "Wiederholen",
+				"FontSize": {
+					"FontSize": "Schriftgröße",
+					"Increase": "Vergrößern",
+					"Decrease": "Verkleinern"
+				},
+				"Find": "Suchen",
+				"Replace": "Ersetzen",
+				"FormatDocument": "Dokument formatieren"
+			},
+			"Tools": {
+				"Tools": "Tools",
+				"OpenSettings": "Einstellungen",
+				"OpenStore": "Store",
+				"Panels": {
+					"Panels": "Panels",
+					"NewPanel": "Neues Panel",
+					"CloseCurrentPanel": "Aktuelles Panel schließen"
+				}
+			},
+			"View": {
+				"View": "Ansicht",
+				"Sidebar": "Seitenleiste",
+				"Sidepanel": "Seitliches Bedienfeld",
+				"Terminal": "Terminal",
+				"ShowSidebar": "Seitenleiste Einblenden",
+				"ShowSidepanel": "Seitliches Bedienfeld Einblendend",
+				"HideSidebar": "Seitenleiste Ausblenden",
+				"HideSidepanel": "Seitliches Bedienfeld Ausblenden"
+			},
+			"Window": {
+				"Window": "Fenster",
+				"Zoom": {
+					"Zoom": "Zoom",
+					"DefaultZoom": "Standard",
+					"IncreaseZoom": "Vergrößern",
+					"DecreaseZoom": "Verkleinern"
+				},
+				"Debug": {
+					"Debug": "Debug",
+					"OpenDebugWindow": "Debug Fenster öffnen"
+				},
+				"OpenDevTools": "Dev Tools öffnen"
+			},
+			"Help": {
+				"Help": "Hilfe",
+				"Contact": "Kontakt",
+				"Social": "Social",
+				"Contributors": "Beitragende",
+				"Blog": "Blog",
+				"Documentation": "Dokumentation",
+				"Website": "Website",
+				"SourceCode": "Quellcode",
+				"ReportBug": "Fehler Melden",
+				"CheckForUpdates": "Auf Updates überprüfen",
+				"ShowWelcome": "Willkommensnachricht Anzeigen",
+				"About": "Über"
+			}
+		},
+		"windows": {
+			"Settings": {
+				"Settings": "Einstellungen",
+				"Customization": {
+					"Customization": "Personalisierung",
+					"Themes": "Themes",
+					"Iconpacks": "Icon Packs"
+				},
+				"Advanced": {
+					"Advanced": "Erweitert",
+					"FileWatcher": "Datei Beobachter",
+					"Autocomplete": "Autocomplete",
+					"WrapLines": "Zeilen umbrechen",
+					"ManualConfig": {
+						"ManualConfig": "Manuelle Konfiguration",
+						"EditConfiguration": "Konfiguration Bearbeiten"
+					},
+					"Explorer": "Explorer",
+					"Editor": "Editor",
+					"GitIntegration": "Git Integration",
+					"LSPIntegration": "LSP Integration (Experimentell)",
+					"SourceTracker": "Quellen Tracker",
+					"Indentation": {
+						"Indentation": "Einzug",
+						"Space": "Leerzeichen",
+						"Tab": "Tab"
+					}
+				},
+				"Configuration": "Konfiguration",
+				"RestartConfig": {
+					"RestartConfig": "Konfiguration Neustarten"
+				},
+				"Languages": "Sprachen",
+				"Shortcuts": {
+					"Shortcuts": "Tastatürkürzel",
+					"CreateCombo": "Tastatürkürzel Erstellen"
+				},
+				"About": {
+					"About": "Über",
+					"GravitonDescription": "Suside ist ein plattformübergreifender Editor."
+				}
+			},
+			"Store": {
+				"Store": "Store",
+				"Home": {
+					"Home": "Home"
+				},
+				"Installed": {
+					"Installed": "Installiert"
+				},
+				"Install": "Installieren",
+				"Update": "Aktualisieren",
+				"Uninstall": "Deinstallieren",
+				"AnyCompatibleVersion": "Jede kompatible Version."
+			},
+			"Welcome": {
+				"Welcome": "Willkommen",
+				"RecentProjects": "Zuletzt geöffnete Projekte",
+				"RecentWorkspaces": "Zuletzt geöffnete Arbeitsplätze",
+				"NewProject": "Neues Projekt",
+				"OpenWorkspace": "Arbeitsplatz öffnen",
+				"OpenFolder": "Ordner öffnen"
+			},
+			"BrowserWelcome": {
+				"WelcomeTitle": "Willkommen zu Suside für den Browser!",
+				"WelcomeMessage": "Dieses feature is noch sehr in der Experimentierphase und viele Sachen funktionieren noch nicht. \n Für eine bessere Erfahrung, laden sie bitte die Desktop-Anwendung herunter."
+			}
+		},
+		"misc": {
+			"Miscellaneous": "Verschiedenes",
+			"LastVersion": "Letzte Version",
+			"InstalledVersion": "Installierte Version",
+			"About": "Über",
+			"Skip": "Überspringen",
+			"Finish": "Beenden",
+			"Continue": "Fortsetzen",
+			"GoBack": "Zurück",
+			"Accept": "Akzeptieren",
+			"Cancel": "Abbrechen",
+			"version": "Version",
+			"CopyPath": "Pfad Kopieren",
+			"More": "Mehr",
+			"Copy": "Kopieren",
+			"Rename": "Umbenennen",
+			"Remove": "Entfernen",
+			"OpenLocation": "Stelle Öffnen",
+			"NewFile": "Neue Datei",
+			"NewFolder": "Neuer Ordner",
+			"Paste": "Einfügen",
+			"Author": "Autor",
+			"Exit": "Beenden",
+			"Tip": "Trinkgeld",
+			"Yes": "Ja",
+			"No": "Nein",
+			"Close": "Schließen",
+			"Ignore": "Ignorieren",
+			"BuildDate": "Build Datum",
+			"By": "Von",
+			"Understood": "Verstanden",
+			"RemoveFromWorkspace": "Vom Arbeitsplatz Entfernen",
+			"JoinTheDiscussion": "Der Diskussion Beitreten",
+			"OpenAnyway": "Trotzdem Öffnen"
+		},
+		"notifications" : {
+			"appLanguageChanged": {
+				"appLanguageChanged": "Die Sprache der App hat sich geändert.",
+				"restartMessage": "Neustarten sie die App um die Sprache zu aktualisieren."
+			}
+		},
+		"dialogs" : {
+			"tabsUnsavedWarning" : {
+				"title": "Ungespeicherte Dateien sind vorhanden.",
+				"content" : "Sie könnten Fortschritt verlieren."
+			},
+			"restartConfig": {
+				"title": "Neustart Einstellungen",
+				"content": "Klicken sie auf Fortfahren um die Einstellungen zu aktualisieren."
+			},
+			"experimentalFeature": {
+				"title": "Experimentelles Feature",
+				"content": "Dieses Feature ist unstabil und kann Problemen verursachen."
+			}
+		}
+	}
+}

@@ -1,0 +1,1 @@
+(self.webpackChunksuside=self.webpackChunksuside||[]).push([[542],{1542:(e,n,s)=>{"use strict";s.r(n),window.addEventListener("contextmenu",(e=>e.preventDefault())),window.addEventListener("keydown",(e=>{e.ctrlKey&&["p","s","o"].includes(e.key)&&e.preventDefault()}))}}]);
