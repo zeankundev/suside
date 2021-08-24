@@ -23,7 +23,7 @@ terminal for debugging.
 To get started, you must have the following.
 * Node.js version 7.9
 * Git
-* npm version 1.0.x
+* Yarn
 * Electron 13.1.17
 * Python 3.9.6
 
