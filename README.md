@@ -49,26 +49,33 @@ For the path, you must PROVIDE the full path. If you extract in your home direct
 After you enter the repository that you just extracted, you can install the dependencies and run it.
 
 ### Method 2 (The quick and fast way, but irritating for beginners.)
-To quickly just only clone at your current directory, just type the following commands.
+To quickly just only clone at your current directory, just type the following commands. The new Suside requires Yarn to build all dependencies.
 ```shell
 # Clone the repository
 $ git clone https://github.com/zeankundev/suside
 # Change it to suside on where we clone it
 $ cd suside
 # Installing all dependencies
-$ npm install
+$ yarn
 ```
 
 Now, this is where all the fun begins. Type this line in your terminal after installing all the dependencies.
 ```shell
-$ npm start
+$ yarn start
 ```
 Have fun hacking on Suside! 🥳:tada:
 
-## Script References
+## Extra tips
 
-These are references for scripts to do certain commands. Here are some list. Just run ```npm run <script>```
-* ```buildwin``` - Makes the Windows version of Suside. Output is on the ```build``` folder
-* ```buildmac``` - Makes the Mac version of Suside. Output is still in the ```build``` folder
-* ```buildlinux``` - Makes the Linux version of Suside. Output is still in the ```build``` folder
-* ```builddeb``` - Compiles the Linux version of Suside into a .deb formate. You have to run ```buildlinux``` command before running this.
+* To run Suside on the browser, type the following (Note: the browser version is experimental).
+```shell
+yarn start:experimental:browser
+```
+* To build Suside, type the following.
+```shell
+yarn build
+```
+* To build Suside on a specific OS, type the following. Let's say you're a Debian user, so type this.
+```shell
+yarn build:electron --info platform=debian
+```
