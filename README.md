@@ -59,6 +59,12 @@ $ cd suside
 $ yarn
 ```
 
+Optionally, you can fork it to make a pull request or make your own.
+After you fork it, clone your forked repo.
+```shell
+git clone https://github.com/<<YOUR-GITHUB-USERNAME>>/suside.git
+```
+
 Now, this is where all the fun begins. Type this line in your terminal after installing all the dependencies.
 ```shell
 $ yarn start
