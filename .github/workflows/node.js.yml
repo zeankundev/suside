@@ -1,0 +1,58 @@
+name: Node CI
+
+on:
+  push:
+    branches: [ master, ci ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest , macos-latest]
+        node-version: [14.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Installing dependencies
+      run: yarn
+    - name: Building
+      run: |
+        yarn build:tasks
+        yarn build:webpack
+      env:
+        CI: true
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name : Building for RPM
+      if: ${{ runner.os == 'Linux' }}
+      run: yarn build:electron --info platform="rpm"
+      env:
+        CI: true
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name : Building for DEB
+      if: ${{ runner.os == 'Linux' }}
+      run: yarn build:electron --info platform="deb"
+      env:
+        CI: true
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name : Building for Appimage
+      if: ${{ runner.os == 'Linux' }}
+      run: yarn build:electron --info platform="appimage"
+      env:
+        CI: true
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name : Building for Windows
+      if: ${{ runner.os == 'Windows' }}
+      run: yarn build:electron --info platform="exe"
+      env:
+        CI: true
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name : Building for MacOS
+      if: ${{ runner.os == 'MacOS' }}
+      run: yarn build:electron --info platform="pkg"
+      env:
+        CI: true
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
