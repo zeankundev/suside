@@ -21,9 +21,9 @@ function checkForUpdates(ifNoUpdate?: () => void): any {
 							label: 'misc.Update',
 							action() {
 								if (channelBuild === 'dev') {
-									openExternal(`https://github.com/Graviton-Code-Editor/Graviton-App/releases/tag/v${version}`)
+									openExternal(`https://github.com/zeankundev/suside/releases/tag/${version}`)
 								} else {
-									openExternal('https://graviton.netlify.app/download')
+									openExternal('https://zeankundev.github.io/suside-website')
 								}
 							},
 						},
