@@ -13,11 +13,8 @@ Suside is a code editor which can do in a normal editor, but there are
 differences that made Suside unique.
 
 The following features that made Suside unique are
-* Built-in HTML previewer. This feature doesn't exist in other code editor and Suside has one to preview it without going into your browser for debugging.
-* Console. Other code editors don't have one except IDEs. 
-Here, Suside provides a console without going into your
-terminal for debugging.
-* Discord Rich Presence. Other code editors require you to install third-party extensions for Discord Rich Presence to see what you are working. In Suside, you don't need a third-party extension to do Discord Rich Presence, because it is built-in!
+* Built in terminal. You don't have to open your terminal, just open the built in terminal.
+* Autocompletion. You don't need to type the full keyword. Just type half or partial of the keyword, then boom!
 
 ## Usage
 To get started, you must have the following.
