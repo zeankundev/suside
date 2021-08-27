@@ -20,15 +20,11 @@ export default function Welcome() {
 			<Text lang-string="windows.Settings.About.GravitonDescription"/>
 			<table>
 				<tr>
-					<td><Link to="https://graviton.netlify.app" lang-string="menus.Help.Website"/></td>
-					<td><Link to="https://graviton.netlify.app/docs" lang-string="menus.Help.Documentation"/></td>
+					<td><Link to="https://zeankundev.github.io/suside-website" lang-string="menus.Help.Website"/></td>
 				</tr>
 				<tr>
 					<td>
-						<Link to="https://discord.com/invite/gg6CTYA">Discord</Link>
-					</td>
-					<td>
-						<Link to="https://t.me/gravitongroup">Telegram</Link>
+						<Link to="https://discord.com/invite/2cJBQrdZkm">Discord</Link>
 					</td>
 				</tr>
 			</table>
