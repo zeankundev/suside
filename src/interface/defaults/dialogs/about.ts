@@ -95,7 +95,7 @@ function About() {
 			{
 				label: 'menus.Help.Website',
 				action() {
-					openExternal('https://graviton.netlify.app/')
+					openExternal('https://zeankundev.github.io/suside-website')
 				},
 			},
 			{
