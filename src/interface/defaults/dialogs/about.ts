@@ -68,7 +68,7 @@ const aboutContent = () => element({
 						<br/>
 						<span lang-string="misc.BuildDate" string="{{misc.BuildDate}}: ${buildJSON.date}"/>
 						<br/>
-						<span lang-string="misc.Author" string="{{misc.Author}}: zeankun.dev"/>
+						<span lang-string="misc.Author" string="{{misc.Author}}: 5R33CH4 and zeankun.dev"/>
 						<br/>
 					</div>
 				</div>
