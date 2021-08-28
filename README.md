@@ -1,4 +1,7 @@
-<img src="logo.png" style="text-align: center;">
+![logo](assets/large_logo.svg)
+
+***new banner by 5R33CH4***
+
 A fully fledged text editor built with Electron.
 Flexible, minimal and comfortable text editor.
 <br>
