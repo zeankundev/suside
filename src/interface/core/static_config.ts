@@ -86,7 +86,7 @@ function setIconpack(value) {
 RunningConfig.on('allPluginsLoaded', () => {
 	if (!PluginsRegistry.registry.data.list[StaticConfig.data.appIconpack]) {
 		// Fallback to Graviton's Iconpack if any iconpack is configured
-		StaticConfig.data.appIconpack = 'Graviton'
+		StaticConfig.data.appIconpack = 'Suside'
 	}
 	// Load the configured iconpack
 	setIconpack(StaticConfig.data.appIconpack)

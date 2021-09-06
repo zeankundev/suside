@@ -26,7 +26,13 @@ body {
 }
 @font-face {
 	font-family: mainFont;
-	src: url(../../assets/GothamPro.woff2) format('woff2');
+	font-weight: normal;
+	src: url(../../assets/torus.woff2) format('woff2');
+}
+@font-face {
+	font-family: mainFont;
+	font-weight: bold;
+	src: url(../../assets/torus-bold.woff2) format('woff2');
 }
 @font-face {
 	font-family: UbuntuMono;

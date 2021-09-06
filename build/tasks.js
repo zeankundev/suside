@@ -198,7 +198,7 @@ function BrowserTasks() {
 	return [createBrowserPluginsDist, cloneRemotePlugin, installRemoteDeps, buildRemote, copyRemoteDist]
 }
 
-const CommonTasks = [BasicTasks, ElectronTasks, BrowserTasks].flat()
+const CommonTasks = [BasicTasks, ElectronTasks, BrowserTasks]
 const MiscTasks = [copyLSPCMIcons]
 
 exports.default = CommonTasks
@@ -222,6 +222,10 @@ function BuildElectronBuilder() {
 
 	if (info['platform']) {
 		options.linux = info['platform']
+	}
+
+	if (info['os']) {
+		options[info['os']] = true
 	}
 
 	if (info['outpacked']) {
