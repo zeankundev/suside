@@ -53424,7 +53424,7 @@
 					Suside v${I.i8} 
 					<ReloadIcon class="icon" title="Check for updates" :click="${function () {
 						N(() => {
-							new A.default({ title: 'No updates found' })
+							new A.default({ title: 'No updates found. Check back soon!' })
 						})
 					}}"/> 
 				</Text>
@@ -54577,7 +54577,7 @@
 									label: 'menus.Help.CheckForUpdates',
 									action() {
 										N(() => {
-											new A.default({ title: 'No updates found' })
+											new A.default({ title: 'No updates found. Check back soon!' })
 										})
 									},
 								}

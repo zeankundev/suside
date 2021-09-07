@@ -396,7 +396,7 @@ function getHelpMenu(button) {
 						action() {
 							checkForUpdates(() => {
 								new Notification({
-									title: 'No updates found',
+									title: 'No updates found. Check back soon!',
 								})
 							})
 						},

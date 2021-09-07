@@ -30,7 +30,7 @@ export default function About() {
 	function checkForAnyUpdates() {
 		checkForUpdates(() => {
 			new Notification({
-				title: 'No updates found',
+				title: 'No updates found. Check back soon!',
 			})
 		})
 	}
