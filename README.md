@@ -3,7 +3,7 @@
 ***new banner by 5R33CH4***
 
 A fully fledged text editor built with Electron.
-Flexible, minimal and comfortable text editor.
+Flexible, minimal and comfortable text editor. ❤️
 <br>
 
 ![AppVeyor](https://img.shields.io/appveyor/build/zeankundev/suside?style=for-the-badge)
@@ -11,15 +11,15 @@ Flexible, minimal and comfortable text editor.
 ![GitHub release (latest by date and asset)](https://img.shields.io/github/downloads/zeankundev/suside/1.4.4/suside_1.4.4_amd64.deb?style=for-the-badge)
 ![SourceForge](https://img.shields.io/sourceforge/dm/suside?color=green&style=for-the-badge)
 
-## What does it do? 
+## 🤔 What does it do? 🤔
 Suside is a code editor which can do in a normal editor, but there are
 differences that made Suside unique.
 
 The following features that made Suside unique are
-* Built in terminal. You don't have to open your terminal, just open the built in terminal.
-* Autocompletion. You don't need to type the full keyword. Just type half or partial of the keyword, then boom!
+* 💻 Built in terminal. You don't have to open your terminal, just open the built in terminal.
+* 📓 Autocompletion. You don't need to type the full keyword. Just type half or partial of the keyword, then boom!
 
-## Usage
+## 🛠️ Usage 🛠️
 To get started, you must have the following.
 * Node.js version 7.9
 * Git
@@ -71,7 +71,7 @@ $ yarn start
 ```
 Have fun hacking on Suside! 🥳:tada:
 
-## Extra tips
+## ℹ️ Extra tips ℹ️
 
 * To run Suside on the browser, type the following (Note: the browser version is experimental).
 ```shell
