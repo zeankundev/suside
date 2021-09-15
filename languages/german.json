@@ -62,7 +62,7 @@
 				},
 				"Debug": {
 					"Debug": "Debug",
-					"OpenDebugWindow": "Debug Fenster öffnen"
+					"OpenDebugWindow": "Debug Fenster"
 				},
 				"OpenDevTools": "Dev Tools öffnen"
 			},
@@ -184,16 +184,16 @@
 			"JoinTheDiscussion": "Der Diskussion Beitreten",
 			"OpenAnyway": "Trotzdem Öffnen"
 		},
-		"notifications" : {
+		"notifications": {
 			"appLanguageChanged": {
 				"appLanguageChanged": "Die Sprache der App hat sich geändert.",
 				"restartMessage": "Neustarten sie die App um die Sprache zu aktualisieren."
 			}
 		},
-		"dialogs" : {
-			"tabsUnsavedWarning" : {
+		"dialogs": {
+			"tabsUnsavedWarning": {
 				"title": "Ungespeicherte Dateien sind vorhanden.",
-				"content" : "Sie könnten Fortschritt verlieren."
+				"content": "Sie könnten Fortschritt verlieren."
 			},
 			"restartConfig": {
 				"title": "Neustart Einstellungen",

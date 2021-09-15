@@ -248,6 +248,10 @@ function createMenus() {
 				label: 'menus.Tools.OpenSettings',
 				action: () => Settings().launch(),
 			},
+			{
+				label: 'menus.Window.Debug.OpenDebugWindow',
+				action: () => openDebugClient(),
+			},
 			(() => {
 				if (!isBrowser) {
 					return {

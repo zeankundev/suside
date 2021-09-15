@@ -455,13 +455,13 @@
 							}
 						}
 					},
-					X = function (e) {
+					Y = function (e) {
 						if ('decl' === e.type) {
 							var t = e.value
 							108 === t.charCodeAt(0) && 98 === t.charCodeAt(2) && ((e.return = ''), (e.value = ''))
 						}
 					},
-					Y = [
+					X = [
 						function (e, t, n, r) {
 							if (!e.return)
 								switch (e.type) {
@@ -696,7 +696,7 @@
 							}
 							var i,
 								o,
-								a = e.stylisPlugins || Y,
+								a = e.stylisPlugins || X,
 								s = {},
 								l = []
 							;(i = e.container || document.head),
@@ -721,7 +721,7 @@
 									}),
 								],
 								m =
-									((f = [K, X].concat(a, h)),
+									((f = [K, Y].concat(a, h)),
 									(u = d(f)),
 									function (e, t, n, r) {
 										for (var i = '', o = 0; o < u; o++) i += f[o](e, t, n, r) || ''
@@ -7958,10 +7958,10 @@
 						for (var n = [], r = 0; r < e.length; r++) n[r] = t(e[r], r)
 						return n
 					}
-					function X() {}
-					function Y(e, t) {
+					function Y() {}
+					function X(e, t) {
 						var n
-						return Object.create ? (n = Object.create(e)) : ((X.prototype = e), (n = new X())), t && R(t, n), n
+						return Object.create ? (n = Object.create(e)) : ((Y.prototype = e), (n = new Y())), t && R(t, n), n
 					}
 					var J = /[\u00df\u0587\u0590-\u05f4\u0600-\u06ff\u3040-\u309f\u30a0-\u30ff\u3400-\u4db5\u4e00-\u9fcc\uac00-\ud7af]/
 					function Q(e) {
@@ -8238,7 +8238,7 @@
 						if ('string' == typeof e && Be.hasOwnProperty(e)) e = Be[e]
 						else if (e && 'string' == typeof e.name && Be.hasOwnProperty(e.name)) {
 							var t = Be[e.name]
-							'string' == typeof t && (t = { name: t }), ((e = Y(t, e)).name = t.name)
+							'string' == typeof t && (t = { name: t }), ((e = X(t, e)).name = t.name)
 						} else {
 							if ('string' == typeof e && /^[\w\-]+\/[\w\-]+\+xml$/.test(e)) return je('application/xml')
 							if ('string' == typeof e && /^[\w\-]+\/[\w\-]+\+json$/.test(e)) return je('application/json')
@@ -8319,12 +8319,12 @@
 						var n = t - e.height
 						if (n) for (var r = e; r; r = r.parent) r.height += n
 					}
-					function Xe(e) {
+					function Ye(e) {
 						if (null == e.parent) return null
 						for (var t = e.parent, n = N(t.lines, e), r = t.parent; r; t = r, r = r.parent) for (var i = 0; r.children[i] != t; ++i) n += r.children[i].chunkSize()
 						return n + t.first
 					}
-					function Ye(e, t) {
+					function Xe(e, t) {
 						var n = e.first
 						e: do {
 							for (var r = 0; r < e.children.length; ++r) {
@@ -8520,7 +8520,7 @@
 					}
 					function dt(e, t, n) {
 						if (!t.styles || t.styles[0] != e.state.modeGen) {
-							var r = pt(e, Xe(t)),
+							var r = pt(e, Ye(t)),
 								i = t.text.length > e.options.maxHighlightLength && He(e.doc.mode, r.state),
 								o = ut(e, t, r)
 							i && (r.state = i),
@@ -8805,7 +8805,7 @@
 					function zt(e, t) {
 						var n = Ue(e, t),
 							r = jt(n)
-						return n == r ? t : Xe(r)
+						return n == r ? t : Ye(r)
 					}
 					function Nt(e, t) {
 						if (t > e.lastLine()) return t
@@ -8813,7 +8813,7 @@
 							r = Ue(e, t)
 						if (!Wt(e, r)) return t
 						for (; (n = Ft(r)); ) r = n.find(1, !0).line
-						return Xe(r) + 1
+						return Ye(r) + 1
 					}
 					function Wt(e, t) {
 						var n = wt && t.markedSpans
@@ -8885,17 +8885,17 @@
 						;(e.parent = null), At(e)
 					}
 					;(Ut.prototype.lineNo = function () {
-						return Xe(this)
+						return Ye(this)
 					}),
 						be(Ut)
 					var Vt = {},
 						Kt = {}
-					function Xt(e, t) {
+					function Yt(e, t) {
 						if (!e || /^\s*$/.test(e)) return null
 						var n = t.addModeClass ? Kt : Vt
 						return n[e] || (n[e] = e.replace(/\S+/g, 'cm-$&'))
 					}
-					function Yt(e, t) {
+					function Xt(e, t) {
 						var n = P('span', null, null, l ? 'padding-right: .1px' : null),
 							r = { pre: P('pre', [n], 'CodeMirror-line'), content: n, col: 0, pos: 0, cm: e, trailingSpace: !1, splitSpaces: e.getOption('lineWrapping') }
 						t.measure = {}
@@ -8906,7 +8906,7 @@
 								(r.addToken = Qt),
 								Le(e.display.measure) && (a = ce(o, e.doc.direction)) && (r.addToken = en(r.addToken, a)),
 								(r.map = []),
-								nn(o, r, dt(e, o, t != e.display.externalMeasured && Xe(o))),
+								nn(o, r, dt(e, o, t != e.display.externalMeasured && Ye(o))),
 								o.styleClasses &&
 									(o.styleClasses.bgClass && (r.bgClass = I(o.styleClasses.bgClass, r.bgClass || '')), o.styleClasses.textClass && (r.textClass = I(o.styleClasses.textClass, r.textClass || ''))),
 								0 == r.map.length && r.map.push(0, 0, r.content.appendChild(Ae(e.display.measure))),
@@ -9036,10 +9036,10 @@
 										}
 										;(h = T), (f = '')
 									}
-									;(g = i.slice(o, (o = n[m++]))), (a = Xt(n[m++], t.cm.options))
+									;(g = i.slice(o, (o = n[m++]))), (a = Yt(n[m++], t.cm.options))
 								}
 							}
-						else for (var L = 1; L < n.length; L += 2) t.addToken(t, i.slice(o, (o = n[L])), Xt(n[L + 1], t.cm.options))
+						else for (var L = 1; L < n.length; L += 2) t.addToken(t, i.slice(o, (o = n[L])), Yt(n[L + 1], t.cm.options))
 					}
 					function rn(e, t, n) {
 						;(this.line = t),
@@ -9047,7 +9047,7 @@
 								for (var t, n; (t = Ft(e)); ) (e = t.find(1, !0).line), (n || (n = [])).push(e)
 								return n
 							})(t)),
-							(this.size = this.rest ? Xe(V(this.rest)) - n + 1 : 1),
+							(this.size = this.rest ? Ye(V(this.rest)) - n + 1 : 1),
 							(this.node = this.text = null),
 							(this.hidden = Wt(e, t))
 					}
@@ -9103,7 +9103,7 @@
 					}
 					function dn(e, t) {
 						var n = e.display.externalMeasured
-						return n && n.line == t.line ? ((e.display.externalMeasured = null), (t.measure = n.measure), n.built) : Yt(e, t)
+						return n && n.line == t.line ? ((e.display.externalMeasured = null), (t.measure = n.measure), n.built) : Xt(e, t)
 					}
 					function pn(e, t) {
 						var n = t.text.className,
@@ -9232,7 +9232,7 @@
 					function Ln(e, t, n) {
 						if (e.line == t) return { map: e.measure.map, cache: e.measure.cache }
 						for (var r = 0; r < e.rest.length; r++) if (e.rest[r] == t) return { map: e.measure.maps[r], cache: e.measure.caches[r] }
-						for (var i = 0; i < e.rest.length; i++) if (Xe(e.rest[i]) > n) return { map: e.measure.maps[i], cache: e.measure.caches[i], before: !0 }
+						for (var i = 0; i < e.rest.length; i++) if (Ye(e.rest[i]) > n) return { map: e.measure.maps[i], cache: e.measure.caches[i], before: !0 }
 					}
 					function Pn(e, t, n, r) {
 						return Dn(e, Mn(e, t), n, r)
@@ -9243,15 +9243,15 @@
 						return n && t >= n.lineN && t < n.lineN + n.size ? n : void 0
 					}
 					function Mn(e, t) {
-						var n = Xe(t),
+						var n = Ye(t),
 							r = On(e, n)
 						r && !r.text ? (r = null) : r && r.changes && (fn(e, r, n, or(e)), (e.curOp.forceUpdate = !0)),
 							r ||
 								(r = (function (e, t) {
-									var n = Xe((t = jt(t))),
+									var n = Ye((t = jt(t))),
 										r = (e.display.externalMeasured = new rn(e.doc, t, n))
 									r.lineN = n
-									var i = (r.built = Yt(e, r))
+									var i = (r.built = Xt(e, r))
 									return (r.text = i.pre), A(e.display.lineMeasure, i.pre), r
 								})(e, t))
 						var i = Ln(r, t, n)
@@ -9445,10 +9445,10 @@
 						var o = et(e, t, n)
 						return (o.xRel = i), r && (o.outside = r), o
 					}
-					function Xn(e, t, n) {
+					function Yn(e, t, n) {
 						var r = e.doc
 						if ((n += e.display.viewOffset) < 0) return Kn(r.first, 0, null, -1, -1)
-						var i = Ye(r, n),
+						var i = Xe(r, n),
 							o = r.first + r.size - 1
 						if (i > o) return Kn(r.first + r.size - 1, Ue(r, o).text.length, null, 1, 1)
 						t < 0 && (t = 0)
@@ -9461,7 +9461,7 @@
 							a = Ue(r, (i = c.line))
 						}
 					}
-					function Yn(e, t, n, r) {
+					function Xn(e, t, n, r) {
 						r -= $n(t)
 						var i = t.text.length,
 							o = oe(
@@ -9483,7 +9483,7 @@
 						}
 					}
 					function Jn(e, t, n, r) {
-						return n || (n = Mn(e, t)), Yn(e, t, n, Zn(e, t, Dn(e, n, r), 'line').top)
+						return n || (n = Mn(e, t)), Xn(e, t, n, Zn(e, t, Dn(e, n, r), 'line').top)
 					}
 					function Qn(e, t, n, r) {
 						return !(e.bottom <= n) && (e.top > n || (r ? e.left : e.right) > t)
@@ -9543,7 +9543,7 @@
 						return l
 					}
 					function nr(e, t, n, r, i, o, a) {
-						var s = Yn(e, t, r, a),
+						var s = Xn(e, t, r, a),
 							l = s.begin,
 							c = s.end
 						;/\s/.test(t.text.charAt(c - 1)) && c--
@@ -9618,7 +9618,7 @@
 							return null
 						}
 						var l,
-							c = Xn(e, o, a)
+							c = Yn(e, o, a)
 						if (r && c.xRel > 0 && (l = Ue(e.doc, c.line).text).length == c.ch) {
 							var f = j(l, l.length, e.options.tabSize) - l.length
 							c = et(c.line, Math.max(0, Math.round((o - Sn(e.display).left) / ir(e.display)) - f))
@@ -9892,12 +9892,12 @@
 						var r = n && null != n.top ? Math.max(0, n.top) : e.scroller.scrollTop
 						r = Math.floor(r - kn(e))
 						var i = n && null != n.bottom ? n.bottom : r + e.wrapper.clientHeight,
-							o = Ye(t, r),
-							a = Ye(t, i)
+							o = Xe(t, r),
+							a = Xe(t, i)
 						if (n && n.ensure) {
 							var s = n.ensure.from.line,
 								l = n.ensure.to.line
-							s < o ? ((o = s), (a = Ye(t, $t(Ue(t, s)) + e.wrapper.clientHeight))) : Math.min(l, t.lastLine()) >= a && ((o = Ye(t, $t(Ue(t, l)) - e.wrapper.clientHeight)), (a = l))
+							s < o ? ((o = s), (a = Xe(t, $t(Ue(t, s)) + e.wrapper.clientHeight))) : Math.min(l, t.lastLine()) >= a && ((o = Xe(t, $t(Ue(t, l)) - e.wrapper.clientHeight)), (a = l))
 						}
 						return { from: o, to: Math.max(a, o + 1) }
 					}
@@ -10132,8 +10132,8 @@
 								!(function (e) {
 									for (var t = e.ops, n = 0; n < t.length; n++) Vr(t[n])
 									for (var r = 0; r < t.length; r++) Kr(t[r])
-									for (var i = 0; i < t.length; i++) Xr(t[i])
-									for (var o = 0; o < t.length; o++) Yr(t[o])
+									for (var i = 0; i < t.length; i++) Yr(t[i])
+									for (var o = 0; o < t.length; o++) Xr(t[o])
 									for (var a = 0; a < t.length; a++) Jr(t[a])
 								})(e)
 							})
@@ -10163,7 +10163,7 @@
 					function Kr(e) {
 						e.updatedDisplay = e.mustUpdate && ai(e.cm, e.update)
 					}
-					function Xr(e) {
+					function Yr(e) {
 						var t = e.cm,
 							n = t.display
 						e.updatedDisplay && Er(t),
@@ -10176,7 +10176,7 @@
 								(e.maxScrollLeft = Math.max(0, n.sizer.offsetLeft + e.adjustWidthTo - Tn(t)))),
 							(e.updatedDisplay || e.selectionChanged) && (e.preparedSelection = n.input.prepareSelection())
 					}
-					function Yr(e) {
+					function Xr(e) {
 						var t = e.cm
 						null != e.adjustWidthTo &&
 							((t.display.sizer.style.minWidth = e.adjustWidthTo + 'px'),
@@ -10942,11 +10942,11 @@
 						for (var r = [], i = e.cm && (e.cm.display.shift || e.extend), o = 0; o < e.sel.ranges.length; o++) r[o] = Gi(e.sel.ranges[o], t[o], null, i)
 						Qi(e, Ci(e.cm, r, e.sel.primIndex), n)
 					}
-					function Xi(e, t, n, r) {
+					function Yi(e, t, n, r) {
 						var i = e.sel.ranges.slice(0)
 						;(i[t] = n), Qi(e, Ci(e.cm, i, e.sel.primIndex), r)
 					}
-					function Yi(e, t, n, r) {
+					function Xi(e, t, n, r) {
 						Qi(e, Si(t, n), r)
 					}
 					function Ji(e, t, n) {
@@ -11186,7 +11186,7 @@
 												s = !1,
 												l = o.line
 											e.options.lineWrapping ||
-												((l = Xe(jt(Ue(r, o.line)))),
+												((l = Ye(jt(Ue(r, o.line)))),
 												r.iter(l, a.line + 1, function (e) {
 													if (e == i.maxLine) return (s = !0), !0
 												})),
@@ -11262,7 +11262,7 @@
 					function _o(e, t, n, r) {
 						var i = t,
 							o = t
-						return 'number' == typeof t ? (o = Ue(e, at(e, t))) : (i = Xe(t)), null == i ? null : (r(o, i) && e.cm && dr(e.cm, i, n), o)
+						return 'number' == typeof t ? (o = Ue(e, at(e, t))) : (i = Ye(t)), null == i ? null : (r(o, i) && e.cm && dr(e.cm, i, n), o)
 					}
 					function yo(e) {
 						;(this.lines = e), (this.parent = null)
@@ -11392,7 +11392,7 @@
 						var e = this.doc.cm,
 							t = this.line.widgets,
 							n = this.line,
-							r = Xe(n)
+							r = Ye(n)
 						if (null != r && t) {
 							for (var i = 0; i < t.length; ++i) t[i] == this && t.splice(i--, 1)
 							t.length || (n.widgets = null)
@@ -11416,7 +11416,7 @@
 								(Wt(this.doc, r) || Ke(r, r.height + i),
 								n &&
 									Qr(n, function () {
-										;(n.curOp.forceUpdate = !0), ko(n, r, i), ln(n, 'lineWidgetChanged', n, e, Xe(r))
+										;(n.curOp.forceUpdate = !0), ko(n, r, i), ln(n, 'lineWidgetChanged', n, e, Ye(r))
 									}))
 						}),
 						be(wo)
@@ -11497,7 +11497,7 @@
 							for (var r = null, i = null, o = 0; o < this.lines.length; ++o) {
 								var a = this.lines[o],
 									s = Ct(a.markedSpans, this)
-								e && !this.collapsed ? dr(e, Xe(a), 'text') : e && (null != s.to && (i = Xe(a)), null != s.from && (r = Xe(a))),
+								e && !this.collapsed ? dr(e, Ye(a), 'text') : e && (null != s.to && (i = Ye(a)), null != s.from && (r = Ye(a))),
 									(a.markedSpans = St(a.markedSpans, s)),
 									null == s.from && this.collapsed && !Wt(this.doc, a) && e && Ke(a, rr(e.display))
 							}
@@ -11522,8 +11522,8 @@
 							for (var i = 0; i < this.lines.length; ++i) {
 								var o = this.lines[i],
 									a = Ct(o.markedSpans, this)
-								if (null != a.from && ((n = et(t ? o : Xe(o), a.from)), -1 == e)) return n
-								if (null != a.to && ((r = et(t ? o : Xe(o), a.to)), 1 == e)) return r
+								if (null != a.from && ((n = et(t ? o : Ye(o), a.from)), -1 == e)) return n
+								if (null != a.to && ((r = et(t ? o : Ye(o), a.to)), 1 == e)) return r
 							}
 							return n && { from: n, to: r }
 						}),
@@ -11536,7 +11536,7 @@
 								r &&
 								Qr(r, function () {
 									var i = t.line,
-										o = Xe(t.line),
+										o = Ye(t.line),
 										a = On(r, o)
 									if ((a && (jn(a), (r.curOp.selectionChanged = r.curOp.forceUpdate = !0)), (r.curOp.updateMaxLine = !0), !Wt(n.doc, i) && null != n.height)) {
 										var s = n.height
@@ -11622,7 +11622,7 @@
 								Di(this, { from: o, to: o, text: e }),
 								Qi(this, Si(o), H)
 						}
-					;(Oo.prototype = Y(xo.prototype, {
+					;(Oo.prototype = X(xo.prototype, {
 						constructor: Oo,
 						iter: function (e, t, n) {
 							n ? this.iterN(e - this.first, t - e, n) : this.iterN(this.first, this.first + this.size, e)
@@ -11658,7 +11658,7 @@
 							if (Je(this, e)) return Ue(this, e)
 						},
 						getLineNumber: function (e) {
-							return Xe(e)
+							return Ye(e)
 						},
 						getLineHandleVisualStart: function (e) {
 							return 'number' == typeof e && (e = Ue(this, e)), jt(e)
@@ -11686,10 +11686,10 @@
 							return this.sel.somethingSelected()
 						},
 						setCursor: ni(function (e, t, n) {
-							Yi(this, st(this, 'number' == typeof e ? et(e, t || 0) : e), null, n)
+							Xi(this, st(this, 'number' == typeof e ? et(e, t || 0) : e), null, n)
 						}),
 						setSelection: ni(function (e, t, n) {
-							Yi(this, st(this, e), st(this, t || e), n)
+							Xi(this, st(this, e), st(this, t || e), n)
 						}),
 						extendSelection: ni(function (e, t, n) {
 							Vi(this, st(this, e), t && st(this, t), n)
@@ -11828,7 +11828,7 @@
 							if ('number' == typeof e) {
 								if (!Je(this, e)) return null
 								if (((t = e), !(e = Ue(this, e)))) return null
-							} else if (null == (t = Xe(e))) return null
+							} else if (null == (t = Ye(e))) return null
 							return { line: t, handle: e, text: e.text, gutterMarkers: e.gutterMarkers, textClass: e.textClass, bgClass: e.bgClass, wrapClass: e.wrapClass, widgets: e.widgets }
 						},
 						addLineClass: ni(function (e, t, n) {
@@ -11870,7 +11870,7 @@
 										}
 										return !0
 									}),
-									o && ln(o, 'lineWidgetAdded', o, i, 'number' == typeof t ? t : Xe(t)),
+									o && ln(o, 'lineWidgetAdded', o, i, 'number' == typeof t ? t : Ye(t)),
 									i
 								)
 							})(this, e, t, n)
@@ -12252,7 +12252,7 @@
 						return e
 					}
 					function Uo(e, t, n, r) {
-						var i = (t = Xo(t)).call ? t.call(e, r) : t[e]
+						var i = (t = Yo(t)).call ? t.call(e, r) : t[e]
 						if (!1 === i) return 'nothing'
 						if ('...' === i) return 'multi'
 						if (null != i && n(i)) return 'handled'
@@ -12283,10 +12283,10 @@
 						var n = zo[e.keyCode]
 						return null != n && !e.altGraphKey && (3 == e.keyCode && e.code && (n = e.code), Vo(n, e, t))
 					}
-					function Xo(e) {
+					function Yo(e) {
 						return 'string' == typeof e ? $o[e] : e
 					}
-					function Yo(e, t) {
+					function Xo(e, t) {
 						for (var n = e.doc.sel.ranges, r = [], i = 0; i < n.length; i++) {
 							for (var o = t(n[i]); r.length && tt(o.from, V(r).to) <= 0; ) {
 								var a = r.pop()
@@ -12442,7 +12442,7 @@
 							return e.setSelection(e.getCursor('anchor'), e.getCursor('head'), H)
 						},
 						killLine: function (e) {
-							return Yo(e, function (t) {
+							return Xo(e, function (t) {
 								if (t.empty()) {
 									var n = Ue(e.doc, t.head.line).text.length
 									return t.head.ch == n && t.head.line < e.lastLine() ? { from: t.head, to: et(t.head.line + 1, 0) } : { from: t.head, to: et(t.head.line, n) }
@@ -12451,23 +12451,23 @@
 							})
 						},
 						deleteLine: function (e) {
-							return Yo(e, function (t) {
+							return Xo(e, function (t) {
 								return { from: et(t.from().line, 0), to: st(e.doc, et(t.to().line + 1, 0)) }
 							})
 						},
 						delLineLeft: function (e) {
-							return Yo(e, function (e) {
+							return Xo(e, function (e) {
 								return { from: et(e.from().line, 0), to: e.from() }
 							})
 						},
 						delWrappedLineLeft: function (e) {
-							return Yo(e, function (t) {
+							return Xo(e, function (t) {
 								var n = e.charCoords(t.head, 'div').top + 5
 								return { from: e.coordsChar({ left: 0, top: n }, 'div'), to: t.from() }
 							})
 						},
 						delWrappedLineRight: function (e) {
-							return Yo(e, function (t) {
+							return Xo(e, function (t) {
 								var n = e.charCoords(t.head, 'div').top + 5,
 									r = e.coordsChar({ left: e.display.lineDiv.offsetWidth + 100, top: n }, 'div')
 								return { from: t.from(), to: r }
@@ -12516,7 +12516,7 @@
 												for (var t; (t = Ft(e)); ) e = t.find(1, !0).line
 												return e
 											})(n)
-										return r != n && (t = Xe(r)), ea(!0, e, n, t, -1)
+										return r != n && (t = Ye(r)), ea(!0, e, n, t, -1)
 									})(e, t.head.line)
 								},
 								{ origin: '+move', bias: -1 },
@@ -12654,7 +12654,7 @@
 					function na(e, t) {
 						var n = Ue(e.doc, t),
 							r = jt(n)
-						return r != n && (t = Xe(r)), ea(!0, e, r, t, 1)
+						return r != n && (t = Ye(r)), ea(!0, e, r, t, 1)
 					}
 					function ra(e, t) {
 						var n = na(e, t.line),
@@ -12897,7 +12897,7 @@
 																			? ((l = f.length), Qi(o, Ci(e, f.concat([s]), l), { scroll: !1, origin: '*mouse' }))
 																			: f.length > 1 && f[l].empty() && 'char' == r.unit && !r.extend
 																			? (Qi(o, Ci(e, f.slice(0, l).concat(f.slice(l + 1)), 0), { scroll: !1, origin: '*mouse' }), (c = o.sel))
-																			: Xi(o, l, s, $)
+																			: Yi(o, l, s, $)
 																		: ((l = 0), Qi(o, new wi([s], 0), $), (c = o.sel))
 																	var d = n
 																	function p(t) {
@@ -13030,7 +13030,7 @@
 						o -= s.top - a.viewOffset
 						for (var l = 0; l < e.display.gutterSpecs.length; ++l) {
 							var c = a.gutters.childNodes[l]
-							if (c && c.getBoundingClientRect().right >= i) return he(e, n, e, Ye(e.doc, o), e.display.gutterSpecs[l].className, t), xe(t)
+							if (c && c.getBoundingClientRect().right >= i) return he(e, n, e, Xe(e.doc, o), e.display.gutterSpecs[l].className, t), xe(t)
 						}
 					}
 					function _a(e, t) {
@@ -13292,7 +13292,7 @@
 							var m = o.sel.ranges[h]
 							if (m.head.line == t && m.head.ch < f.length) {
 								var g = et(t, f.length)
-								Xi(o, h, new ki(g, g))
+								Yi(o, h, new ki(g, g))
 								break
 							}
 						}
@@ -13476,7 +13476,7 @@
 								c = Math.max(l - 0.5 * rr(e.display), 3)
 							i = (n > 0 ? t.bottom : t.top) + n * c
 						} else 'line' == r && (i = n > 0 ? t.bottom + 3 : t.top - 3)
-						for (; (o = Xn(e, s, i)).outside; ) {
+						for (; (o = Yn(e, s, i)).outside; ) {
 							if (n < 0 ? i <= 0 : i >= a.height) {
 								o.hitSide = !0
 								break
@@ -13525,10 +13525,10 @@
 					function Za(e, t, n) {
 						var r = e.text.firstChild,
 							i = !1
-						if (!t || !O(r, t)) return Ha(et(Xe(e.line), 0), !0)
+						if (!t || !O(r, t)) return Ha(et(Ye(e.line), 0), !0)
 						if (t == r && ((i = !0), (t = r.childNodes[n]), (n = 0), !t)) {
 							var o = e.rest ? V(e.rest) : e.line
-							return Ha(et(Xe(o), o.text.length), i)
+							return Ha(et(Ye(o), o.text.length), i)
 						}
 						var a = 3 == t.nodeType ? t : null,
 							s = t
@@ -13540,7 +13540,7 @@
 								for (var o = i < 0 ? l.map : c[i], a = 0; a < o.length; a += 3) {
 									var s = o[a + 2]
 									if (s == t || s == n) {
-										var f = Xe(i < 0 ? e.line : e.rest[i]),
+										var f = Ye(i < 0 ? e.line : e.rest[i]),
 											u = o[a] + r
 										return (r < 0 || s != t) && (u = o[a + (r ? 1 : 0)]), et(f, u)
 									}
@@ -13766,11 +13766,11 @@
 								a.line < i.viewFrom || s.line > i.viewTo - 1)
 							)
 								return !1
-							a.line == i.viewFrom || 0 == (e = fr(r, a.line)) ? ((t = Xe(i.view[0].line)), (n = i.view[0].node)) : ((t = Xe(i.view[e].line)), (n = i.view[e - 1].node.nextSibling))
+							a.line == i.viewFrom || 0 == (e = fr(r, a.line)) ? ((t = Ye(i.view[0].line)), (n = i.view[0].node)) : ((t = Ye(i.view[e].line)), (n = i.view[e - 1].node.nextSibling))
 							var l,
 								c,
 								f = fr(r, s.line)
-							if ((f == i.view.length - 1 ? ((l = i.viewTo - 1), (c = i.lineDiv.lastChild)) : ((l = Xe(i.view[f + 1].line) - 1), (c = i.view[f + 1].node.previousSibling)), !n)) return !1
+							if ((f == i.view.length - 1 ? ((l = i.viewTo - 1), (c = i.lineDiv.lastChild)) : ((l = Ye(i.view[f + 1].line) - 1), (c = i.view[f + 1].node.previousSibling)), !n)) return !1
 							for (
 								var u = r.doc.splitLines(
 										(function (e, t, n, r, i) {
@@ -14203,8 +14203,8 @@
 									!0,
 								),
 								n('keyMap', 'default', function (e, t, n) {
-									var r = Xo(t),
-										i = n != wa && Xo(n)
+									var r = Yo(t),
+										i = n != wa && Yo(n)
 									i && i.detach && i.detach(e, r), r.attach && r.attach(e, i || null)
 								}),
 								n('extraKeys', null),
@@ -14339,7 +14339,7 @@
 									return this.doc
 								},
 								addKeyMap: function (e, t) {
-									this.state.keyMaps[t ? 'push' : 'unshift'](Xo(e))
+									this.state.keyMaps[t ? 'push' : 'unshift'](Yo(e))
 								},
 								removeKeyMap: function (e) {
 									for (var t = this.state.keyMaps, n = 0; n < t.length; ++n) if (t[n] == e || t[n].name == e) return t.splice(n, 1), !0
@@ -14376,7 +14376,7 @@
 											n = Math.min(this.lastLine(), a.line - (a.ch ? 0 : 1)) + 1
 											for (var l = s; l < n; ++l) La(this, l, e)
 											var c = this.doc.sel.ranges
-											0 == o.ch && t.length == c.length && c[r].from().ch > 0 && Xi(this.doc, r, new ki(o, c[r].to()), H)
+											0 == o.ch && t.length == c.length && c[r].from().ch > 0 && Yi(this.doc, r, new ki(o, c[r].to()), H)
 										}
 									}
 								}),
@@ -14446,10 +14446,10 @@
 									return Un(this, st(this.doc, e), t || 'page')
 								},
 								coordsChar: function (e, t) {
-									return Xn(this, (e = qn(this, e, t || 'page')).left, e.top)
+									return Yn(this, (e = qn(this, e, t || 'page')).left, e.top)
 								},
 								lineAtHeight: function (e, t) {
-									return (e = qn(this, { top: e, left: 0 }, t || 'page').top), Ye(this.doc, e + this.display.viewOffset)
+									return (e = qn(this, { top: e, left: 0 }, t || 'page').top), Xe(this.doc, e + this.display.viewOffset)
 								},
 								heightAtLine: function (e, t, n) {
 									var r,
@@ -14521,7 +14521,7 @@
 										r = this.doc
 									n.somethingSelected()
 										? r.replaceSelection('', null, '+delete')
-										: Yo(this, function (n) {
+										: Xo(this, function (n) {
 												var i = ja(r, n.head, e, t, !1)
 												return e < 0 ? { from: i, to: n.head } : { from: n.head, to: i }
 										  })
@@ -18488,7 +18488,7 @@
 						}
 						function $(e, t, n) {
 							if (w.state.fatArrowAt == w.stream.start) {
-								var r = n ? X : K
+								var r = n ? Y : K
 								if ('(' == e) return C(M, F(')'), ie(De, ')'), B, R('=>'), r, I)
 								if ('variable' == e) return k(M, xe, R('=>'), r, I)
 							}
@@ -18515,7 +18515,7 @@
 								? C(
 										(function (e) {
 											return function (t) {
-												return '.' == t ? C(e ? J : Y) : 'variable' == t && c ? C(ve, e ? U : q) : k(e ? W : N)
+												return '.' == t ? C(e ? J : X) : 'variable' == t && c ? C(ve, e ? U : q) : k(e ? W : N)
 											}
 										})(n),
 								  )
@@ -18533,7 +18533,7 @@
 							var r = 0 == n ? q : U,
 								i = 0 == n ? N : W
 							return '=>' == e
-								? C(M, n ? X : K, I)
+								? C(M, n ? Y : K, I)
 								: 'operator' == e
 								? /\+\+|--/.test(t) || (c && '!' == t)
 									? C(r)
@@ -18567,10 +18567,10 @@
 						function K(e) {
 							return b(w.stream, w.state), k('{' == e ? j : N)
 						}
-						function X(e) {
+						function Y(e) {
 							return b(w.stream, w.state), k('{' == e ? j : W)
 						}
-						function Y(e, t) {
+						function X(e, t) {
 							if ('target' == t) return (w.marked = 'keyword'), C(q)
 						}
 						function J(e, t) {
@@ -22303,10 +22303,10 @@
 						function K(e) {
 							return e.toLowerCase() in I
 						}
-						function X(e) {
+						function Y(e) {
 							return e.toLowerCase().match(F)
 						}
-						function Y(e) {
+						function X(e) {
 							var t = e.toLowerCase(),
 								n = 'variable-2'
 							return (
@@ -22365,7 +22365,7 @@
 								if ('vendor-prefixes' == e) return Z(n, t, 'vendorPrefixes')
 								if ('word' == e) {
 									var r = t.current()
-									if ('property' == (b = Y(r))) return te(t) ? Z(n, t, 'block', 0) : ((b = 'atom'), 'block')
+									if ('property' == (b = X(r))) return te(t) ? Z(n, t, 'block', 0) : ((b = 'atom'), 'block')
 									if ('tag' == b) {
 										if (/embed|menu|pre|progress|sub|table/.test(r) && V(re(t))) return (b = 'atom'), 'block'
 										if (t.string.match(new RegExp('\\[\\s*' + r + '|' + r + '\\s*\\]'))) return (b = 'atom'), 'block'
@@ -22393,7 +22393,7 @@
 										: Z(n, t, 'block', 0)
 								if ((e && '@' == e.charAt(0) && V(t.current().slice(1)) && (b = 'variable-2'), 'word' == e)) {
 									var r = t.current()
-									'tag' == (b = Y(r)) && w.test(r) && (b = 'variable-2'), ('property' != b && 'to' != r) || (b = 'atom')
+									'tag' == (b = X(r)) && w.test(r) && (b = 'variable-2'), ('property' != b && 'to' != r) || (b = 'atom')
 								}
 								return 'variable-name' == e ? Z(n, t, 'variableName') : ee(e, t) ? Z(n, t, 'pseudo') : n.context.type
 							}),
@@ -22421,7 +22421,7 @@
 												? 'property'
 												: C.hasOwnProperty(r)
 												? 'string-2'
-												: Y(t.current())) &&
+												: X(t.current())) &&
 										ne(t)
 									)
 										return Z(n, t, 'block')
@@ -22433,7 +22433,7 @@
 								if (')' == e) return ne(t) ? Z(n, t, 'block') : Z(n, t, 'atBlock')
 								if ('word' == e) {
 									var r = t.current().toLowerCase()
-									return (b = Y(r)), /^(max|min)/.test(r) && (b = 'property'), 'tag' == b && (b = w.test(r) ? 'variable-2' : 'atom'), n.context.type
+									return (b = X(r)), /^(max|min)/.test(r) && (b = 'property'), 'tag' == b && (b = w.test(r) ? 'variable-2' : 'atom'), n.context.type
 								}
 								return j.atBlock(e, t, n)
 							}),
@@ -22448,7 +22448,7 @@
 										: Z(n, t, 'keyframes')
 									: 'unit' == e && /^[0-9]+\%$/.test(t.current())
 									? Z(n, t, 'keyframes')
-									: 'word' == e && 'block-keyword' == (b = Y(t.current()))
+									: 'word' == e && 'block-keyword' == (b = X(t.current()))
 									? ((b = 'keyword'), Z(n, t, 'keyframes'))
 									: /@(font-face|media|supports|(-moz-)?document)/.test(e)
 									? Z(n, t, ne(t) ? 'block' : 'atBlock')
@@ -22467,11 +22467,11 @@
 											: Z(n, t, 'block')
 										: 'variable-name' == e
 										? Z(n, t, 'variableName', 0)
-										: ('word' == e && 'tag' == (b = Y(t.current())) && (b = 'atom'), n.context.type)
+										: ('word' == e && 'tag' == (b = X(t.current())) && (b = 'atom'), n.context.type)
 								)
 							}),
 							(j.extend = function (e, t, n) {
-								return '[' == e || '=' == e ? 'extend' : ']' == e ? q(n) : 'word' == e ? ((b = Y(t.current())), 'extend') : q(n)
+								return '[' == e || '=' == e ? 'extend' : ']' == e ? q(n) : 'word' == e ? ((b = X(t.current())), 'extend') : q(n)
 							}),
 							(j.variableName = function (e, t, n) {
 								return 'string' == e || '[' == e || ']' == e || t.current().match(/^(\.|\$)/) ? (t.current().match(/^\.[\w-]+/i) && (b = 'variable-2'), 'variableName') : U(e, t, n)
@@ -22510,7 +22510,7 @@
 													: /(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(i) || G(a)
 													? (o = /\,\s*$/.test(l) ? c : /^\s+/.test(n) && (/(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(l) || G(l)) ? (s <= c ? c : c + _) : s)
 													: /,\s*$/.test(n) ||
-													  (!X(a) && !V(a)) ||
+													  (!Y(a) && !V(a)) ||
 													  (o = K(l)
 															? s <= c
 																? c
@@ -22519,7 +22519,7 @@
 															? s <= c
 																? s
 																: c + _
-															: X(l) || V(l)
+															: Y(l) || V(l)
 															? s >= c
 																? c
 																: s
@@ -30982,22 +30982,22 @@
 				'use strict'
 				n.d(t, { Z: () => c })
 				const r = JSON.parse(
-						'{"name":"English","locale":"en","translations":{"menus":{"File":{"File":"File","OpenFolder":"Open folder","OpenFile":"Open file","SaveFile":"Save file","Projects":{"Projects":"Projects","OpenProjects":"Open Projects"},"Workspaces":{"Workspaces":"Workspaces","OpenWorkspaces":"Open Workspaces","OpenFromFile":"Open from file","AddFolderToWorkspace":"Add Folder To Workspace","SaveWorkspace":"Save Workspace"}},"Edit":{"Edit":"Edit","Undo":"Undo","Redo":"Redo","FontSize":{"FontSize":"Font Size","Increase":"Increase","Decrease":"Decrease"},"Find":"Find","Replace":"Replace","FormatDocument":"Format document"},"Tools":{"Tools":"Tools","OpenSettings":"Settings","OpenStore":"Store","Panels":{"Panels":"Panels","NewPanel":"New Panel","CloseCurrentPanel":"Close current panel"}},"View":{"View":"View","Sidebar":"Sidebar","Sidepanel":"Sidepanel","Terminal":"Terminal","ShowSidebar":"Show Sidebar","ShowSidepanel":"Show Sidepanel","HideSidebar":"Hide Sidebar","HideSidepanel":"Hide Sidepanel","CommandPrompt":"Command Prompt","ExplorerPrompt":"Explorer Prompt"},"Window":{"Window":"Window","Zoom":{"Zoom":"Zoom","DefaultZoom":"Default","IncreaseZoom":"Increase","DecreaseZoom":"Decrease"},"Debug":{"Debug":"Debug","OpenDebugWindow":"Open debug window"},"OpenDevTools":"Open dev tools"},"Help":{"Help":"Help","Contact":"Contact","Social":"Social","Contributors":"Contributors","Blog":"Blog","Documentation":"Documentation","Website":"Website","SourceCode":"Source code","ReportBug":"Report bug","CheckForUpdates":"Check for updates","ShowWelcome":"Show Welcome","About":"About"}},"windows":{"Settings":{"Settings":"Settings","Customization":{"Customization":"Customization","Themes":"Themes","Iconpacks":"Iconpacks","Blur":"Blur"},"Advanced":{"Advanced":"Advanced","FileWatcher":"Files Watcher","Autocomplete":"Autocomplete","WrapLines":"Wrap lines","FoldBlocks":"Fold blocks","ManualConfig":{"ManualConfig":"Manual config","EditConfiguration":"Edit configuration"},"Explorer":"Explorer","Editor":"Editor","GitIntegration":"Git Integration","LSPIntegration":"LSP Integration (experimental)","SourceTracker":"Source Tracker","Indentation":{"Indentation":"Indentation","Space":"Space","Tab":"Tab"},"Configuration":"Configuration","RestartConfig":{"RestartConfig":"Restart configuration"}},"Languages":{"Languages":"Languages","UseSystemLanguage":"Use System\'s language"},"Shortcuts":{"Shortcuts":"Shortcuts","CreateCombo":"Create Combo"},"About":{"About":"About","GravitonDescription":"Suside is a modern open source code editor."}},"Store":{"Store":"Store","Home":{"Home":"Home"},"Installed":{"Installed":"Installed"},"Install":"Install","Update":"Update","Uninstall":"Uninstall","AnyCompatibleVersion":"There isn\'t any compatible version."},"Dashboard":{"Dashboard":"Dashboard","RecentProjects":"Recent projects","RecentWorkspaces":"Recent workspaces","NewProject":"New project","OpenWorkspace":"Open a workspace","OpenFolder":"Open a folder"},"BrowserWelcome":{"WelcomeTitle":"Welcome to Suside for Browser!","WelcomeMessage":"Remember this feature is still very experimental and most things do not work. \\n For a better experience download the desktop app."},"Introduction":{"Welcome":{"WelcomeToGraviton":"Welcome to Suside"},"Theming":{"SelectATheme":"Select a theme"},"Finished":{"Finished":"Finished","HaveAGreatExperience":"Have a great experience 😀"}}},"misc":{"Miscellaneous":"Miscellaneous","LastVersion":"Last version","InstalledVersion":"Installed version","About":"About","Skip":"Skip","Finish":"Finish","Continue":"Continue","GoBack":"Go back","Accept":"Accept","Cancel":"Cancel","version":"version","CopyPath":"Copy path","More":"More","Copy":"Copy","Rename":"Rename","Remove":"Remove","OpenLocation":"Open location","NewFile":"New file","NewFolder":"New folder","Paste":"Paste","Author":"Author","Exit":"Exit","Tip":"Tip","Yes":"Yes","No":"No","Close":"Close","Ignore":"Ignore","BuildDate":"Build date","By":"by","Understood":"Understood","RemoveFromWorkspace":"Remove from workspace","JoinTheDiscussion":"Join the Discussion","OpenAnyway":"Open anyway","Update":"Update","Next":"Next","Back":"Back","Okay":"Okay","Languages":"Languages"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"App\'s language changed.","restartMessage":"Restart the app to fully apply the changes."}},"dialogs":{"tabsUnsavedWarning":{"title":"There are unsaved files.","content":"Progress might be lost."},"restartConfig":{"title":"Restart configuration","content":"Click continue to restart your configuration. This will not uninstall any plugin."},"experimentalFeature":{"title":"Experimental feature","content":"This feature is unstable and might cause some issues."},"warning":{"title":"Are you sure?"}},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"No repository open."},"projectInspector":{"noProjectOpen":"No project open."}}}}',
+						'{"name":"English","locale":"en","translations":{"menus":{"File":{"File":"File","OpenFolder":"Open folder","OpenFile":"Open file","SaveFile":"Save file","Projects":{"Projects":"Projects","OpenProjects":"Open Projects"},"Workspaces":{"Workspaces":"Workspaces","OpenWorkspaces":"Open Workspaces","OpenFromFile":"Open from file","AddFolderToWorkspace":"Add Folder To Workspace","SaveWorkspace":"Save Workspace"}},"Edit":{"Edit":"Edit","Undo":"Undo","Redo":"Redo","FontSize":{"FontSize":"Font Size","Increase":"Increase","Decrease":"Decrease"},"Find":"Find","Replace":"Replace","FormatDocument":"Format document"},"Tools":{"Tools":"Tools","OpenSettings":"Settings","OpenStore":"Store","Panels":{"Panels":"Panels","NewPanel":"New Panel","CloseCurrentPanel":"Close current panel"}},"View":{"View":"View","Sidebar":"Sidebar","Sidepanel":"Sidepanel","Terminal":"Terminal","ShowSidebar":"Show Sidebar","ShowSidepanel":"Show Sidepanel","HideSidebar":"Hide Sidebar","HideSidepanel":"Hide Sidepanel","CommandPrompt":"Command Prompt","ExplorerPrompt":"Explorer Prompt"},"Window":{"Window":"Window","Zoom":{"Zoom":"Zoom","DefaultZoom":"Default","IncreaseZoom":"Increase","DecreaseZoom":"Decrease"},"Debug":{"Debug":"Debug","OpenDebugWindow":"Debug window"},"OpenDevTools":"Open dev tools"},"Help":{"Help":"Help","Contact":"Contact","Social":"Social","Contributors":"Contributors","Blog":"Blog","Documentation":"Documentation","Website":"Website","SourceCode":"Source code","ReportBug":"Report bug","CheckForUpdates":"Check for updates","ShowWelcome":"Show Welcome","About":"About"}},"windows":{"Settings":{"Settings":"Settings","Customization":{"Customization":"Customization","Themes":"Themes","Iconpacks":"Iconpacks","Blur":"Blur"},"Advanced":{"Advanced":"Advanced","FileWatcher":"Files Watcher","Autocomplete":"Autocomplete","WrapLines":"Wrap lines","FoldBlocks":"Fold blocks","ManualConfig":{"ManualConfig":"Manual config","EditConfiguration":"Edit configuration"},"Explorer":"Explorer","Editor":"Editor","GitIntegration":"Git Integration","LSPIntegration":"LSP Integration (experimental)","SourceTracker":"Source Tracker","Indentation":{"Indentation":"Indentation","Space":"Space","Tab":"Tab"},"Configuration":"Configuration","RestartConfig":{"RestartConfig":"Restart configuration"}},"Languages":{"Languages":"Languages","UseSystemLanguage":"Use System\'s language"},"Shortcuts":{"Shortcuts":"Shortcuts","CreateCombo":"Create Combo"},"About":{"About":"About","GravitonDescription":"Suside is a modern open source code editor."}},"Store":{"Store":"Store","Home":{"Home":"Home"},"Installed":{"Installed":"Installed"},"Install":"Install","Update":"Update","Uninstall":"Uninstall","AnyCompatibleVersion":"There isn\'t any compatible version."},"Dashboard":{"Dashboard":"Dashboard","RecentProjects":"Recent projects","RecentWorkspaces":"Recent workspaces","NewProject":"New project","OpenWorkspace":"Open a workspace","OpenFolder":"Open a folder"},"BrowserWelcome":{"WelcomeTitle":"Welcome to Suside for Browser!","WelcomeMessage":"Remember this feature is still very experimental and most things do not work. \\n For a better experience download the desktop app."},"Introduction":{"Welcome":{"WelcomeToGraviton":"Welcome to Suside"},"Theming":{"SelectATheme":"Select a theme"},"Finished":{"Finished":"Finished","HaveAGreatExperience":"Have a great experience 😀"}}},"misc":{"Miscellaneous":"Miscellaneous","LastVersion":"Last version","InstalledVersion":"Installed version","About":"About","Skip":"Skip","Finish":"Finish","Continue":"Continue","GoBack":"Go back","Accept":"Accept","Cancel":"Cancel","version":"version","CopyPath":"Copy path","More":"More","Copy":"Copy","Rename":"Rename","Remove":"Remove","OpenLocation":"Open location","NewFile":"New file","NewFolder":"New folder","Paste":"Paste","Author":"Author","Exit":"Exit","Tip":"Tip","Yes":"Yes","No":"No","Close":"Close","Ignore":"Ignore","BuildDate":"Build date","By":"by","Understood":"Understood","RemoveFromWorkspace":"Remove from workspace","JoinTheDiscussion":"Join the Discussion","OpenAnyway":"Open anyway","Update":"Update","Next":"Next","Back":"Back","Okay":"Okay","Languages":"Languages"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"App\'s language changed.","restartMessage":"Restart the app to fully apply the changes."}},"dialogs":{"tabsUnsavedWarning":{"title":"There are unsaved files.","content":"Progress might be lost."},"restartConfig":{"title":"Restart configuration","content":"Click continue to restart your configuration. This will not uninstall any plugin."},"experimentalFeature":{"title":"Experimental feature","content":"This feature is unstable and might cause some issues."},"warning":{"title":"Are you sure?"}},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"No repository open."},"projectInspector":{"noProjectOpen":"No project open."}}}}',
 					),
 					i = JSON.parse(
-						'{"name":"Català","locale":"cat","translations":{"menus":{"File":{"File":"Arxiu","OpenFolder":"Obrir carpeta","OpenFile":"Obrir fitxer","Projects":{"Projects":"Projectes","OpenProjects":"Obrir projectes"},"Workspaces":{"Workspaces":"Espais de treball","OpenWorkspaces":"Obrir espais de treball","OpenFromFile":"Obrir desde arxiu","AddFolderToWorkspace":"Afegir carpeta al espai de treball","SaveWorkspace":"Desar espais de treball"}},"Edit":{"Edit":"Editar","Undo":"Des-fer","Redo":"Re-fer","FontSize":{"FontSize":"Mida de la font","Increase":"Incrementar","Decrease":"Disminuir"},"Find":"Trobar","Replace":"Reemplaçar","FormatDocument":"Formatejar el document"},"Tools":{"Tools":"Eines","OpenSettings":"Configuració","OpenStore":"Botiga","Panels":{"Panels":"Panells","NewPanel":"Nou panell","CloseCurrentPanel":"Tancar panell sel·leccionat"}},"View":{"View":"Veure","Sidebar":"Barra lateral","Sidepanel":"Panell lateral","Terminal":"Terminal","ShowSidebar":"Mostrar Barra lateral","ShowSidepanel":"Mostrar Panell lateral","HideSidebar":"Amagar Barra lateral","HideSidepanel":"Amagar Panell lateral"},"Window":{"Window":"Finestra","Zoom":{"Zoom":"Zoom","DefaultZoom":"Per defecte","IncreaseZoom":"Incrementar","DecreaseZoom":"Disminuir"},"Debug":{"Debug":"Depurar","OpenDebugWindow":"Obrir finestra de depurador"},"OpenDevTools":"Eienes de desenvolupador"},"Help":{"Help":"Ajuda","Contact":"Contactar","Social":"Social","Contributors":"Contribuïdors","Blog":"Blog","Documentation":"Documentació","Website":"Pàgina web","SourceCode":"Codi font","ReportBug":"Comunicar un error","CheckForUpdates":"Comprovar actualitzacions","ShowWelcome":"Mostrar Benvinguda","About":"Sobre"}},"windows":{"Settings":{"Settings":"Configuració","Customization":{"Customization":"Personalització","Themes":"Temes"},"Advanced":{"Advanced":"Avançat","FileWatcher":"Observador d\'arxius","Autocomplete":"Autocompletat","WrapLines":"No trencar les linies","ManualConfig":{"ManualConfig":"Configuració manuaal","EditConfiguration":"Editar la configuració"},"Explorer":"Explorador","Editor":"Editar","GitIntegration":"Integració amb Git","LSPIntegration":"Integració amb LSP (experimental)","SourceTracker":"Source Tracker","Indentation":{"Indentation":"Indentació","Space":"Espai","Tab":"Tab"},"Configuration":"Configuració","RestartConfig":{"RestartConfig":"Reiniciar la configuració"}},"Languages":"Llengües","About":{"About":"Sobre"}},"Store":{"Store":"Botiga","Home":{"Home":"Inici"},"Installed":{"Installed":"Instalat"},"Install":"Instalar","Update":"Actualitzar","Uninstall":"Desinstalar","AnyCompatibleVersion":"No hi ha cap versió compatible."},"Welcome":{"Welcome":"Benvinguda","RecentProjects":"Projectes recents","RecentWorkspaces":"Espais de treball","NewProject":"Nou projecte","OpenWorkspace":"Obrir un espai de treball","OpenFolder":"Obrir una carpeta"},"BrowserWelcome":{"WelcomeTitle":"Benvingut a Graviton per al navegador!","WelcomeMessage":"Recorda que aquesta versió és molt experimental i la majoria de coses no funcionen. \\n Per a una millor experiència descarrega la versió d\'escriptori."}},"misc":{"Miscellaneous":"Divers","LastVersion":"Última versió","InstalledVersion":"Versió instalada","About":"Sobre ","Skip":"Saltar","Finish":"Finalitzar","Continue":"Continuar","GoBack":"Enrere","Accept":"Acceptar","Cancel":"Cancelar","version":"versió","More":"Més","Copy":"Copiar","Paste":"Enganxar","Author":"Autor","Exit":"Sortir","Tip":"Consell","Yes":"Si","No":"No","Close":"Tancar","Ignore":"Ignorar","BuildDate":"Data de compilació","By":"de","Understood":"Entesos","RemoveFromWorkspace":"Treure del espai de treball"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"La llengua s\'ha canviat.","restartMessage":"Reinicia l\'aplicatiu per aplicar els canvis al complet."}},"dialogs":{"tabsUnsavedWarning":{"title":"Hi han arxius sense desar.","content":"Els canvis es perdràn probablement."},"restartConfig":{"title":"Reinicia la configuració","content":"Clica a continuar per reiniciar la configuració. Això no desinstalarà cap extensió."},"experimentalFeature":{"title":"Característica experimental","content":"Aquesta característica es inestable i pot causar alguns problemes."}}}}',
+						'{"name":"Català","locale":"cat","translations":{"menus":{"File":{"File":"Arxiu","OpenFolder":"Obrir carpeta","OpenFile":"Obrir fitxer","Projects":{"Projects":"Projectes","OpenProjects":"Obrir projectes"},"Workspaces":{"Workspaces":"Espais de treball","OpenWorkspaces":"Obrir espais de treball","OpenFromFile":"Obrir desde arxiu","AddFolderToWorkspace":"Afegir carpeta al espai de treball","SaveWorkspace":"Desar espais de treball"}},"Edit":{"Edit":"Editar","Undo":"Des-fer","Redo":"Re-fer","FontSize":{"FontSize":"Mida de la font","Increase":"Incrementar","Decrease":"Disminuir"},"Find":"Trobar","Replace":"Reemplaçar","FormatDocument":"Formatejar el document"},"Tools":{"Tools":"Eines","OpenSettings":"Configuració","OpenStore":"Botiga","Panels":{"Panels":"Panells","NewPanel":"Nou panell","CloseCurrentPanel":"Tancar panell sel·leccionat"}},"View":{"View":"Veure","Sidebar":"Barra lateral","Sidepanel":"Panell lateral","Terminal":"Terminal","ShowSidebar":"Mostrar Barra lateral","ShowSidepanel":"Mostrar Panell lateral","HideSidebar":"Amagar Barra lateral","HideSidepanel":"Amagar Panell lateral"},"Window":{"Window":"Finestra","Zoom":{"Zoom":"Zoom","DefaultZoom":"Per defecte","IncreaseZoom":"Incrementar","DecreaseZoom":"Disminuir"},"Debug":{"Debug":"Depurar","OpenDebugWindow":"Finestra de depurador"},"OpenDevTools":"Eienes de desenvolupador"},"Help":{"Help":"Ajuda","Contact":"Contactar","Social":"Social","Contributors":"Contribuïdors","Blog":"Blog","Documentation":"Documentació","Website":"Pàgina web","SourceCode":"Codi font","ReportBug":"Comunicar un error","CheckForUpdates":"Comprovar actualitzacions","ShowWelcome":"Mostrar Benvinguda","About":"Sobre"}},"windows":{"Settings":{"Settings":"Configuració","Customization":{"Customization":"Personalització","Themes":"Temes"},"Advanced":{"Advanced":"Avançat","FileWatcher":"Observador d\'arxius","Autocomplete":"Autocompletat","WrapLines":"No trencar les linies","ManualConfig":{"ManualConfig":"Configuració manuaal","EditConfiguration":"Editar la configuració"},"Explorer":"Explorador","Editor":"Editar","GitIntegration":"Integració amb Git","LSPIntegration":"Integració amb LSP (experimental)","SourceTracker":"Source Tracker","Indentation":{"Indentation":"Indentació","Space":"Espai","Tab":"Tab"},"Configuration":"Configuració","RestartConfig":{"RestartConfig":"Reiniciar la configuració"}},"Languages":"Llengües","About":{"About":"Sobre"}},"Store":{"Store":"Botiga","Home":{"Home":"Inici"},"Installed":{"Installed":"Instalat"},"Install":"Instalar","Update":"Actualitzar","Uninstall":"Desinstalar","AnyCompatibleVersion":"No hi ha cap versió compatible."},"Welcome":{"Welcome":"Benvinguda","RecentProjects":"Projectes recents","RecentWorkspaces":"Espais de treball","NewProject":"Nou projecte","OpenWorkspace":"Obrir un espai de treball","OpenFolder":"Obrir una carpeta"},"BrowserWelcome":{"WelcomeTitle":"Benvingut a Graviton per al navegador!","WelcomeMessage":"Recorda que aquesta versió és molt experimental i la majoria de coses no funcionen. \\n Per a una millor experiència descarrega la versió d\'escriptori."}},"misc":{"Miscellaneous":"Divers","LastVersion":"Última versió","InstalledVersion":"Versió instalada","About":"Sobre ","Skip":"Saltar","Finish":"Finalitzar","Continue":"Continuar","GoBack":"Enrere","Accept":"Acceptar","Cancel":"Cancelar","version":"versió","More":"Més","Copy":"Copiar","Paste":"Enganxar","Author":"Autor","Exit":"Sortir","Tip":"Consell","Yes":"Si","No":"No","Close":"Tancar","Ignore":"Ignorar","BuildDate":"Data de compilació","By":"de","Understood":"Entesos","RemoveFromWorkspace":"Treure del espai de treball"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"La llengua s\'ha canviat.","restartMessage":"Reinicia l\'aplicatiu per aplicar els canvis al complet."}},"dialogs":{"tabsUnsavedWarning":{"title":"Hi han arxius sense desar.","content":"Els canvis es perdràn probablement."},"restartConfig":{"title":"Reinicia la configuració","content":"Clica a continuar per reiniciar la configuració. Això no desinstalarà cap extensió."},"experimentalFeature":{"title":"Característica experimental","content":"Aquesta característica es inestable i pot causar alguns problemes."}}}}',
 					),
 					o = JSON.parse(
 						'{"name":"Lingua Latina","locale":"la","translations":{"menus":{"File":{"File":"tabularium","OpenFolder":"Aperire carpetam","OpenFile":"Aperire tabularium","Projects":{"Projects":"Proiecta","OpenProjects":"Aperire proiecta"},"Workspaces":{"Workspaces":"Loci laboris","OpenWorkspaces":"Aperire locos laboris","OpenFromFile":"Aperire a tabulario","AddFolderToWorkspace":"Addere carpetam ad locum labori","SaveWorkspace":"Servare locum laboris"}},"Edit":{"Edit":"Mutare","Undo":"Desfacere","Redo":"Refacere","FontSize":{"FontSize":"Magnitudo fontis","Increase":"Augere","Decrease":"Deminuere"},"Find":"Invenire","Replace":"Substitere","FormatDocument":"Dare forman tabulam"},"Tools":{"Tools":"Instumenta","OpenSettings":"Variationes","OpenStore":"Taberna","Panels":{"Panels":"Divisiones","NewPanel":"Nova divisio","CloseCurrentPanel":"Claudere istam divisionem"}},"Window":{"Window":"Fenestra","Zoom":{"Zoom":"Zoom","DefaultZoom":"Sine mandato","IncreaseZoom":"Augere","DecreaseZoom":"Deminuere"},"OpenDevTools":"Instrumenta creatoris"},"Help":{"Help":"Auxilium","Contact":"Cognosce nos","Social":"Epistulae","Blog":"Blog","Documentation":"Documenta","Website":"Situs redis","SourceCode":"Codes fontis","CheckForUpdates":"observare innovationes","About":"De "}},"windows":{"Settings":{"Settings":"Variationes","Customization":{"Customization":"Impersonnationes","Themes":"Ornamenta","FileWatcher":"Vigilans tabulariorum"},"Languages":"Linguas","About":"De "},"Store":{"Store":"Taberna","Home":{"Home":"Domus"},"Installed":{"Installed":"Collocatum"},"Install":"Collocare","Update":"innovare","Uninstall":"Discollocare"},"Welcome":{"Welcome":"Benevenitus","RecentProjects":"Proiecta recenta","RecentWorkspaces":"Loci laboris recenti","NewProject":"Novum proiectum","OpenWorkspace":"Aperire locos laboris","OpenFolder":"Aperire carpetam"}},"misc":{"LastVersion":"Finale exemplum","InstalledVersion":"Exeplum collocatum","About":"De ","Skip":"Salire","Finish":"Terminare","Continue":"Continuare","GoBack":"Ire retro","Accept":"Aceptare","Cancel":"Renuntiare","version":"Exemplum","More":"Plus","Copy":"Effingere","Paste":"Figgere","Author":"Creator","Exit":"Exire","Tip":"Recomendatio","Yes":"Certe","No":"Non","Close":"Claudere","Ignore":"Non audire"}}}',
 					),
 					a = JSON.parse(
-						'{"name":"Português Brasileiro","locale":"pt-BR","translations":{"menus":{"File":{"File":"Arquivo","OpenFolder":"Abrir pasta","OpenFile":"Abrir arquivo","Projects":{"Projects":"Projetos","OpenProjects":"Abrir projetos"},"Workspaces":{"Workspaces":"Workspaces","OpenWorkspaces":"Abrir Workspaces","OpenFromFile":"Abrir do arquivo","AddFolderToWorkspace":"Adicionar pasta ao Workspace","SaveWorkspace":"Salvar Workspace"}},"Edit":{"Edit":"Alterar","Undo":"Desfazer","Redo":"Refazer","FontSize":{"FontSize":"Tamanho da fonte","Increase":"Aumentar","Decrease":"Diminuir"},"Find":"Procurar","Replace":"Substituir","FormatDocument":"Formatar documento"},"Tools":{"Tools":"Ferramentas","OpenSettings":"Configurações","OpenStore":"Loja","Panels":{"Panels":"Painéis","NewPanel":"Novo painel","CloseCurrentPanel":"Fechar o painel atual"}},"View":{"View":"Ver","ToggleSidebar":"Alternar barra lateral","ToggleSidepanel":"Alternar painel lateral","ShowSidebar":"Mostrar barra lateral","ShowSidepanel":"Mostrar painel lateral","HideSidebar":"Esconder barra lateral","HideSidepanel":"Esconder painel lateral"},"Window":{"Window":"Janela","Zoom":{"Zoom":"Zoom","DefaultZoom":"Padrão","IncreaseZoom":"Aumentar","DecreaseZoom":"Diminuir"},"Debug":{"Debug":"Depurar","OpenDebugWindow":"Abrir a janela de depuração"},"OpenDevTools":"Abrir ferramenta de desenvolvedor"},"Help":{"Help":"Ajuda","Contact":"Contato","Social":"Social","Contributors":"Contribuidores","Blog":"Blog","Documentation":"Documentação","Website":"Website","SourceCode":"Código fonte","CheckForUpdates":"Checar Atualizações","About":"Sobre"}},"windows":{"Settings":{"Settings":"Configurações","Customization":{"Customization":"Customização","Themes":"Temas","Iconpacks":"Pacote de ícones"},"Advanced":{"Advanced":"Avançado","FileWatcher":"Observador de arquivos","Autocomplete":"Autocomplete","WrapLines":"Quebra de linha automática","Indentation":{"Indentation":"Indentação","Space":"Espaço","Tab":"Tab"}},"Languages":"Idiomas","About":{"About":"Sobre","GravitonDescription":"Suside é um editor multi plataforma."}},"Store":{"Store":"Loja","Home":{"Home":"Inicio"},"Installed":{"Installed":"Instalado"},"Install":"Instalar","Update":"Atualizar","Uninstall":"Desinstalar","AnyCompatibleVersion":"Qualquer versão compatível."},"Welcome":{"Welcome":"Bem-vindo","RecentProjects":"Projetos recentes","RecentWorkspaces":"workspaces recentes","NewProject":"Novo projeto","OpenWorkspace":"Abrir uma workspace","OpenFolder":"Abrir uma pasta"}},"misc":{"LastVersion":"Ultima versão","InstalledVersion":"Versão instalada","About":"Sobre","Skip":"Pular","Finish":"Finalizado","Continue":"Continuar","GoBack":"Voltar","Accept":"Aceitar","Cancel":"Cancelar","version":"Versão","CopyPath":"Copiar caminho","More":"Mais","Copy":"Copiar","Rename":"Renomear","Remove":"Remover","OpenLocation":"Abrir local","NewFile":"Novo arquivo","NewFolder":"Nova pasta","Paste":"Colar","Author":"Autor","Exit":"Sair","Tip":"Dica","Yes":"Sim","No":"Não","Close":"Fechar","Ignore":"Ignorar"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"O idioma do aplicativo foi alterado.","restartMessage":"Reinicie o aplicativo para aplicar totalmente as alterações."}}}}',
+						'{"name":"Português Brasileiro","locale":"pt-BR","translations":{"menus":{"File":{"File":"Arquivo","OpenFolder":"Abrir pasta","OpenFile":"Abrir arquivo","Projects":{"Projects":"Projetos","OpenProjects":"Abrir projetos"},"Workspaces":{"Workspaces":"Workspaces","OpenWorkspaces":"Abrir Workspaces","OpenFromFile":"Abrir do arquivo","AddFolderToWorkspace":"Adicionar pasta ao Workspace","SaveWorkspace":"Salvar Workspace"}},"Edit":{"Edit":"Alterar","Undo":"Desfazer","Redo":"Refazer","FontSize":{"FontSize":"Tamanho da fonte","Increase":"Aumentar","Decrease":"Diminuir"},"Find":"Procurar","Replace":"Substituir","FormatDocument":"Formatar documento"},"Tools":{"Tools":"Ferramentas","OpenSettings":"Configurações","OpenStore":"Loja","Panels":{"Panels":"Painéis","NewPanel":"Novo painel","CloseCurrentPanel":"Fechar o painel atual"}},"View":{"View":"Ver","ToggleSidebar":"Alternar barra lateral","ToggleSidepanel":"Alternar painel lateral","ShowSidebar":"Mostrar barra lateral","ShowSidepanel":"Mostrar painel lateral","HideSidebar":"Esconder barra lateral","HideSidepanel":"Esconder painel lateral"},"Window":{"Window":"Janela","Zoom":{"Zoom":"Zoom","DefaultZoom":"Padrão","IncreaseZoom":"Aumentar","DecreaseZoom":"Diminuir"},"Debug":{"Debug":"Depurar","OpenDebugWindow":"Janela de depuração"},"OpenDevTools":"Abrir ferramenta de desenvolvedor"},"Help":{"Help":"Ajuda","Contact":"Contato","Social":"Social","Contributors":"Contribuidores","Blog":"Blog","Documentation":"Documentação","Website":"Website","SourceCode":"Código fonte","CheckForUpdates":"Checar Atualizações","About":"Sobre"}},"windows":{"Settings":{"Settings":"Configurações","Customization":{"Customization":"Customização","Themes":"Temas","Iconpacks":"Pacote de ícones"},"Advanced":{"Advanced":"Avançado","FileWatcher":"Observador de arquivos","Autocomplete":"Autocomplete","WrapLines":"Quebra de linha automática","Indentation":{"Indentation":"Indentação","Space":"Espaço","Tab":"Tab"}},"Languages":"Idiomas","About":{"About":"Sobre","GravitonDescription":"Suside é um editor multi plataforma."}},"Store":{"Store":"Loja","Home":{"Home":"Inicio"},"Installed":{"Installed":"Instalado"},"Install":"Instalar","Update":"Atualizar","Uninstall":"Desinstalar","AnyCompatibleVersion":"Qualquer versão compatível."},"Welcome":{"Welcome":"Bem-vindo","RecentProjects":"Projetos recentes","RecentWorkspaces":"workspaces recentes","NewProject":"Novo projeto","OpenWorkspace":"Abrir uma workspace","OpenFolder":"Abrir uma pasta"}},"misc":{"LastVersion":"Ultima versão","InstalledVersion":"Versão instalada","About":"Sobre","Skip":"Pular","Finish":"Finalizado","Continue":"Continuar","GoBack":"Voltar","Accept":"Aceitar","Cancel":"Cancelar","version":"Versão","CopyPath":"Copiar caminho","More":"Mais","Copy":"Copiar","Rename":"Renomear","Remove":"Remover","OpenLocation":"Abrir local","NewFile":"Novo arquivo","NewFolder":"Nova pasta","Paste":"Colar","Author":"Autor","Exit":"Sair","Tip":"Dica","Yes":"Sim","No":"Não","Close":"Fechar","Ignore":"Ignorar"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"O idioma do aplicativo foi alterado.","restartMessage":"Reinicie o aplicativo para aplicar totalmente as alterações."}}}}',
 					),
 					s = JSON.parse(
-						'{"name":"French","locale":"fr","translations":{"menus":{"File":{"File":"Fichier","OpenFolder":"Ouvrir un dossier","OpenFile":"Ouvrir un fichier","SaveFile":"Sauvegarder le fichier","Projects":{"Projects":"Projets","OpenProjects":"Projets ouverts"},"Workspaces":{"Workspaces":"Espaces de travail","OpenWorkspaces":"Espaces de travail ouverts","OpenFromFile":"Ouvrir depuis un fichier","AddFolderToWorkspace":"Ajouter un dossier à l\'espace de travail","SaveWorkspace":"Enregistrer l\'espace de travail"}},"Edit":{"Edit":"Éditer","Undo":"Annuler","Redo":"Refaire","FontSize":{"FontSize":"Taille de police","Increase":"Augmenter","Decrease":"Réduire"},"Find":"Chercher","Replace":"Remplacer","FormatDocument":"Formatter le document"},"Tools":{"Tools":"Outils","OpenSettings":"Paramètres","OpenStore":"Magasin","Panels":{"Panels":"Panneaux","NewPanel":"Nouveau panneau","CloseCurrentPanel":"Fermer le panneau actuel"}},"View":{"View":"Affichage","Sidebar":"Barre latérale","Sidepanel":"Panneau latérale","Terminal":"Terminal","ShowSidebar":"Afficher la barre latérale","ShowSidepanel":"Afficher le panneau latéral","HideSidebar":"Cacher la barre latérale","CommandPrompt":"Invite de commande","ExplorerPrompt":"Explorateur"},"Window":{"Window":"Fenêtre","Zoom":{"Zoom":"Zoom","DefaultZoom":"Zoom par défaut","IncreaseZoom":"Augmenter le zoom","DecreaseZoom":"Réduire le zoom"},"Debug":{"Debug":"Débogage","OpenDebugWindow":"Ouvrir la fenêtre de débogage"},"OpenDevTools":"Outils de développement"},"Help":{"Help":"Aide","Contact":"Contact","Social":"Social","Contributors":"Contributeurs","Blog":"Blog","Documentation":"Documentation","Website":"Site web","SourceCode":"Code source","ReportBug":"Signaler un bug","CheckForUpdates":"Rechercher des mises à jours","ShowWelcome":"Afficher la page d\'accueil","About":"À propos"}},"windows":{"Settings":{"Settings":"Paramètres","Customization":{"Customization":"Personnalisation","Themes":"Thèmes","Iconpacks":"Packs d\'icônes","Blur":"Flou"},"Advanced":{"Advanced":"Paramètres avancés","FileWatcher":"Observateur de fichiers","Autocomplete":"Autocomplétion","WrapLines":"Envelopper les lignes","FoldBlocks":"Pliage de blocs","ManualConfig":{"ManualConfig":"Configuration manuelle","EditConfiguration":"Éditer la configuration"},"Explorer":"Explorateur","Editor":"Editeur","GitIntegration":"Intégration Git","LSPIntegration":"Intégration LSP (expérimentale)","SourceTracker":"Suivi des sources","Indentation":{"Indentation":"Indentation","Space":"Espace","Tab":"Tabulation"},"Configuration":"Configuration","RestartConfig":{"RestartConfig":"Redémarrer la configuration"}},"Languages":{"Languages":"Langues","UseSystemLanguage":"Utilisez la langue du système"},"Shortcuts":{"Shortcuts":"Raccourcis","CreateCombo":"Créer un combo"},"About":{"About":"À propos","GravitonDescription":"Suside est un éditeur de code open-source moderne."}},"Store":{"Store":"Magasin","Home":{"Home":"Accueil"},"Installed":{"Installed":"Installé"},"Install":"Installer","Update":"Mettre à jour","Uninstall":"Désinstaller","AnyCompatibleVersion":"Il n\'y a pas de version compatibles."},"Dashboard":{"Dashboard":"Tableau de bord","RecentProjects":"Projets récents","RecentWorkspaces":"Espaces de travail récents","NewProject":"Nouveau projet","OpenWorkspace":"Ouvrir un espace de travail","OpenFolder":"Ouvrir un dossier"},"BrowserWelcome":{"WelcomeTitle":"Bienvenue sur Suside pour navigateur","WelcomeMessage":"Veuillez garder à l\'idée que cette version est encore très expérimentale et que certaines fonctions ne fonctionnent pas.\\n Pour une meilleure expérience, veuillez télécharger l\'application."},"Introduction":{"Welcome":{"WelcomeToGraviton":"Bienvenue avec Suside"},"Theming":{"SelectATheme":"Sélectionnez un thème"},"Finished":{"Finished":"Terminé","HaveAGreatExperience":"Vivez une grande expérience 😀"}}},"misc":{"Miscellaneous":"Divers","LastVersion":"Dernière version","InstalledVersion":"Version installée","About":"À propos","Skip":"Passer","Finish":"Terminer","Continue":"Continuer","GoBack":"Retour","Accept":"Accepter","Cancel":"Annuler","version":"Version","CopyPath":"Copier le chemin","More":"Plus","Copy":"Copier","Rename":"Re nommer","Remove":"Supprimer","OpenLocation":"Ouvrir le dossier","NewFile":"Nouveau fichier","NewFolder":"Nouveau dossier","Paste":"Coller","Author":"Auteur","Exit":"Quitter","Tip":"Astuce","Yes":"Oui","No":"Non","Close":"Fermer","Ignore":"Ignorer","BuildDate":"Date de compilation","By":"par","Understood":"Compris","RemoveFromWorkspace":"Retirer de l\'espace de travail","JoinTheDiscussion":"Rejoindre la discussion","OpenAnyway":"Ouvert de toute manière","Update":"Mise à jour","Next":"Suivant","Back":"Retour","Okay":"Ok","Languages":"Langues"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"La langue a été changée.","restartMessage":"Redémarrez l\'application pour appliquer toutes les modifications."}},"dialogs":{"tabsUnsavedWarning":{"title":"Il y a des fichiers non-enregistrés.","content":"Les modifications peuvent être perdues."},"restartConfig":{"title":"Redémarrer la configuration","content":"Cliquez pour redémarrer l\'éditeur avec votre nouvelle configuration. Cela ne va pas désinstaller vos plugins."},"experimentalFeature":{"title":"Fonctionnalité expérimentale","content":"Cette fonctionnalité n\'est pas stable et peut causer des bugs."},"warning":{"title":"Êtes-vous sûr ?"}},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"Aucun dépôt n\'est ouvert."},"projectInspector":{"noProjectOpen":"Aucun projet ouvert."}}}}',
+						'{"name":"French","locale":"fr","translations":{"menus":{"File":{"File":"Fichier","OpenFolder":"Ouvrir un dossier","OpenFile":"Ouvrir un fichier","SaveFile":"Sauvegarder le fichier","Projects":{"Projects":"Projets","OpenProjects":"Projets ouverts"},"Workspaces":{"Workspaces":"Espaces de travail","OpenWorkspaces":"Espaces de travail ouverts","OpenFromFile":"Ouvrir depuis un fichier","AddFolderToWorkspace":"Ajouter un dossier à l\'espace de travail","SaveWorkspace":"Enregistrer l\'espace de travail"}},"Edit":{"Edit":"Éditer","Undo":"Annuler","Redo":"Refaire","FontSize":{"FontSize":"Taille de police","Increase":"Augmenter","Decrease":"Réduire"},"Find":"Chercher","Replace":"Remplacer","FormatDocument":"Formatter le document"},"Tools":{"Tools":"Outils","OpenSettings":"Paramètres","OpenStore":"Magasin","Panels":{"Panels":"Panneaux","NewPanel":"Nouveau panneau","CloseCurrentPanel":"Fermer le panneau actuel"}},"View":{"View":"Affichage","Sidebar":"Barre latérale","Sidepanel":"Panneau latérale","Terminal":"Terminal","ShowSidebar":"Afficher la barre latérale","ShowSidepanel":"Afficher le panneau latéral","HideSidebar":"Cacher la barre latérale","CommandPrompt":"Invite de commande","ExplorerPrompt":"Explorateur"},"Window":{"Window":"Fenêtre","Zoom":{"Zoom":"Zoom","DefaultZoom":"Zoom par défaut","IncreaseZoom":"Augmenter le zoom","DecreaseZoom":"Réduire le zoom"},"Debug":{"Debug":"Débogage","OpenDebugWindow":"Fenêtre de débogage"},"OpenDevTools":"Outils de développement"},"Help":{"Help":"Aide","Contact":"Contact","Social":"Social","Contributors":"Contributeurs","Blog":"Blog","Documentation":"Documentation","Website":"Site web","SourceCode":"Code source","ReportBug":"Signaler un bug","CheckForUpdates":"Rechercher des mises à jours","ShowWelcome":"Afficher la page d\'accueil","About":"À propos"}},"windows":{"Settings":{"Settings":"Paramètres","Customization":{"Customization":"Personnalisation","Themes":"Thèmes","Iconpacks":"Packs d\'icônes","Blur":"Flou"},"Advanced":{"Advanced":"Paramètres avancés","FileWatcher":"Observateur de fichiers","Autocomplete":"Autocomplétion","WrapLines":"Envelopper les lignes","FoldBlocks":"Pliage de blocs","ManualConfig":{"ManualConfig":"Configuration manuelle","EditConfiguration":"Éditer la configuration"},"Explorer":"Explorateur","Editor":"Editeur","GitIntegration":"Intégration Git","LSPIntegration":"Intégration LSP (expérimentale)","SourceTracker":"Suivi des sources","Indentation":{"Indentation":"Indentation","Space":"Espace","Tab":"Tabulation"},"Configuration":"Configuration","RestartConfig":{"RestartConfig":"Redémarrer la configuration"}},"Languages":{"Languages":"Langues","UseSystemLanguage":"Utilisez la langue du système"},"Shortcuts":{"Shortcuts":"Raccourcis","CreateCombo":"Créer un combo"},"About":{"About":"À propos","GravitonDescription":"Suside est un éditeur de code open-source moderne."}},"Store":{"Store":"Magasin","Home":{"Home":"Accueil"},"Installed":{"Installed":"Installé"},"Install":"Installer","Update":"Mettre à jour","Uninstall":"Désinstaller","AnyCompatibleVersion":"Il n\'y a pas de version compatibles."},"Dashboard":{"Dashboard":"Tableau de bord","RecentProjects":"Projets récents","RecentWorkspaces":"Espaces de travail récents","NewProject":"Nouveau projet","OpenWorkspace":"Ouvrir un espace de travail","OpenFolder":"Ouvrir un dossier"},"BrowserWelcome":{"WelcomeTitle":"Bienvenue sur Suside pour navigateur","WelcomeMessage":"Veuillez garder à l\'idée que cette version est encore très expérimentale et que certaines fonctions ne fonctionnent pas.\\n Pour une meilleure expérience, veuillez télécharger l\'application."},"Introduction":{"Welcome":{"WelcomeToGraviton":"Bienvenue avec Suside"},"Theming":{"SelectATheme":"Sélectionnez un thème"},"Finished":{"Finished":"Terminé","HaveAGreatExperience":"Vivez une grande expérience 😀"}}},"misc":{"Miscellaneous":"Divers","LastVersion":"Dernière version","InstalledVersion":"Version installée","About":"À propos","Skip":"Passer","Finish":"Terminer","Continue":"Continuer","GoBack":"Retour","Accept":"Accepter","Cancel":"Annuler","version":"Version","CopyPath":"Copier le chemin","More":"Plus","Copy":"Copier","Rename":"Re nommer","Remove":"Supprimer","OpenLocation":"Ouvrir le dossier","NewFile":"Nouveau fichier","NewFolder":"Nouveau dossier","Paste":"Coller","Author":"Auteur","Exit":"Quitter","Tip":"Astuce","Yes":"Oui","No":"Non","Close":"Fermer","Ignore":"Ignorer","BuildDate":"Date de compilation","By":"par","Understood":"Compris","RemoveFromWorkspace":"Retirer de l\'espace de travail","JoinTheDiscussion":"Rejoindre la discussion","OpenAnyway":"Ouvert de toute manière","Update":"Mise à jour","Next":"Suivant","Back":"Retour","Okay":"Ok","Languages":"Langues"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"La langue a été changée.","restartMessage":"Redémarrez l\'application pour appliquer toutes les modifications."}},"dialogs":{"tabsUnsavedWarning":{"title":"Il y a des fichiers non-enregistrés.","content":"Les modifications peuvent être perdues."},"restartConfig":{"title":"Redémarrer la configuration","content":"Cliquez pour redémarrer l\'éditeur avec votre nouvelle configuration. Cela ne va pas désinstaller vos plugins."},"experimentalFeature":{"title":"Fonctionnalité expérimentale","content":"Cette fonctionnalité n\'est pas stable et peut causer des bugs."},"warning":{"title":"Êtes-vous sûr ?"}},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"Aucun dépôt n\'est ouvert."},"projectInspector":{"noProjectOpen":"Aucun projet ouvert."}}}}',
 					),
 					l = JSON.parse(
-						'{"name":"Bahasa Indonesia","locale":"id","translations":{"menus":{"File":{"File":"Berkas","OpenFolder":"Buka folder","OpenFile":"Buka berkas","SaveFile":"Simpan berkas","Projects":{"Projects":"Proyek","OpenProjects":"Buka proyek"},"Workspaces":{"Workspaces":"Ruang kerja","OpenWorkspaces":"Buka ruang kerja","OpenFromFile":"Buka dari berkas","AddFolderToWorkspace":"Tambahkan folder ke ruang kerja","SaveWorkspace":"Simpan ruang kerja"}},"Edit":{"Edit":"Sunting","Undo":"Undurkan","Redo":"Ulangi","FontSize":{"FontSize":"Ukuran font","Increase":"Naik","Decrease":"Turun"},"Find":"Cari","Replace":"Ganti","FormatDocument":"Formatkan dokumen"},"Tools":{"Tools":"Alat","OpenSettings":"Pengaturan","OpenStore":"Toko","Panels":{"Panels":"Panel","NewPanel":"Panel baru","CloseCurrentPanel":"Tutup panel ini"}},"View":{"View":"Tinjau","Sidebar":"Sisi alat","Sidepanel":"Sisi panel","Terminal":"Terminal","ShowSidebar":"Tunjukkan sisi alat","ShowSidepanel":"Tunjukkan sisi panel","HideSidebar":"Sembunyikan sisi alat","HideSidepanel":"Sembunyikan sisi panel","CommandPrompt":"Jendela perintah","ExplorerPrompt":"Jendelah penjelajah"},"Window":{"Window":"Jendela","Zoom":{"Zoom":"Perbesaran","DefaultZoom":"Biasa","IncreaseZoom":"Naik","DecreaseZoom":"Turun"},"Debug":{"Debug":"Debug","OpenDebugWindow":"Buka jendela debug"},"OpenDevTools":"Buka DevTools"},"Help":{"Help":"Bantuan","Contact":"Hubungan","Social":"Sosial","Contributors":"Pembantu","Blog":"Blog","Documentation":"Dokumentasi","Website":"Situs web","SourceCode":"Kode sumber","ReportBug":"Laporkan masalah","CheckForUpdates":"Periksa untuk pembaruan","ShowWelcome":"Tunjukkan selamat datang","About":"Tentang"}},"windows":{"Settings":{"Settings":"Pengaturan","Customization":{"Customization":"Kustomisasi","Themes":"Tema","Iconpacks":"Paket ikon","Blur":"Buram"},"Advanced":{"Advanced":"Lanjutan","FileWatcher":"Penonton berkas","Autocomplete":"Auto selesai","WrapLines":"Bungkus baris","FoldBlocks":"Lipat blok","ManualConfig":{"ManualConfig":"Konfigurasi manual","EditConfiguration":"Sunting konfigurasi"},"Explorer":"Penjelajah","Editor":"Penyunting","GitIntegration":"Integrasi Git","LSPIntegration":"Integrasi LSP (belum selesai)","SourceTracker":"Pelacak sumber","Indentation":{"Indentation":"Indentasi","Space":"Spasi","Tab":"Tab"},"Configuration":"Konfigurasi","RestartConfig":{"RestartConfig":"Atur ulang konfigurasi"}},"Languages":{"Languages":"Bahasa","UseSystemLanguage":"Pakai bahasa sistem"},"Shortcuts":{"Shortcuts":"Jalan pintas","CreateCombo":"Buat kombo"},"About":{"About":"Tentang","GravitonDescription":"Suside adalah penyunting kode sumber terbuka."}},"Store":{"Store":"Toko","Home":{"Home":"Beranda"},"Installed":{"Installed":"Dipasang"},"Install":"Pasang","Update":"Perbarui","Uninstall":"Copot","AnyCompatibleVersion":"Tidak ada versi cocok."},"Dashboard":{"Dashboard":"Dasbor","RecentProjects":"Proyek terbaru","RecentWorkspaces":"Ruang kerja terbaru","NewProject":"Proyek baru","OpenWorkspace":"Buka ruang kerja","OpenFolder":"Buka folder"},"BrowserWelcome":{"WelcomeTitle":"Selamat datang di Suside untuk Peramban!","WelcomeMessage":"Ingat fitur ini masih sangat eksperimental dan banyak hal tidak berfungsi. \\n Untuk pengalaman yang lebih baik, unduh aplikasi desktop."},"Introduction":{"Welcome":{"WelcomeToGraviton":"Selamat datang di Suside"},"Theming":{"SelectATheme":"Pilihlah tema"},"Finished":{"Finished":"Selesai","HaveAGreatExperience":"Dapatlah pengalaman yang terbaik 😀"}}},"misc":{"Miscellaneous":"Aneka ragam","LastVersion":"Versi terakhir","InstalledVersion":"Versi terpasang","About":"Tentang","Skip":"Lewati","Finish":"Selesai","Continue":"Lanjutkan","GoBack":"Kembali","Accept":"Terima","Cancel":"Batal","version":"versi","CopyPath":"Salin pintas","More":"Lainnya","Copy":"Salin","Rename":"Ubah nama","Remove":"Lepas","OpenLocation":"Buka lokasi","NewFile":"Berkas baru","NewFolder":"Folder baru","Paste":"Tempel","Author":"Pembuat","Exit":"Keluar","Tip":"Tip","Yes":"Ya","No":"Tidak","Close":"Tutup","Ignore":"Abaikan","BuildDate":"Tanggal pembangunan","By":"oleh","Understood":"Mengerti","RemoveFromWorkspace":"Lepas dari tempat kerja","JoinTheDiscussion":"Ikuti diskusi","OpenAnyway":"Buka saja","Update":"Pembaruan","Next":"Selanjutnya","Back":"Kembali","Okay":"Oke","Languages":"Bahasa"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"Bahasa aplikasi diubah","restartMessage":"Mulai ulang aplikasi untuk memenuhi aplikasi."}},"dialogs":{"tabsUnsavedWarning":{"title":"Ada yang belum disimpan","content":"Progress bisa hilang."},"restartConfig":{"title":"Mulai ulang konfigurasi","content":"Klik lanjutkan untuk memulai ulang konfigurasi Anda. Ini tidak akan menghapus plugin apa pun."},"experimentalFeature":{"title":"Fitur percobaan","content":"Fitur ini tidak stabil dan bisa menabrak komputer anda."},"warning":{"title":"Yakin?"}},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"Tidak ada repositori yang dibuka."},"projectInspector":{"noProjectOpen":"Tidak ada proyek yang dibuka."}}}}',
+						'{"name":"Bahasa Indonesia","locale":"id","translations":{"menus":{"File":{"File":"Berkas","OpenFolder":"Buka folder","OpenFile":"Buka berkas","SaveFile":"Simpan berkas","Projects":{"Projects":"Proyek","OpenProjects":"Buka proyek"},"Workspaces":{"Workspaces":"Ruang kerja","OpenWorkspaces":"Buka ruang kerja","OpenFromFile":"Buka dari berkas","AddFolderToWorkspace":"Tambahkan folder ke ruang kerja","SaveWorkspace":"Simpan ruang kerja"}},"Edit":{"Edit":"Sunting","Undo":"Undurkan","Redo":"Ulangi","FontSize":{"FontSize":"Ukuran font","Increase":"Naik","Decrease":"Turun"},"Find":"Cari","Replace":"Ganti","FormatDocument":"Formatkan dokumen"},"Tools":{"Tools":"Alat","OpenSettings":"Pengaturan","OpenStore":"Toko","Panels":{"Panels":"Panel","NewPanel":"Panel baru","CloseCurrentPanel":"Tutup panel ini"}},"View":{"View":"Tinjau","Sidebar":"Sisi alat","Sidepanel":"Sisi panel","Terminal":"Terminal","ShowSidebar":"Tunjukkan sisi alat","ShowSidepanel":"Tunjukkan sisi panel","HideSidebar":"Sembunyikan sisi alat","HideSidepanel":"Sembunyikan sisi panel","CommandPrompt":"Jendela perintah","ExplorerPrompt":"Jendelah penjelajah"},"Window":{"Window":"Jendela","Zoom":{"Zoom":"Perbesaran","DefaultZoom":"Biasa","IncreaseZoom":"Naik","DecreaseZoom":"Turun"},"Debug":{"Debug":"Debug","OpenDebugWindow":"Jendela debug"},"OpenDevTools":"Buka DevTools"},"Help":{"Help":"Bantuan","Contact":"Hubungan","Social":"Sosial","Contributors":"Pembantu","Blog":"Blog","Documentation":"Dokumentasi","Website":"Situs web","SourceCode":"Kode sumber","ReportBug":"Laporkan masalah","CheckForUpdates":"Periksa untuk pembaruan","ShowWelcome":"Tunjukkan selamat datang","About":"Tentang"}},"windows":{"Settings":{"Settings":"Pengaturan","Customization":{"Customization":"Kustomisasi","Themes":"Tema","Iconpacks":"Paket ikon","Blur":"Buram"},"Advanced":{"Advanced":"Lanjutan","FileWatcher":"Penonton berkas","Autocomplete":"Auto selesai","WrapLines":"Bungkus baris","FoldBlocks":"Lipat blok","ManualConfig":{"ManualConfig":"Konfigurasi manual","EditConfiguration":"Sunting konfigurasi"},"Explorer":"Penjelajah","Editor":"Penyunting","GitIntegration":"Integrasi Git","LSPIntegration":"Integrasi LSP (belum selesai)","SourceTracker":"Pelacak sumber","Indentation":{"Indentation":"Indentasi","Space":"Spasi","Tab":"Tab"},"Configuration":"Konfigurasi","RestartConfig":{"RestartConfig":"Atur ulang konfigurasi"}},"Languages":{"Languages":"Bahasa","UseSystemLanguage":"Pakai bahasa sistem"},"Shortcuts":{"Shortcuts":"Jalan pintas","CreateCombo":"Buat kombo"},"About":{"About":"Tentang","GravitonDescription":"Suside adalah penyunting kode sumber terbuka."}},"Store":{"Store":"Toko","Home":{"Home":"Beranda"},"Installed":{"Installed":"Dipasang"},"Install":"Pasang","Update":"Perbarui","Uninstall":"Copot","AnyCompatibleVersion":"Tidak ada versi cocok."},"Dashboard":{"Dashboard":"Dasbor","RecentProjects":"Proyek terbaru","RecentWorkspaces":"Ruang kerja terbaru","NewProject":"Proyek baru","OpenWorkspace":"Buka ruang kerja","OpenFolder":"Buka folder"},"BrowserWelcome":{"WelcomeTitle":"Selamat datang di Suside untuk Peramban!","WelcomeMessage":"Ingat fitur ini masih sangat eksperimental dan banyak hal tidak berfungsi. \\n Untuk pengalaman yang lebih baik, unduh aplikasi desktop."},"Introduction":{"Welcome":{"WelcomeToGraviton":"Selamat datang di Suside"},"Theming":{"SelectATheme":"Pilihlah tema"},"Finished":{"Finished":"Selesai","HaveAGreatExperience":"Dapatlah pengalaman yang terbaik 😀"}}},"misc":{"Miscellaneous":"Aneka ragam","LastVersion":"Versi terakhir","InstalledVersion":"Versi terpasang","About":"Tentang","Skip":"Lewati","Finish":"Selesai","Continue":"Lanjutkan","GoBack":"Kembali","Accept":"Terima","Cancel":"Batal","version":"versi","CopyPath":"Salin pintas","More":"Lainnya","Copy":"Salin","Rename":"Ubah nama","Remove":"Lepas","OpenLocation":"Buka lokasi","NewFile":"Berkas baru","NewFolder":"Folder baru","Paste":"Tempel","Author":"Pembuat","Exit":"Keluar","Tip":"Tip","Yes":"Ya","No":"Tidak","Close":"Tutup","Ignore":"Abaikan","BuildDate":"Tanggal pembangunan","By":"oleh","Understood":"Mengerti","RemoveFromWorkspace":"Lepas dari tempat kerja","JoinTheDiscussion":"Ikuti diskusi","OpenAnyway":"Buka saja","Update":"Pembaruan","Next":"Selanjutnya","Back":"Kembali","Okay":"Oke","Languages":"Bahasa"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"Bahasa aplikasi diubah","restartMessage":"Mulai ulang aplikasi untuk memenuhi aplikasi."}},"dialogs":{"tabsUnsavedWarning":{"title":"Ada yang belum disimpan","content":"Progress bisa hilang."},"restartConfig":{"title":"Mulai ulang konfigurasi","content":"Klik lanjutkan untuk memulai ulang konfigurasi Anda. Ini tidak akan menghapus plugin apa pun."},"experimentalFeature":{"title":"Fitur percobaan","content":"Fitur ini tidak stabil dan bisa menabrak komputer anda."},"warning":{"title":"Yakin?"}},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"Tidak ada repositori yang dibuka."},"projectInspector":{"noProjectOpen":"Tidak ada proyek yang dibuka."}}}}',
 					),
 					c = {
 						english: r,
@@ -31006,7 +31006,7 @@
 						brazilian_portuguese: a,
 						french: s,
 						german: JSON.parse(
-							'{"name":"Deutsch","locale":"de","translations":{"menus":{"File":{"File":"Datei","OpenFolder":"Ordner öffnen","OpenFile":"Datei öffnen","Projects":{"Projects":"Projekte","OpenProjects":"Projekte öffnen"},"Workspaces":{"Workspaces":"Arbeitsplätze","OpenWorkspaces":"Arbeitsplätze öffnen","OpenFromFile":"Von Datei öffnen","AddFolderToWorkspace":"Ordner zum Arbeitsplatz hinzufügen","SaveWorkspace":"Arbeitsplatz speichern"}},"Edit":{"Edit":"Bearbeiten","Undo":"Rückgängig machen","Redo":"Wiederholen","FontSize":{"FontSize":"Schriftgröße","Increase":"Vergrößern","Decrease":"Verkleinern"},"Find":"Suchen","Replace":"Ersetzen","FormatDocument":"Dokument formatieren"},"Tools":{"Tools":"Tools","OpenSettings":"Einstellungen","OpenStore":"Store","Panels":{"Panels":"Panels","NewPanel":"Neues Panel","CloseCurrentPanel":"Aktuelles Panel schließen"}},"View":{"View":"Ansicht","Sidebar":"Seitenleiste","Sidepanel":"Seitliches Bedienfeld","Terminal":"Terminal","ShowSidebar":"Seitenleiste Einblenden","ShowSidepanel":"Seitliches Bedienfeld Einblendend","HideSidebar":"Seitenleiste Ausblenden","HideSidepanel":"Seitliches Bedienfeld Ausblenden"},"Window":{"Window":"Fenster","Zoom":{"Zoom":"Zoom","DefaultZoom":"Standard","IncreaseZoom":"Vergrößern","DecreaseZoom":"Verkleinern"},"Debug":{"Debug":"Debug","OpenDebugWindow":"Debug Fenster öffnen"},"OpenDevTools":"Dev Tools öffnen"},"Help":{"Help":"Hilfe","Contact":"Kontakt","Social":"Social","Contributors":"Beitragende","Blog":"Blog","Documentation":"Dokumentation","Website":"Website","SourceCode":"Quellcode","ReportBug":"Fehler Melden","CheckForUpdates":"Auf Updates überprüfen","ShowWelcome":"Willkommensnachricht Anzeigen","About":"Über"}},"windows":{"Settings":{"Settings":"Einstellungen","Customization":{"Customization":"Personalisierung","Themes":"Themes","Iconpacks":"Icon Packs"},"Advanced":{"Advanced":"Erweitert","FileWatcher":"Datei Beobachter","Autocomplete":"Autocomplete","WrapLines":"Zeilen umbrechen","ManualConfig":{"ManualConfig":"Manuelle Konfiguration","EditConfiguration":"Konfiguration Bearbeiten"},"Explorer":"Explorer","Editor":"Editor","GitIntegration":"Git Integration","LSPIntegration":"LSP Integration (Experimentell)","SourceTracker":"Quellen Tracker","Indentation":{"Indentation":"Einzug","Space":"Leerzeichen","Tab":"Tab"}},"Configuration":"Konfiguration","RestartConfig":{"RestartConfig":"Konfiguration Neustarten"},"Languages":"Sprachen","Shortcuts":{"Shortcuts":"Tastatürkürzel","CreateCombo":"Tastatürkürzel Erstellen"},"About":{"About":"Über","GravitonDescription":"Suside ist ein plattformübergreifender Editor."}},"Store":{"Store":"Store","Home":{"Home":"Home"},"Installed":{"Installed":"Installiert"},"Install":"Installieren","Update":"Aktualisieren","Uninstall":"Deinstallieren","AnyCompatibleVersion":"Jede kompatible Version."},"Welcome":{"Welcome":"Willkommen","RecentProjects":"Zuletzt geöffnete Projekte","RecentWorkspaces":"Zuletzt geöffnete Arbeitsplätze","NewProject":"Neues Projekt","OpenWorkspace":"Arbeitsplatz öffnen","OpenFolder":"Ordner öffnen"},"BrowserWelcome":{"WelcomeTitle":"Willkommen zu Suside für den Browser!","WelcomeMessage":"Dieses feature is noch sehr in der Experimentierphase und viele Sachen funktionieren noch nicht. \\n Für eine bessere Erfahrung, laden sie bitte die Desktop-Anwendung herunter."}},"misc":{"Miscellaneous":"Verschiedenes","LastVersion":"Letzte Version","InstalledVersion":"Installierte Version","About":"Über","Skip":"Überspringen","Finish":"Beenden","Continue":"Fortsetzen","GoBack":"Zurück","Accept":"Akzeptieren","Cancel":"Abbrechen","version":"Version","CopyPath":"Pfad Kopieren","More":"Mehr","Copy":"Kopieren","Rename":"Umbenennen","Remove":"Entfernen","OpenLocation":"Stelle Öffnen","NewFile":"Neue Datei","NewFolder":"Neuer Ordner","Paste":"Einfügen","Author":"Autor","Exit":"Beenden","Tip":"Trinkgeld","Yes":"Ja","No":"Nein","Close":"Schließen","Ignore":"Ignorieren","BuildDate":"Build Datum","By":"Von","Understood":"Verstanden","RemoveFromWorkspace":"Vom Arbeitsplatz Entfernen","JoinTheDiscussion":"Der Diskussion Beitreten","OpenAnyway":"Trotzdem Öffnen"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"Die Sprache der App hat sich geändert.","restartMessage":"Neustarten sie die App um die Sprache zu aktualisieren."}},"dialogs":{"tabsUnsavedWarning":{"title":"Ungespeicherte Dateien sind vorhanden.","content":"Sie könnten Fortschritt verlieren."},"restartConfig":{"title":"Neustart Einstellungen","content":"Klicken sie auf Fortfahren um die Einstellungen zu aktualisieren."},"experimentalFeature":{"title":"Experimentelles Feature","content":"Dieses Feature ist unstabil und kann Problemen verursachen."}}}}',
+							'{"name":"Deutsch","locale":"de","translations":{"menus":{"File":{"File":"Datei","OpenFolder":"Ordner öffnen","OpenFile":"Datei öffnen","Projects":{"Projects":"Projekte","OpenProjects":"Projekte öffnen"},"Workspaces":{"Workspaces":"Arbeitsplätze","OpenWorkspaces":"Arbeitsplätze öffnen","OpenFromFile":"Von Datei öffnen","AddFolderToWorkspace":"Ordner zum Arbeitsplatz hinzufügen","SaveWorkspace":"Arbeitsplatz speichern"}},"Edit":{"Edit":"Bearbeiten","Undo":"Rückgängig machen","Redo":"Wiederholen","FontSize":{"FontSize":"Schriftgröße","Increase":"Vergrößern","Decrease":"Verkleinern"},"Find":"Suchen","Replace":"Ersetzen","FormatDocument":"Dokument formatieren"},"Tools":{"Tools":"Tools","OpenSettings":"Einstellungen","OpenStore":"Store","Panels":{"Panels":"Panels","NewPanel":"Neues Panel","CloseCurrentPanel":"Aktuelles Panel schließen"}},"View":{"View":"Ansicht","Sidebar":"Seitenleiste","Sidepanel":"Seitliches Bedienfeld","Terminal":"Terminal","ShowSidebar":"Seitenleiste Einblenden","ShowSidepanel":"Seitliches Bedienfeld Einblendend","HideSidebar":"Seitenleiste Ausblenden","HideSidepanel":"Seitliches Bedienfeld Ausblenden"},"Window":{"Window":"Fenster","Zoom":{"Zoom":"Zoom","DefaultZoom":"Standard","IncreaseZoom":"Vergrößern","DecreaseZoom":"Verkleinern"},"Debug":{"Debug":"Debug","OpenDebugWindow":"Debug Fenster"},"OpenDevTools":"Dev Tools öffnen"},"Help":{"Help":"Hilfe","Contact":"Kontakt","Social":"Social","Contributors":"Beitragende","Blog":"Blog","Documentation":"Dokumentation","Website":"Website","SourceCode":"Quellcode","ReportBug":"Fehler Melden","CheckForUpdates":"Auf Updates überprüfen","ShowWelcome":"Willkommensnachricht Anzeigen","About":"Über"}},"windows":{"Settings":{"Settings":"Einstellungen","Customization":{"Customization":"Personalisierung","Themes":"Themes","Iconpacks":"Icon Packs"},"Advanced":{"Advanced":"Erweitert","FileWatcher":"Datei Beobachter","Autocomplete":"Autocomplete","WrapLines":"Zeilen umbrechen","ManualConfig":{"ManualConfig":"Manuelle Konfiguration","EditConfiguration":"Konfiguration Bearbeiten"},"Explorer":"Explorer","Editor":"Editor","GitIntegration":"Git Integration","LSPIntegration":"LSP Integration (Experimentell)","SourceTracker":"Quellen Tracker","Indentation":{"Indentation":"Einzug","Space":"Leerzeichen","Tab":"Tab"}},"Configuration":"Konfiguration","RestartConfig":{"RestartConfig":"Konfiguration Neustarten"},"Languages":"Sprachen","Shortcuts":{"Shortcuts":"Tastatürkürzel","CreateCombo":"Tastatürkürzel Erstellen"},"About":{"About":"Über","GravitonDescription":"Suside ist ein plattformübergreifender Editor."}},"Store":{"Store":"Store","Home":{"Home":"Home"},"Installed":{"Installed":"Installiert"},"Install":"Installieren","Update":"Aktualisieren","Uninstall":"Deinstallieren","AnyCompatibleVersion":"Jede kompatible Version."},"Welcome":{"Welcome":"Willkommen","RecentProjects":"Zuletzt geöffnete Projekte","RecentWorkspaces":"Zuletzt geöffnete Arbeitsplätze","NewProject":"Neues Projekt","OpenWorkspace":"Arbeitsplatz öffnen","OpenFolder":"Ordner öffnen"},"BrowserWelcome":{"WelcomeTitle":"Willkommen zu Suside für den Browser!","WelcomeMessage":"Dieses feature is noch sehr in der Experimentierphase und viele Sachen funktionieren noch nicht. \\n Für eine bessere Erfahrung, laden sie bitte die Desktop-Anwendung herunter."}},"misc":{"Miscellaneous":"Verschiedenes","LastVersion":"Letzte Version","InstalledVersion":"Installierte Version","About":"Über","Skip":"Überspringen","Finish":"Beenden","Continue":"Fortsetzen","GoBack":"Zurück","Accept":"Akzeptieren","Cancel":"Abbrechen","version":"Version","CopyPath":"Pfad Kopieren","More":"Mehr","Copy":"Kopieren","Rename":"Umbenennen","Remove":"Entfernen","OpenLocation":"Stelle Öffnen","NewFile":"Neue Datei","NewFolder":"Neuer Ordner","Paste":"Einfügen","Author":"Autor","Exit":"Beenden","Tip":"Trinkgeld","Yes":"Ja","No":"Nein","Close":"Schließen","Ignore":"Ignorieren","BuildDate":"Build Datum","By":"Von","Understood":"Verstanden","RemoveFromWorkspace":"Vom Arbeitsplatz Entfernen","JoinTheDiscussion":"Der Diskussion Beitreten","OpenAnyway":"Trotzdem Öffnen"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"Die Sprache der App hat sich geändert.","restartMessage":"Neustarten sie die App um die Sprache zu aktualisieren."}},"dialogs":{"tabsUnsavedWarning":{"title":"Ungespeicherte Dateien sind vorhanden.","content":"Sie könnten Fortschritt verlieren."},"restartConfig":{"title":"Neustart Einstellungen","content":"Klicken sie auf Fortfahren um die Einstellungen zu aktualisieren."},"experimentalFeature":{"title":"Experimentelles Feature","content":"Dieses Feature ist unstabil und kann Problemen verursachen."}}}}',
 						),
 						italian: JSON.parse(
 							'{"name":"Italian","locale":"it","translations":{"menus":{"File":{"File":"File","OpenFolder":"Apri cartella","OpenFile":"Apri file","Projects":{"Projects":"Progetti","OpenProjects":"Progetti aperti"},"Workspaces":{"Workspaces":"Workspace","OpenWorkspaces":"Apri workspace","OpenFromFile":"Apri da file","AddFolderToWorkspace":"Aggiungi cartella al workspace","SaveWorkspace":"Salva workspace"}},"Edit":{"Edit":"Modifica","Undo":"Annulla","Redo":"Ripeti","FontSize":{"FontSize":"Dimensione Font","Increase":"Aumenta","Decrease":"Diminuisci"},"Find":"Trova","Replace":"Sostituisci","FormatDocument":"Formatta Documento"},"Tools":{"Tools":"Strumenti","OpenSettings":"Impostazioni","OpenStore":"Store","Panels":{"Panels":"Pannelli","NewPanel":"Nuovo Pannello","CloseCurrentPanel":"Chiudi il pannello corrente"}},"Window":{"Window":"Finestra","Zoom":{"Zoom":"Zoom","DefaultZoom":"Default","IncreaseZoom":"Aumenta","DecreaseZoom":"Diminuisci"},"OpenDevTools":"Apri strumenti sviluppatore"},"Help":{"Help":"Aiuto","Contact":"Contatta","Social":"Social","Blog":"Blog","Documentation":"Documentazione","Website":"Sito Web","SourceCode":"Codice sorgente","CheckForUpdates":"Controlla aggiornamenti","About":"Informazioni"}},"windows":{"Settings":{"Settings":"Impostazioni","Customization":{"Customization":"Personalizzazione","Themes":"Temi","FileWatcher":"Monitora File"},"Languages":"Lingue","About":"Informazioni"},"Store":{"Store":"Store","Home":{"Home":"Home"},"Installed":{"Installed":"Installato"},"Install":"Installa","Update":"Aggiorna","Uninstall":"Disinstalla"},"Welcome":{"Welcome":"Benvenuto","RecentProjects":"Progetti recenti","RecentWorkspaces":"Workspace recenti","NewProject":"Nuovo progetto","OpenWorkspace":"Apri un workspace","OpenFolder":"Apri una cartella"}},"misc":{"LastVersion":"Ultima versione","InstalledVersion":"Versione installata","About":"Informazioni","Skip":"Salta","Finish":"Finisci","Continue":"Continua","GoBack":"Indietro","Accept":"Accetta","Cancel":"Annulla","version":"versione","More":"Di più","Copy":"Copia","Paste":"Incolla","Author":"Autore","Exit":"Esci","Tip":"Suggerimento","Yes":"Sì","No":"No","Close":"Chiudi","Ignore":"Ignora"}}}',
@@ -31016,16 +31016,16 @@
 							'{"name":"Russian","locale":"ru","translations":{"menus":{"File":{"File":"Файл","OpenFolder":"Открыть папку","OpenFile":"Открыть файл","Projects":{"Projects":"Проекты","OpenProjects":"Открытые проекты"},"Workspaces":{"Workspaces":"Рабочие зоны","OpenWorkspaces":"Открытые рабочие области","OpenFromFile":"Открыть из файла","AddFolderToWorkspace":"Добавить папку в рабочую область","SaveWorkspace":"Сохранить рабочую область"}},"Edit":{"Edit":"Правка","Undo":"Отменить","Redo":"Вернуть","FontSize":{"FontSize":"Размер шрифта","Increase":"Увеличить","Decrease":"Уменьшить"},"Find":"Найти","Replace":"Заменить","FormatDocument":"Форматировать документ"},"Tools":{"Tools":"Инструменты","OpenSettings":"Параметры","OpenStore":"Магазин","Panels":{"Panels":"Панели","NewPanel":"Новая панель","CloseCurrentPanel":"Закрыть текущую панель"}},"View":{"View":"Вид","ShowSidebar":"Показать сайдбар","ShowSidepanel":"Показать боковую панель","HideSidebar":"Скрыть сайдбар","HideSidepanel":"Скрыть боковую панель"},"Window":{"Window":"Окно","Zoom":{"Zoom":"Масштаб","DefaultZoom":"Обычный","IncreaseZoom":"Увеличить","DecreaseZoom":"Уменьшить"},"Debug":{"Debug":"Отладка","OpenDebugWindow":"Открыть окно отладки"},"OpenDevTools":"Открыть консоль разработчика"},"Help":{"Help":"Помощь","Contact":"Контакты","Social":"Социальные сети","Contributors":"Авторы","Blog":"Блог","Documentation":"Документация","Website":"Веб-сайт","SourceCode":"Исходный код","CheckForUpdates":"Проверить наличие обновлений","About":"О программе"}},"windows":{"Settings":{"Settings":"Параметры","Customization":{"Customization":"Персонализация","Themes":"Темы"},"Advanced":{"Advanced":"Продвинутые настройки","FileWatcher":"Просмотр файлов","Autocomplete":"Автозаполнение","WrapLines":"Перенос строк","Indentation":{"Indentation":"Отступы","Space":"Пробел","Tab":"Табуляция"}},"Languages":"Языки","About":{"About":"О программе","GravitonDescription":"Suside - это кроссплатформенный редактор кода."}},"Store":{"Store":"Магазин","Home":{"Home":"Главная"},"Installed":{"Installed":"Установлено"},"Install":"Установить","Update":"Обновить","Uninstall":"Удалить","AnyCompatibleVersion":"Любая совместимая версия."},"Welcome":{"Welcome":"Добро пожаловать","RecentProjects":"Недавние проекты","RecentWorkspaces":"Недавние рабочие области","NewProject":"Новый проект","OpenWorkspace":"Открыть рабочую область","OpenFolder":"Открыть папку"}},"misc":{"LastVersion":"Последняя версия","InstalledVersion":"Установленная версия","About":"О программе","Skip":"Пропустить","Finish":"Завершить","Continue":"Продолжить","GoBack":"Назад","Accept":"Принять","Cancel":"Отменить","version":"версия","CopyPath":"Скопировать путь","More":"Больше","Copy":"Копировать","Rename":"Переименовать","Remove":"Удалить","OpenLocation":"Открыть расположение","NewFile":"Новый файл","NewFolder":"Новая папка","Paste":"Вставить","Author":"Автор","Exit":"Выход","Tip":"Подсказка","Yes":"Да","No":"Нет","Close":"Закрыть","Ignore":"Оставить как есть"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"Язык приложения изменён.","restartMessage":"Перезапустите приложение, чтобы изменения вступили в силу."}}}}',
 						),
 						spanish: JSON.parse(
-							'{"name":"Español","locale":"es","translations":{"menus":{"File":{"File":"Archivo","OpenFolder":"Abrir carpeta","OpenFile":"Abrir archivo","Projects":{"Projects":"Proyectos","OpenProjects":"Abrir proyectos"},"Workspaces":{"Workspaces":"Espacios de trabajo","OpenWorkspaces":"Abrir espacios de trabajo","OpenFromFile":"Abrir desde archivo","AddFolderToWorkspace":"Añadir carpeta al espacio de trabajo","SaveWorkspace":"Guardar espacio de trabajo"}},"Edit":{"Edit":"Editar","Undo":"Deshacer","Redo":"Rehacer","FontSize":{"FontSize":"Tamaño de fuente","Increase":"Incrementar","Decrease":"Disminuir"},"Find":"Encontrar","Replace":"Reemplazar","FormatDocument":"Formatear documento"},"Tools":{"Tools":"Herramientas","OpenSettings":"Ajustes","OpenStore":"Tienda","Panels":{"Panels":"Paneles","NewPanel":"Nuevo Panel","CloseCurrentPanel":"Cerrar panel seleccionado"}},"View":{"View":"Vista","ToggleSidebar":"Mostrar/Ocultar Barra lateral","ToggleSidepanel":"Mostrar/Ocultar Panel lateral","ShowSidebar":"Mostrar barra lateral","ShowSidepanel":"Mostrar Panel lateral","HideSidebar":"Ocultar Barra lateral","HideSidepanel":"Ocultar Panel lateral","ToggleTerminal":"Mostrar/Ocultar Terminal"},"Window":{"Window":"Ventana","Zoom":{"Zoom":"Zoom","DefaultZoom":"Por defecto","IncreaseZoom":"Incrementar","DecreaseZoom":"Disminuir"},"Debug":{"Debug":"Depurar","OpenDebugWindow":"Abrir ventana de depuración"},"OpenDevTools":"Herramientas de desarrollador"},"Help":{"Help":"Ayuda","Contact":"Contactar","Social":"Social","Contributors":"Colaboradores","Blog":"Blog","Documentation":"Documentación","Website":"Página web","SourceCode":"Código fuente","CheckForUpdates":"Comprobar actualizaciones","About":"Acerca de"}},"windows":{"Settings":{"Settings":"Ajustes","Customization":{"Customization":"Personalización","Themes":"Temas","Iconpacks":"Paquetes de iconos"},"Advanced":{"Advanced":"Avanzado","FileWatcher":"Observador de archivos","Autocomplete":"Auto-completado","WrapLines":"Ajustar líneas","ManualConfig":{"ManualConfig":"Configuración manual","EditConfiguration":"Editar configuración"},"Indentation":{"Indentation":"Indentación","Space":"Espacio","Tab":"Tabulación"},"RestartConfig":{"RestartConfig":"Reiniciar configuración"}},"Languages":"Lenguajes","About":{"About":"Acerca de","GravitonDescription":"Suside es un editor multiplataforma."}},"Store":{"Store":"Tienda","Home":{"Home":"Inicio"},"Installed":{"Installed":"Instalado"},"Install":"Instalar","Update":"Actualizar","Uninstall":"Desinstalar","AnyCompatibleVersion":"No hay versiones compatibles."},"Welcome":{"Welcome":"Bienvenida","RecentProjects":"Proyectos recientes","RecentWorkspaces":"Espacios de trabajo","NewProject":"Nuevo proyecto","OpenWorkspace":"Abrir un espacio de trabajo","OpenFolder":"Abrir una carpeta"}},"misc":{"LastVersion":"Última versión","InstalledVersion":"Versión instalada","About":"Acerca de ","Skip":"Saltar","Finish":"Finalizar","Continue":"Continuar","GoBack":"Ir atrás","Accept":"Aceptar","Cancel":"Cancelar","version":"versión","CopyPath":"Copiar ruta","More":"Más","Copy":"Copiar","Rename":"Renombrar","Remove":"Eliminar","OpenLocation":"Abrir Ubicación","NewFile":"Nuevo archivo","NewFolder":"Nueva carpeta","Paste":"Pegar","Author":"Autor","Exit":"Salir","Tip":"Consejo","Yes":"Sí","No":"No","Close":"Cerrar","Ignore":"Ignorar","BuildDate":"Fecha de compilación"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"El idioma de la aplicación se ha cambiado.","restartMessage":"Reinicia la aplicación para aplicar completamente los cambios."}},"dialogs":{"tabsUnsavedWarning":{"title":"Hay archivos sin guardar.","content":"Los cambios pueden perderse."},"restartConfig":{"title":"Reiniciar configuración","content":"Haz click en \'continuar\' para reiniciar tu configuración."}}}}',
+							'{"name":"Español","locale":"es","translations":{"menus":{"File":{"File":"Archivo","OpenFolder":"Abrir carpeta","OpenFile":"Abrir archivo","Projects":{"Projects":"Proyectos","OpenProjects":"Abrir proyectos"},"Workspaces":{"Workspaces":"Espacios de trabajo","OpenWorkspaces":"Abrir espacios de trabajo","OpenFromFile":"Abrir desde archivo","AddFolderToWorkspace":"Añadir carpeta al espacio de trabajo","SaveWorkspace":"Guardar espacio de trabajo"}},"Edit":{"Edit":"Editar","Undo":"Deshacer","Redo":"Rehacer","FontSize":{"FontSize":"Tamaño de fuente","Increase":"Incrementar","Decrease":"Disminuir"},"Find":"Encontrar","Replace":"Reemplazar","FormatDocument":"Formatear documento"},"Tools":{"Tools":"Herramientas","OpenSettings":"Ajustes","OpenStore":"Tienda","Panels":{"Panels":"Paneles","NewPanel":"Nuevo Panel","CloseCurrentPanel":"Cerrar panel seleccionado"}},"View":{"View":"Vista","ToggleSidebar":"Mostrar/Ocultar Barra lateral","ToggleSidepanel":"Mostrar/Ocultar Panel lateral","ShowSidebar":"Mostrar barra lateral","ShowSidepanel":"Mostrar Panel lateral","HideSidebar":"Ocultar Barra lateral","HideSidepanel":"Ocultar Panel lateral","ToggleTerminal":"Mostrar/Ocultar Terminal"},"Window":{"Window":"Ventana","Zoom":{"Zoom":"Zoom","DefaultZoom":"Por defecto","IncreaseZoom":"Incrementar","DecreaseZoom":"Disminuir"},"Debug":{"Debug":"Depurar","OpenDebugWindow":"Ventana de depuración"},"OpenDevTools":"Herramientas de desarrollador"},"Help":{"Help":"Ayuda","Contact":"Contactar","Social":"Social","Contributors":"Colaboradores","Blog":"Blog","Documentation":"Documentación","Website":"Página web","SourceCode":"Código fuente","CheckForUpdates":"Comprobar actualizaciones","About":"Acerca de"}},"windows":{"Settings":{"Settings":"Ajustes","Customization":{"Customization":"Personalización","Themes":"Temas","Iconpacks":"Paquetes de iconos"},"Advanced":{"Advanced":"Avanzado","FileWatcher":"Observador de archivos","Autocomplete":"Auto-completado","WrapLines":"Ajustar líneas","ManualConfig":{"ManualConfig":"Configuración manual","EditConfiguration":"Editar configuración"},"Indentation":{"Indentation":"Indentación","Space":"Espacio","Tab":"Tabulación"},"RestartConfig":{"RestartConfig":"Reiniciar configuración"}},"Languages":"Lenguajes","About":{"About":"Acerca de","GravitonDescription":"Suside es un editor multiplataforma."}},"Store":{"Store":"Tienda","Home":{"Home":"Inicio"},"Installed":{"Installed":"Instalado"},"Install":"Instalar","Update":"Actualizar","Uninstall":"Desinstalar","AnyCompatibleVersion":"No hay versiones compatibles."},"Welcome":{"Welcome":"Bienvenida","RecentProjects":"Proyectos recientes","RecentWorkspaces":"Espacios de trabajo","NewProject":"Nuevo proyecto","OpenWorkspace":"Abrir un espacio de trabajo","OpenFolder":"Abrir una carpeta"}},"misc":{"LastVersion":"Última versión","InstalledVersion":"Versión instalada","About":"Acerca de ","Skip":"Saltar","Finish":"Finalizar","Continue":"Continuar","GoBack":"Ir atrás","Accept":"Aceptar","Cancel":"Cancelar","version":"versión","CopyPath":"Copiar ruta","More":"Más","Copy":"Copiar","Rename":"Renombrar","Remove":"Eliminar","OpenLocation":"Abrir Ubicación","NewFile":"Nuevo archivo","NewFolder":"Nueva carpeta","Paste":"Pegar","Author":"Autor","Exit":"Salir","Tip":"Consejo","Yes":"Sí","No":"No","Close":"Cerrar","Ignore":"Ignorar","BuildDate":"Fecha de compilación"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"El idioma de la aplicación se ha cambiado.","restartMessage":"Reinicia la aplicación para aplicar completamente los cambios."}},"dialogs":{"tabsUnsavedWarning":{"title":"Hay archivos sin guardar.","content":"Los cambios pueden perderse."},"restartConfig":{"title":"Reiniciar configuración","content":"Haz click en \'continuar\' para reiniciar tu configuración."}}}}',
 						),
 						polish: JSON.parse(
-							'{"name":"Polish","locale":"pl","translations":{"menus":{"File":{"File":"Plik","OpenFolder":"Otwórz folder","OpenFile":"Otwórz plik","SaveFile":"Zapisz plik","Projects":{"Projects":"Projekty","OpenProjects":"Otwórz projekty"},"Workspaces":{"Workspaces":"Obszary robocze","OpenWorkspaces":"Otwórz obszary robocze","OpenFromFile":"Otwórz z pliku","AddFolderToWorkspace":"Dodaj folder do obszaru roboczego","SaveWorkspace":"Zapisz obszar roboczy"}},"Edit":{"Edit":"Edytuj","Undo":"Cofnij","Redo":"Ponów","FontSize":{"FontSize":"Rozmiar czcionki","Increase":"Zwiększ","Decrease":"Zmniejsz"},"Find":"Znajdź","Replace":"Zamień","FormatDocument":"Formatuj dokument."},"Tools":{"Tools":"Narzędzia","OpenSettings":"Ustawienia","OpenStore":"Sklep","Panels":{"Panels":"Panele","NewPanel":"Nowy panel","CloseCurrentPanel":"Zamknij obecny panel"}},"View":{"View":"Widok","Sidebar":"Pasek boczny","Sidepanel":"Panel boczny","Terminal":"Terminal","ShowSidebar":"Pokaż pasek boczny","ShowSidepanel":"Pokaż panel boczny","HideSidebar":"Ukryj pasek boczny","HideSidepanel":"Ukryj panel boczny","CommandPrompt":"Wiersz poleceń","ExplorerPrompt":"Eksplorator"},"Window":{"Window":"Okno","Zoom":{"Zoom":"Powiększenie","DefaultZoom":"Domyślne","IncreaseZoom":"Powiększ","DecreaseZoom":"Zmniejsz"},"Debug":{"Debug":"Debuguj","OpenDebugWindow":"Otwórz okno debugowania"},"OpenDevTools":"Otwórz narzędzia deweloperskie"},"Help":{"Help":"Pomoc","Contact":"Kontakt","Social":"Social media","Contributors":"Twórcy","Blog":"Blog","Documentation":"Dokumentacja","Website":"Strona","SourceCode":"Kod źródłowy","ReportBug":"Zgłoś błąd","CheckForUpdates":"Sprawdź aktualizacje","ShowWelcome":"Pokaż powitanie","About":"O programie"}},"windows":{"Settings":{"Settings":"Ustawienia","Customization":{"Customization":"Dostosowywanie","Themes":"Motywy","Iconpacks":"Paczki ikon","Blur":"Rozmazanie"},"Advanced":{"Advanced":"Zaawansowane","FileWatcher":"Obserwator plików","Autocomplete":"Autouzupełnianie","WrapLines":"Zawijaj linie","FoldBlocks":"Składaj bloki","ManualConfig":{"ManualConfig":"Konfiguracja ręczna","EditConfiguration":"Edytuj konfigurację"},"Explorer":"Eksplorer","Editor":"Edytor","GitIntegration":"Integracja z Git","LSPIntegration":"Integracja z LSP(eksperymentalna)","SourceTracker":"Tracker źródła","Indentation":{"Indentation":"Wcięcia","Space":"Spacja","Tab":"Tab"},"Configuration":"Konfiguracja","RestartConfig":{"RestartConfig":"Zresetuj konfigurację"}},"Languages":"Języki","Shortcuts":{"Shortcuts":"Skróty","CreateCombo":"Stwórz kombinację"},"About":{"About":"O programie","GravitonDescription":"Suside jest otwartoźródłowym edytorem kodu."}},"Store":{"Store":"Sklep","Home":{"Home":"Strona główna"},"Installed":{"Installed":"Zainstalowane"},"Install":"Zainstaluj","Update":"Zaktualizuj","Uninstall":"Odinstaluj","AnyCompatibleVersion":"Nie ma żadnej kompatybilnej wersji."},"Dashboard":{"Dashboard":"Pulpit nawigacyjny","RecentProjects":"Ostatnie projekty","RecentWorkspaces":"Ostatnie obszary robocze","NewProject":"Nowy projekt","OpenWorkspace":"Otwórz obszar roboczy","OpenFolder":"Otwórz folder"},"BrowserWelcome":{"WelcomeTitle":"Witaj w Graviton dla przeglądarek!","WelcomeMessage":"Pamiętaj że ta wersja nadal jest eksperymentalna i dużo rzeczy może nie działać. \\n Dla lepszego doświadczenia, pobierz aplikację."},"Introduction":{"Welcome":{"WelcomeToGraviton":"Witaj w Suside"},"Theming":{"SelectATheme":"Wybierz motyw"},"Finished":{"Finished":"Skończone","HaveAGreatExperience":"Miłego korzystania 😀"}}},"misc":{"Miscellaneous":"Różne","LastVersion":"Ostatnia wersja","InstalledVersion":"Zainstalowana wersja","About":"O programie","Skip":"Pomiń","Finish":"Koniec","Continue":"Kontyntynuj","GoBack":"Cofnij","Accept":"Akceptuj","Cancel":"Anuluj","version":"wersja","CopyPath":"Skopiuj ścieżkę","More":"Więcej","Copy":"Kopiuj","Rename":"Zmień nazwę","Remove":"Usuń","OpenLocation":"Otwórz lokalizacje","NewFile":"Nowy plik","NewFolder":"Nowy folder","Paste":"Wklej","Author":"Twórca","Exit":"Wyjdź","Tip":"Wesprzyj","Yes":"Tak","No":"Nie","Close":"Zamknij","Ignore":"Ignoruj","BuildDate":"Data wersji","By":"stworzone przez","Understood":"Rozumiem","RemoveFromWorkspace":"Usuń z obszaru roboczego","JoinTheDiscussion":"Dołącz do dyskusji","OpenAnyway":"Otwórz mimo wszystko","Update":"Aktualizacja","Next":"Następny","Back":"Poprzedni","Okay":"OK","Languages":"Języki"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"Zmieniono język aplikacji.","restartMessage":"Zrestartuj aplikację, by zapisać zmiany w pełni."}},"dialogs":{"tabsUnsavedWarning":{"title":"Niektóre pliki nie są zapisane.","content":"Postęp może zostać zniszczony."},"restartConfig":{"title":"Zresetuj konfigurację","content":"Kliknij kontyntynuj by zresetować konfigurację. Nie odinstaluje to żadnej wtyczki."},"experimentalFeature":{"title":"Eksperymentalne funkcje","content":"Te funkcje nie są stabilne i mogą wywołać błędy."},"warning":{"title":"Jesteś pewny?"}},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"Żadne repozytorium nie jest otworzone."}}}}',
+							'{"name":"Polish","locale":"pl","translations":{"menus":{"File":{"File":"Plik","OpenFolder":"Otwórz folder","OpenFile":"Otwórz plik","SaveFile":"Zapisz plik","Projects":{"Projects":"Projekty","OpenProjects":"Otwórz projekty"},"Workspaces":{"Workspaces":"Obszary robocze","OpenWorkspaces":"Otwórz obszary robocze","OpenFromFile":"Otwórz z pliku","AddFolderToWorkspace":"Dodaj folder do obszaru roboczego","SaveWorkspace":"Zapisz obszar roboczy"}},"Edit":{"Edit":"Edytuj","Undo":"Cofnij","Redo":"Ponów","FontSize":{"FontSize":"Rozmiar czcionki","Increase":"Zwiększ","Decrease":"Zmniejsz"},"Find":"Znajdź","Replace":"Zamień","FormatDocument":"Formatuj dokument."},"Tools":{"Tools":"Narzędzia","OpenSettings":"Ustawienia","OpenStore":"Sklep","Panels":{"Panels":"Panele","NewPanel":"Nowy panel","CloseCurrentPanel":"Zamknij obecny panel"}},"View":{"View":"Widok","Sidebar":"Pasek boczny","Sidepanel":"Panel boczny","Terminal":"Terminal","ShowSidebar":"Pokaż pasek boczny","ShowSidepanel":"Pokaż panel boczny","HideSidebar":"Ukryj pasek boczny","HideSidepanel":"Ukryj panel boczny","CommandPrompt":"Wiersz poleceń","ExplorerPrompt":"Eksplorator"},"Window":{"Window":"Okno","Zoom":{"Zoom":"Powiększenie","DefaultZoom":"Domyślne","IncreaseZoom":"Powiększ","DecreaseZoom":"Zmniejsz"},"Debug":{"Debug":"Debuguj","OpenDebugWindow":"Okno debugowania"},"OpenDevTools":"Otwórz narzędzia deweloperskie"},"Help":{"Help":"Pomoc","Contact":"Kontakt","Social":"Social media","Contributors":"Twórcy","Blog":"Blog","Documentation":"Dokumentacja","Website":"Strona","SourceCode":"Kod źródłowy","ReportBug":"Zgłoś błąd","CheckForUpdates":"Sprawdź aktualizacje","ShowWelcome":"Pokaż powitanie","About":"O programie"}},"windows":{"Settings":{"Settings":"Ustawienia","Customization":{"Customization":"Dostosowywanie","Themes":"Motywy","Iconpacks":"Paczki ikon","Blur":"Rozmazanie"},"Advanced":{"Advanced":"Zaawansowane","FileWatcher":"Obserwator plików","Autocomplete":"Autouzupełnianie","WrapLines":"Zawijaj linie","FoldBlocks":"Składaj bloki","ManualConfig":{"ManualConfig":"Konfiguracja ręczna","EditConfiguration":"Edytuj konfigurację"},"Explorer":"Eksplorer","Editor":"Edytor","GitIntegration":"Integracja z Git","LSPIntegration":"Integracja z LSP(eksperymentalna)","SourceTracker":"Tracker źródła","Indentation":{"Indentation":"Wcięcia","Space":"Spacja","Tab":"Tab"},"Configuration":"Konfiguracja","RestartConfig":{"RestartConfig":"Zresetuj konfigurację"}},"Languages":"Języki","Shortcuts":{"Shortcuts":"Skróty","CreateCombo":"Stwórz kombinację"},"About":{"About":"O programie","GravitonDescription":"Suside jest otwartoźródłowym edytorem kodu."}},"Store":{"Store":"Sklep","Home":{"Home":"Strona główna"},"Installed":{"Installed":"Zainstalowane"},"Install":"Zainstaluj","Update":"Zaktualizuj","Uninstall":"Odinstaluj","AnyCompatibleVersion":"Nie ma żadnej kompatybilnej wersji."},"Dashboard":{"Dashboard":"Pulpit nawigacyjny","RecentProjects":"Ostatnie projekty","RecentWorkspaces":"Ostatnie obszary robocze","NewProject":"Nowy projekt","OpenWorkspace":"Otwórz obszar roboczy","OpenFolder":"Otwórz folder"},"BrowserWelcome":{"WelcomeTitle":"Witaj w Graviton dla przeglądarek!","WelcomeMessage":"Pamiętaj że ta wersja nadal jest eksperymentalna i dużo rzeczy może nie działać. \\n Dla lepszego doświadczenia, pobierz aplikację."},"Introduction":{"Welcome":{"WelcomeToGraviton":"Witaj w Suside"},"Theming":{"SelectATheme":"Wybierz motyw"},"Finished":{"Finished":"Skończone","HaveAGreatExperience":"Miłego korzystania 😀"}}},"misc":{"Miscellaneous":"Różne","LastVersion":"Ostatnia wersja","InstalledVersion":"Zainstalowana wersja","About":"O programie","Skip":"Pomiń","Finish":"Koniec","Continue":"Kontyntynuj","GoBack":"Cofnij","Accept":"Akceptuj","Cancel":"Anuluj","version":"wersja","CopyPath":"Skopiuj ścieżkę","More":"Więcej","Copy":"Kopiuj","Rename":"Zmień nazwę","Remove":"Usuń","OpenLocation":"Otwórz lokalizacje","NewFile":"Nowy plik","NewFolder":"Nowy folder","Paste":"Wklej","Author":"Twórca","Exit":"Wyjdź","Tip":"Wesprzyj","Yes":"Tak","No":"Nie","Close":"Zamknij","Ignore":"Ignoruj","BuildDate":"Data wersji","By":"stworzone przez","Understood":"Rozumiem","RemoveFromWorkspace":"Usuń z obszaru roboczego","JoinTheDiscussion":"Dołącz do dyskusji","OpenAnyway":"Otwórz mimo wszystko","Update":"Aktualizacja","Next":"Następny","Back":"Poprzedni","Okay":"OK","Languages":"Języki"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"Zmieniono język aplikacji.","restartMessage":"Zrestartuj aplikację, by zapisać zmiany w pełni."}},"dialogs":{"tabsUnsavedWarning":{"title":"Niektóre pliki nie są zapisane.","content":"Postęp może zostać zniszczony."},"restartConfig":{"title":"Zresetuj konfigurację","content":"Kliknij kontyntynuj by zresetować konfigurację. Nie odinstaluje to żadnej wtyczki."},"experimentalFeature":{"title":"Eksperymentalne funkcje","content":"Te funkcje nie są stabilne i mogą wywołać błędy."},"warning":{"title":"Jesteś pewny?"}},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"Żadne repozytorium nie jest otworzone."}}}}',
 						),
 						arabic: JSON.parse(
 							'{"name":"Arabic(العربية)","locale":"ar","translations":{"menus":{"File":{"File":"ملف","OpenFolder":"فتح مجلد","OpenFile":"فتح ملف","Projects":{"Projects":"المشاريع","OpenProjects":"فتح المشاريع"},"Workspaces":{"Workspaces":"مساحة العمل","OpenWorkspaces":"فتح مساحة العمل","OpenFromFile":"فتح من ملف","AddFolderToWorkspace":"إضافة مجلد إلى مساحة العمل","SaveWorkspace":"حفظ مساحة العمل"}},"Edit":{"Edit":"تحرير","Undo":"تراجع","Redo":"إلغاء التراجع","FontSize":{"FontSize":"حجم الخط","Increase":"تكبير","Decrease":"تصغير"},"Find":"بحث","Replace":"إستبدال","FormatDocument":"تنسيق المستند"},"Tools":{"Tools":"أدوات","OpenSettings":"الإعدادات","OpenStore":"المتجر","Panels":{"Panels":"الألواح","NewPanel":"لوح جديد","CloseCurrentPanel":"إغلاق اللوح الحالي"}},"View":{"View":"عرض","ToggleSidebar":"عرض/إخفاء الشريط الجانبي","ToggleSidepanel":"عرض/إخفاء اللوح الجانبي","ShowSidebar":"عرض الشريط الجانبي","ShowSidepanel":"عرض اللوح الجانبي","HideSidebar":"إخفاء الشريط الجانبي","HideSidepanel":"إخفاء اللوح الجانبي"},"Window":{"Window":"النافذة","Zoom":{"Zoom":"تكبير","DefaultZoom":"الحجم الافتراضي","IncreaseZoom":"تكبير","DecreaseZoom":"تصغير"},"Debug":{"Debug":"تصحيح","OpenDebugWindow":"فتح نافذة التصحيح"},"OpenDevTools":"فتح أدوات المطور"},"Help":{"Help":"المساعدة","Contact":"التواصل","Social":" التواص الاجتماعي","Contributors":"المساهمون","Blog":"مدونة","Documentation":"مستندات","Website":"الموقع","SourceCode":"مصدر الكود","CheckForUpdates":"البحث عن التحديثات","About":"عن"}},"windows":{"Settings":{"Settings":"الإعدادات","Customization":{"Customization":"التعديل","Themes":"تنسيق اللون","Iconpacks":"حزمة الرموز"},"Advanced":{"Advanced":"المتقدمة","FileWatcher":"معرض الملفات","Autocomplete":"الإكمال التلقائي","WrapLines":"تنسيق الأسطر","Indentation":{"Indentation":"المسافة الفارغة","Space":"مسافة","Tab":"Tab"}},"Languages":"اللغات","About":{"About":"عن","GravitonDescription":"Suside محرر على جميع أنظمة التشغيل"}},"Store":{"Store":"المتجر","Home":{"Home":"الرئيسية"},"Installed":{"Installed":"مثبتة"},"Install":"تحميل","Update":"تحديث","Uninstall":"إزالة","AnyCompatibleVersion":"أي إصدار متوافق"},"Welcome":{"Welcome":"مرحبا","RecentProjects":"المشاريع الأخيرة","RecentWorkspaces":"مساحات العمل الأخيرة","NewProject":"مشروع جديد","OpenWorkspace":"فتح مساحة عمل","OpenFolder":"فتح مجلد"}},"misc":{"LastVersion":"الإصدار الأخير","InstalledVersion":"الإصدار المثبت","About":"عن","Skip":"تخطي","Finish":"إنهاء","Continue":"استمرار","GoBack":"الرجوع","Accept":"موافق","Cancel":"غير موافق","version":"الإصدار","CopyPath":"نسخ المسار","More":"أكثر","Copy":"نسخ","Rename":"إعادة التسمية","Remove":"حذف","OpenLocation":"فتح مكان","NewFile":"ملف جديد","NewFolder":"مجلد جديد","Paste":"نسخ","Author":"المؤلف","Exit":"الخروج","Tip":"تلميحة","Yes":"نعم","No":"لا","Close":"إغلاق","Ignore":"تجاهل"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"تم تغيير لغة البرنامج","restartMessage":"أعد تشغيل البرنامج لكي يتم التغيرات"}}}}',
 						),
 						turkish: JSON.parse(
-							'{"name":"Türkçe","locale":"tr","translations":{"menus":{"File":{"File":"Dosya","OpenFolder":"Klasör aç","OpenFile":"Dosya aç","SaveFile":"Dosyayı kaydet","Projects":{"Projects":"Projeler","OpenProjects":"Projeleri Göster"},"Workspaces":{"Workspaces":"Çalışma Alanları","OpenWorkspaces":"Çalışma Alanlarını Göster","OpenFromFile":"Dosyadan Aç","AddFolderToWorkspace":"Çalışma Alanına Klasör Ekle","SaveWorkspace":"Çalışma Alanını Kaydet"}},"Edit":{"Edit":"Düzenle","Undo":"Geri al","Redo":"İleri al","FontSize":{"FontSize":"Yazı Tipi Boyutu","Increase":"Arttır","Decrease":"Azalt"},"Find":"Bul","Replace":"Değiştir","FormatDocument":"Dosyayı biçimlendir"},"Tools":{"Tools":"Araçlar","OpenSettings":"Ayarlar","OpenStore":"Mağaza","Panels":{"Panels":"Paneller","NewPanel":"Yeni Panel","CloseCurrentPanel":"Mevcut Paneli Kapat"}},"View":{"View":"Görünüm","Sidebar":"Kenar Çubuğu","Sidepanel":"Yan Panel","Terminal":"Uçbirim","ShowSidebar":"Kenar Çubuğunu Göster","ShowSidepanel":"Yan Paneli Göster","HideSidebar":"Kenar Çubuğunu Gizle","HideSidepanel":"Yan Paneli Gizle"},"Window":{"Window":"Pencere","Zoom":{"Zoom":"Yakınlaştır","DefaultZoom":"Varsayılan","IncreaseZoom":"Arttır","DecreaseZoom":"Azalt"},"Debug":{"Debug":"Hata Ayıklama","OpenDebugWindow":"Hata Ayıklama penceresini aç"},"OpenDevTools":"Geliştirici Araçlarını aç"},"Help":{"Help":"Yardım","Contact":"İletişim","Social":"Sosyal Medya","Contributors":"Emeği Geçenler","Blog":"Blog","Documentation":"Dökümantasyon","Website":"İnternet Sitesi","SourceCode":"Kaynak Kodu","ReportBug":"Hata Bildir","CheckForUpdates":"Güncellemeleri kontrol et","ShowWelcome":"Hoş Geldin ekranını göster","About":"Hakkında"}},"windows":{"Settings":{"Settings":"Ayarlar","Customization":{"Customization":"Kişiselleştirme","Themes":"Temalar","Iconpacks":"İkon Paketleri","Blur":"Bulanıklık"},"Advanced":{"Advanced":"Gelişmiş","FileWatcher":"Dosya İzleyici","Autocomplete":"Oto Tamamlama","WrapLines":"Satırı kaydır","FoldBlocks":"Kod Bloklarını katla","ManualConfig":{"ManualConfig":"Varsayılan yapılandırma","EditConfiguration":"Yapılandırmayı düzenle"},"Explorer":"Gezgin","Editor":"Düzenleyici","GitIntegration":"Git Entegrasyonu","LSPIntegration":"LSP Entegrasyonu (deneysel)","SourceTracker":"Kaynak İzleyici","Indentation":{"Indentation":"Satırbaşı","Space":"Boşluk","Tab":"Tab"},"Configuration":"Yapılandırma","RestartConfig":{"RestartConfig":"Yapılandırmayı sıfırla"}},"Languages":"Diller","Shortcuts":{"Shortcuts":"Kısayollar","CreateCombo":"Kısayol Oluştur"},"About":{"About":"Hakkında","GravitonDescription":"Suside bir çapraz platform dosya editörüdür."}},"Store":{"Store":"Mağaza","Home":{"Home":"Ev"},"Installed":{"Installed":"Kurulmuş"},"Install":"Kur","Update":"Güncelle","Uninstall":"Kaldır","AnyCompatibleVersion":"Uyumlu bir sürüm yok."},"Dashboard":{"Dashboard":"Kontrol Paneli","RecentProjects":"Son projeler","RecentWorkspaces":"Son çalışma alanları","NewProject":"Yeni proje","OpenWorkspace":"Çalışma alanı aç","OpenFolder":"Klasör aç"},"BrowserWelcome":{"WelcomeTitle":"Tarayıcı için Graviton\'a hoş geldin!","WelcomeMessage":"Bu özelliğin hâlâ aşırı deneysel olduğunu ve bazı özelliklerin çalışmayacağını unutmayın. \\n En iyi deneyim için masaüstü sürümünü indirin."},"Introduction":{"Welcome":{"WelcomeToGraviton":"Suside\'a hoş geldin"},"Theming":{"SelectATheme":"Bir tema seçin"},"Finished":{"Finished":"Tamamlandı","HaveAGreatExperience":"İyi bir deneyim yaşayın 😀"}}},"misc":{"Miscellaneous":"Çeşitli","LastVersion":"Son sürüm","InstalledVersion":"Kurulu sürüm","About":"Hakkında","Skip":"Atla","Finish":"Bitir","Continue":"Devam et","GoBack":"Geri dön","Accept":"Kabul et","Cancel":"İptal et","version":"sürüm","CopyPath":"Dosya yolunu kopyala","More":"Daha","Copy":"Kopyala","Rename":"Yeniden adlandır","Remove":"Kaldır","OpenLocation":"Konumu aç","NewFile":"Yeni dosya","NewFolder":"Yeni klasör","Paste":"Yapıştır","Author":"Sahip","Exit":"Çık","Tip":"İpucu","Yes":"Evet","No":"Hayır","Close":"Kapat","Ignore":"Yok say","BuildDate":"İnşa zamanı","By":"Şu kişiden ","Understood":"Anladım","RemoveFromWorkspace":"Çalışma alanından kaldır","JoinTheDiscussion":"Tartışmaya Katıl","OpenAnyway":"Yine de aç","Update":"Güncelle"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"Uygulama dili değiştirildi.","restartMessage":"Değişikliklerin tamamını uygulamak için yeniden başlatın."}},"dialogs":{"tabsUnsavedWarning":{"title":"Kaydedilmemiş dosyalar var.","content":"İlerleme kaybolabilir."},"restartConfig":{"title":"Yapılandırmayı sıfırla","content":"Yapılandırmayı sıfırlamak için tıkla. Bu herhangi bir eklentiyi kaldırmayacaktır."},"experimentalFeature":{"title":"Deneysel özellik","content":"Bu özellik stabil değil ve bazı sorunlara sebep olabilir."},"warning":{"title":"Emin misin?"},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"Açık depo yok."}}}}}',
+							'{"name":"Türkçe","locale":"tr","translations":{"menus":{"File":{"File":"Dosya","OpenFolder":"Klasör aç","OpenFile":"Dosya aç","SaveFile":"Dosyayı kaydet","Projects":{"Projects":"Projeler","OpenProjects":"Projeleri Göster"},"Workspaces":{"Workspaces":"Çalışma Alanları","OpenWorkspaces":"Çalışma Alanlarını Göster","OpenFromFile":"Dosyadan Aç","AddFolderToWorkspace":"Çalışma Alanına Klasör Ekle","SaveWorkspace":"Çalışma Alanını Kaydet"}},"Edit":{"Edit":"Düzenle","Undo":"Geri al","Redo":"İleri al","FontSize":{"FontSize":"Yazı Tipi Boyutu","Increase":"Arttır","Decrease":"Azalt"},"Find":"Bul","Replace":"Değiştir","FormatDocument":"Dosyayı biçimlendir"},"Tools":{"Tools":"Araçlar","OpenSettings":"Ayarlar","OpenStore":"Mağaza","Panels":{"Panels":"Paneller","NewPanel":"Yeni Panel","CloseCurrentPanel":"Mevcut Paneli Kapat"}},"View":{"View":"Görünüm","Sidebar":"Kenar Çubuğu","Sidepanel":"Yan Panel","Terminal":"Uçbirim","ShowSidebar":"Kenar Çubuğunu Göster","ShowSidepanel":"Yan Paneli Göster","HideSidebar":"Kenar Çubuğunu Gizle","HideSidepanel":"Yan Paneli Gizle"},"Window":{"Window":"Pencere","Zoom":{"Zoom":"Yakınlaştır","DefaultZoom":"Varsayılan","IncreaseZoom":"Arttır","DecreaseZoom":"Azalt"},"Debug":{"Debug":"Hata Ayıklama","OpenDebugWindow":"Ayıklama penceresini aç"},"OpenDevTools":"Geliştirici Araçlarını aç"},"Help":{"Help":"Yardım","Contact":"İletişim","Social":"Sosyal Medya","Contributors":"Emeği Geçenler","Blog":"Blog","Documentation":"Dökümantasyon","Website":"İnternet Sitesi","SourceCode":"Kaynak Kodu","ReportBug":"Hata Bildir","CheckForUpdates":"Güncellemeleri kontrol et","ShowWelcome":"Hoş Geldin ekranını göster","About":"Hakkında"}},"windows":{"Settings":{"Settings":"Ayarlar","Customization":{"Customization":"Kişiselleştirme","Themes":"Temalar","Iconpacks":"İkon Paketleri","Blur":"Bulanıklık"},"Advanced":{"Advanced":"Gelişmiş","FileWatcher":"Dosya İzleyici","Autocomplete":"Oto Tamamlama","WrapLines":"Satırı kaydır","FoldBlocks":"Kod Bloklarını katla","ManualConfig":{"ManualConfig":"Varsayılan yapılandırma","EditConfiguration":"Yapılandırmayı düzenle"},"Explorer":"Gezgin","Editor":"Düzenleyici","GitIntegration":"Git Entegrasyonu","LSPIntegration":"LSP Entegrasyonu (deneysel)","SourceTracker":"Kaynak İzleyici","Indentation":{"Indentation":"Satırbaşı","Space":"Boşluk","Tab":"Tab"},"Configuration":"Yapılandırma","RestartConfig":{"RestartConfig":"Yapılandırmayı sıfırla"}},"Languages":"Diller","Shortcuts":{"Shortcuts":"Kısayollar","CreateCombo":"Kısayol Oluştur"},"About":{"About":"Hakkında","GravitonDescription":"Suside bir çapraz platform dosya editörüdür."}},"Store":{"Store":"Mağaza","Home":{"Home":"Ev"},"Installed":{"Installed":"Kurulmuş"},"Install":"Kur","Update":"Güncelle","Uninstall":"Kaldır","AnyCompatibleVersion":"Uyumlu bir sürüm yok."},"Dashboard":{"Dashboard":"Kontrol Paneli","RecentProjects":"Son projeler","RecentWorkspaces":"Son çalışma alanları","NewProject":"Yeni proje","OpenWorkspace":"Çalışma alanı aç","OpenFolder":"Klasör aç"},"BrowserWelcome":{"WelcomeTitle":"Tarayıcı için Graviton\'a hoş geldin!","WelcomeMessage":"Bu özelliğin hâlâ aşırı deneysel olduğunu ve bazı özelliklerin çalışmayacağını unutmayın. \\n En iyi deneyim için masaüstü sürümünü indirin."},"Introduction":{"Welcome":{"WelcomeToGraviton":"Suside\'a hoş geldin"},"Theming":{"SelectATheme":"Bir tema seçin"},"Finished":{"Finished":"Tamamlandı","HaveAGreatExperience":"İyi bir deneyim yaşayın 😀"}}},"misc":{"Miscellaneous":"Çeşitli","LastVersion":"Son sürüm","InstalledVersion":"Kurulu sürüm","About":"Hakkında","Skip":"Atla","Finish":"Bitir","Continue":"Devam et","GoBack":"Geri dön","Accept":"Kabul et","Cancel":"İptal et","version":"sürüm","CopyPath":"Dosya yolunu kopyala","More":"Daha","Copy":"Kopyala","Rename":"Yeniden adlandır","Remove":"Kaldır","OpenLocation":"Konumu aç","NewFile":"Yeni dosya","NewFolder":"Yeni klasör","Paste":"Yapıştır","Author":"Sahip","Exit":"Çık","Tip":"İpucu","Yes":"Evet","No":"Hayır","Close":"Kapat","Ignore":"Yok say","BuildDate":"İnşa zamanı","By":"Şu kişiden ","Understood":"Anladım","RemoveFromWorkspace":"Çalışma alanından kaldır","JoinTheDiscussion":"Tartışmaya Katıl","OpenAnyway":"Yine de aç","Update":"Güncelle"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"Uygulama dili değiştirildi.","restartMessage":"Değişikliklerin tamamını uygulamak için yeniden başlatın."}},"dialogs":{"tabsUnsavedWarning":{"title":"Kaydedilmemiş dosyalar var.","content":"İlerleme kaybolabilir."},"restartConfig":{"title":"Yapılandırmayı sıfırla","content":"Yapılandırmayı sıfırlamak için tıkla. Bu herhangi bir eklentiyi kaldırmayacaktır."},"experimentalFeature":{"title":"Deneysel özellik","content":"Bu özellik stabil değil ve bazı sorunlara sebep olabilir."},"warning":{"title":"Emin misin?"},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"Açık depo yok."}}}}}',
 						),
 						simplifiedChinese: JSON.parse(
 							'{"name":"Simplified Chinese","locale":"zh-CN","translations":{"menus":{"File":{"File":"文件","OpenFolder":"打开文件夹","OpenFile":"打开文件","SaveFile":"保存文件","Projects":{"Projects":"项目","OpenProjects":"打开项目"},"Workspaces":{"Workspaces":"工作区","OpenWorkspaces":"打开工作区","OpenFromFile":"从文件打开","AddFolderToWorkspace":"将文件夹添加到工作区","SaveWorkspace":"保存工作区"}},"Edit":{"Edit":"编辑","Undo":"撤消","Redo":"重做","FontSize":{"FontSize":"字体大小","Increase":"放大","Decrease":"缩小"},"Find":"查找","Replace":"替换","FormatDocument":"格式化文档"},"Tools":{"Tools":"工具","OpenSettings":"设置","OpenStore":"插件","Panels":{"Panels":"面板","NewPanel":"新建面板","CloseCurrentPanel":"关闭当前面板"}},"View":{"View":"视图","Sidebar":"活动栏","Sidepanel":"侧边栏","Terminal":"终端","ShowSidebar":"显示活动栏","ShowSidepanel":"显示侧边栏","HideSidebar":"隐藏活动栏","HideSidepanel":"隐藏侧边栏","CommandPrompt":"命令提示符","ExplorerPrompt":"资源管理器"},"Window":{"Window":"窗口","Zoom":{"Zoom":"缩放","DefaultZoom":"默认","IncreaseZoom":"放大","DecreaseZoom":"缩小"},"Debug":{"Debug":"调试","OpenDebugWindow":"打开调试窗口"},"OpenDevTools":"打开开发工具"},"Help":{"Help":"帮助","Contact":"联系","Social":"社交","Contributors":"贡献者","Blog":"博客","Documentation":"文档","Website":"网站","SourceCode":"源码","ReportBug":"反馈","CheckForUpdates":"检查更新","ShowWelcome":"欢迎窗口","About":"关于"}},"windows":{"Settings":{"Settings":"设置","Customization":{"Customization":"定制","Themes":"主题","Iconpacks":"图标","Blur":"模糊"},"Advanced":{"Advanced":"高级","FileWatcher":"文件监视程序","Autocomplete":"自动完成","WrapLines":"换行","FoldBlocks":"折叠块","ManualConfig":{"ManualConfig":"手动配置","EditConfiguration":"编辑配置"},"Explorer":"Explorer","Editor":"编辑器","GitIntegration":"Git集成","LSPIntegration":"LSP集成（实验）","SourceTracker":"源码跟踪器","Indentation":{"Indentation":"缩进","Space":"空格","Tab":"Tab"},"Configuration":"配置","RestartConfig":{"RestartConfig":"重置配置"}},"Languages":{"Languages":"语言","UseSystemLanguage":"使用系统默认语言"},"Shortcuts":{"Shortcuts":"快捷键","CreateCombo":"创建组合键"},"About":{"About":"关于","GravitonDescription":"Suside 是一个跨平台的编辑器。"}},"Store":{"Store":"插件","Home":{"Home":"首页"},"Installed":{"Installed":"已安装"},"Install":"安装","Update":"更新","Uninstall":"卸载","AnyCompatibleVersion":"没有任何兼容版本。"},"Dashboard":{"Dashboard":"仪表板","RecentProjects":"最近的项目","RecentWorkspaces":"最近的工作区","NewProject":"新建项目","OpenWorkspace":"打开工作区","OpenFolder":"打开文件夹"},"BrowserWelcome":{"WelcomeTitle":"欢迎在浏览器访问 Suside","WelcomeMessage":"记住，这仍然是非常实验性的，大多数功能都不起作用。 \\n 为了获得更好的体验，请下载桌面应用程序。"},"Introduction":{"Welcome":{"WelcomeToGraviton":"欢迎使用 Suside"},"Theming":{"SelectATheme":"选择一个模板"},"Finished":{"Finished":"完成了","HaveAGreatExperience":"有一个很好的体验 😀"}}},"misc":{"Miscellaneous":"杂项","LastVersion":"最新版本","InstalledVersion":"已安装版本","About":"关于","Skip":"跳过","Finish":"完成","Continue":"继续","GoBack":"返回","Accept":"接受","Cancel":"取消","version":"版本","CopyPath":"复制路径","More":"更多","Copy":"复制","Rename":"重命名","Remove":"删除","OpenLocation":"打开本地路径","NewFile":"新建文件","NewFolder":"新建文件夹","Paste":"粘贴","Author":"作者","Exit":"编辑","Tip":"Tip","Yes":"是","No":"否","Close":"关闭","Ignore":"忽略","BuildDate":"编译时间","By":"于","Understood":"理解","RemoveFromWorkspace":"从工作区删除","JoinTheDiscussion":"参于讨论","OpenAnyway":"仍然打开","Update":"更新","Next":"下一个","Back":"返回","Okay":"可以","Languages":"语言"},"notifications":{"appLanguageChanged":{"appLanguageChanged":"应用程序的语言已更改。","restartMessage":"重新启动应用程序以完全应用更改。"}},"dialogs":{"tabsUnsavedWarning":{"title":"有未保存的文件。","content":"可能会失去进程。"},"restartConfig":{"title":"重新启动配置","content":"单击“继续”重新启动配置。这不会卸载任何插件。"},"experimentalFeature":{"title":"实验特性","content":"此功能不稳定，可能会导致一些问题。"},"warning":{"title":"你确定吗？"}},"sidepanels":{"sourceTracker":{"noRepositoryOpen":"没有打开存储库。"},"projectInspector":{"noProjectOpen":"没有打开的项目。"}}}}',
@@ -34738,11 +34738,11 @@
 					for (; x(e) && (r = T(e, t) || E(e, t)); )
 						if ((i.elements.push(r), w(e, K))) o.push(i), (i = r)
 						else {
-							if (w(e, X)) continue
-							if (w(e, Y))
+							if (w(e, Y)) continue
+							if (w(e, X))
 								do {
 									o.length && (i = o.pop())
-								} while (w(e, Y))
+								} while (w(e, X))
 						}
 					return n
 				}
@@ -34919,10 +34919,10 @@
 				function K(e) {
 					return B(e, 'child')
 				}
-				function X(e) {
+				function Y(e) {
 					return B(e, 'sibling')
 				}
-				function Y(e) {
+				function X(e) {
 					return B(e, 'climb')
 				}
 				function J(e) {
@@ -35413,7 +35413,7 @@
 					let i
 					for (; je(n); )
 						if ((i = He(n, t))) r.push(i)
-						else if (!ze(n, Ye)) throw Ne(n, 'Unexpected token')
+						else if (!ze(n, Xe)) throw Ne(n, 'Unexpected token')
 					return r
 				}
 				function He(e, t) {
@@ -35478,26 +35478,26 @@
 				function Ke(e) {
 					return e && 'WhiteSpace' === e.type
 				}
-				function Xe(e, t) {
+				function Ye(e, t) {
 					return e && 'Operator' === e.type && (!t || e.operator === t)
 				}
-				function Ye(e) {
-					return Xe(e, '+')
+				function Xe(e) {
+					return Ye(e, '+')
 				}
 				function Je(e) {
-					return Xe(e, ',')
+					return Ye(e, ',')
 				}
 				function Qe(e) {
 					return Je(e)
 				}
 				function et(e) {
-					return Xe(e, '!')
+					return Ye(e, '!')
 				}
 				function tt(e) {
 					return 'StringValue' === e.type || 'ColorValue' === e.type || 'NumberValue' === e.type || 'Literal' === e.type || 'Field' === e.type
 				}
 				function nt(e) {
-					return Xe(e, ':') || Xe(e, '-')
+					return Ye(e, ':') || Ye(e, '-')
 				}
 				function rt(e, t) {
 					try {
@@ -35778,13 +35778,13 @@
 						a = new g(e)
 					for (; !a.eof(); )
 						(i = a.pos),
-							a.eat(d) || a.eat(Xt) || Yt(a) ? (r || -1 === n || (o.push([t + n, t + i]), (n = -1)), a.eatWhile(d)) : (-1 === n && (n = a.pos), a.eat(40) ? r++ : a.eat(41) ? r-- : qt(a) || a.pos++)
+							a.eat(d) || a.eat(Yt) || Xt(a) ? (r || -1 === n || (o.push([t + n, t + i]), (n = -1)), a.eatWhile(d)) : (-1 === n && (n = a.pos), a.eat(40) ? r++ : a.eat(41) ? r-- : qt(a) || a.pos++)
 					return -1 !== n && n !== a.pos && o.push([t + n, t + a.pos]), o
 				}
-				function Xt(e) {
+				function Yt(e) {
 					return Vt.includes(e)
 				}
-				function Yt(e) {
+				function Xt(e) {
 					const t = e.pos
 					return !(!e.eat(45) || !e.eat(d)) || ((e.pos = t), !1)
 				}
@@ -36598,13 +36598,13 @@
 				function Kn(e) {
 					return 'object' == typeof e && 'Field' === e.type
 				}
-				function Xn(e, t) {
+				function Yn(e, t) {
 					const { out: n } = t
 					let r = -1
 					for (const i of e) 'string' == typeof i ? dn(n, i) : (hn(n, t.field + i.index, i.name), i.index > r && (r = i.index))
 					;-1 !== r && (t.field += r + 1)
 				}
-				function Yn(e) {
+				function Xn(e) {
 					return !e.implied || 'raw' !== e.valueType || (!!e.value && e.value.length > 0)
 				}
 				function Jn(e) {
@@ -36654,7 +36654,7 @@
 					const r = {},
 						{ out: i } = n
 					for (const t of e.attributes) t.name && t.value && (r[t.name.toUpperCase()] = t.value)
-					for (const e of t) 'string' == typeof e ? dn(i, e) : r[e.name] && (dn(i, e.before), Xn(r[e.name], n), dn(i, e.after))
+					for (const e of t) 'string' == typeof e ? dn(i, e) : r[e.name] && (dn(i, e.before), Yn(r[e.name], n), dn(i, e.after))
 				}
 				function or(e, t) {
 					const n = qn(t)
@@ -36690,16 +36690,16 @@
 							dn(o, `<${t}`),
 							e.attributes)
 						)
-							for (const t of e.attributes) Yn(t) && sr(t, r)
+							for (const t of e.attributes) Xn(t) && sr(t, r)
 						if (!e.selfClosing || e.children.length || e.value) {
 							if ((dn(o, '>'), !lr(e, r, i))) {
 								if (e.value) {
 									const t = e.value.some(fr)
-									t && pn(r.out, ++o.level), Xn(e.value, r), t && pn(r.out, --o.level)
+									t && pn(r.out, ++o.level), Yn(e.value, r), t && pn(r.out, --o.level)
 								}
 								if ((e.children.forEach(i), !e.value && !e.children.length)) {
 									const t = a.options['output.formatLeafNode'] || a.options['output.formatForce'].includes(e.name)
-									t && pn(r.out, ++o.level), Xn(Un, r), t && pn(r.out, --o.level)
+									t && pn(r.out, ++o.level), Yn(Un, r), t && pn(r.out, --o.level)
 								}
 							}
 							dn(o, `</${t}>`),
@@ -36720,7 +36720,7 @@
 									}
 								})(a)}>`,
 							)
-					} else !lr(e, r, i) && e.value && (Xn(e.value, r), e.children.forEach(i))
+					} else !lr(e, r, i) && e.value && (Yn(e.value, r), e.children.forEach(i))
 					if (s && t === n.length - 1 && r.parent) {
 						const e = Gn(r.parent) ? 0 : 1
 						pn(o, o.level - e)
@@ -36736,17 +36736,17 @@
 						let s = e.value
 						vn(e, r) && !s ? r.options['output.compactBoolean'] || (s = [i]) : s || (s = Un),
 							dn(n, ' ' + i),
-							s ? (dn(n, '=' + o), Xn(s, t), dn(n, a)) : 'html' !== r.options['output.selfClosingStyle'] && dn(n, '=' + o + a)
+							s ? (dn(n, '=' + o), Yn(s, t), dn(n, a)) : 'html' !== r.options['output.selfClosingStyle'] && dn(n, '=' + o + a)
 					}
 				}
 				function lr(e, t, n) {
 					if (e.value && e.children.length) {
 						const r = e.value.findIndex(Kn)
 						if (-1 !== r) {
-							Xn(e.value.slice(0, r), t)
+							Yn(e.value.slice(0, r), t)
 							const i = t.out.line
 							let o = r + 1
-							return e.children.forEach(n), t.out.line !== i && 'string' == typeof e.value[o] && dn(t.out, e.value[o++].trimLeft()), Xn(e.value.slice(o), t), !0
+							return e.children.forEach(n), t.out.line !== i && 'string' == typeof e.value[o] && dn(t.out, e.value[o++].trimLeft()), Yn(e.value.slice(o), t), !0
 						}
 					}
 					return !1
@@ -36800,11 +36800,11 @@
 								n.value &&
 									('class' === n.name
 										? (dn(t.out, '.'),
-										  Xn(
+										  Yn(
 												n.value.map(e => ('string' == typeof e ? e.replace(/\s+/g, '.') : e)),
 												t,
 										  ))
-										: (dn(t.out, '#'), Xn(n.value, t)))
+										: (dn(t.out, '#'), Yn(n.value, t)))
 						})(s, r),
 						(function (e, t) {
 							if (e.length) {
@@ -36813,12 +36813,12 @@
 								for (let o = 0; o < e.length; o++) {
 									const a = e[o]
 									dn(n, mn(a.name || '', r)),
-										vn(a, r) && !a.value ? !r.options['output.compactBoolean'] && i.booleanValue && dn(n, '=' + i.booleanValue) : (dn(n, '=' + gn(a, r, !0)), Xn(a.value || Un, t), dn(n, gn(a, r))),
+										vn(a, r) && !a.value ? !r.options['output.compactBoolean'] && i.booleanValue && dn(n, '=' + i.booleanValue) : (dn(n, '=' + gn(a, r, !0)), Yn(a.value || Un, t), dn(n, gn(a, r))),
 										o !== e.length - 1 && i.glueAttribute && dn(n, i.glueAttribute)
 								}
 								i.afterAttribute && dn(n, i.afterAttribute)
 							}
-						})(l.filter(Yn), r),
+						})(l.filter(Xn), r),
 						!e.selfClosing || e.value || e.children.length
 							? ((function (e, t) {
 									if (!e.value && e.children.length) return
@@ -36834,7 +36834,7 @@
 											return n.length && t.push(n), t
 										})(n),
 										{ out: i, options: o } = t
-									if (1 === r.length) (e.name || e.attributes) && un(i, ' '), Xn(n, t)
+									if (1 === r.length) (e.name || e.attributes) && un(i, ' '), Yn(n, t)
 									else {
 										const e = []
 										let n = 0
@@ -36843,7 +36843,7 @@
 											e.push(r), r > n && (n = r)
 										}
 										i.level++
-										for (let a = 0; a < r.length; a++) pn(i, !0), o.beforeTextLine && un(i, o.beforeTextLine), Xn(r[a], t), o.afterTextLine && (un(i, ' '.repeat(n - e[a])), un(i, o.afterTextLine))
+										for (let a = 0; a < r.length; a++) pn(i, !0), o.beforeTextLine && un(i, o.beforeTextLine), Yn(r[a], t), o.afterTextLine && (un(i, ' '.repeat(n - e[a])), un(i, o.afterTextLine))
 										i.level--
 									}
 							  })(e, r),
@@ -37802,18 +37802,18 @@
 						t
 					)
 				}
-				function Xr(e = {}, t = {}) {
+				function Yr(e = {}, t = {}) {
 					const n = e.type || 'markup',
 						r = e.syntax || Ur[n]
 					return Object.assign(Object.assign(Object.assign({}, Gr), e), {
 						type: n,
 						syntax: r,
-						variables: Yr(n, r, 'variables', e, t),
-						snippets: Yr(n, r, 'snippets', e, t),
-						options: Yr(n, r, 'options', e, t),
+						variables: Xr(n, r, 'variables', e, t),
+						snippets: Xr(n, r, 'snippets', e, t),
+						options: Xr(n, r, 'options', e, t),
 					})
 				}
-				function Yr(e, t, n, r, i = {}) {
+				function Xr(e, t, n, r, i = {}) {
 					const o = Vr[e],
 						a = i[e],
 						s = Vr[t],
@@ -38015,7 +38015,7 @@
 					return 41 === e || ('markup' === t && (93 === e || 125 === e))
 				}
 				function Ci(e, t) {
-					const n = Xr(t)
+					const n = Yr(t)
 					return 'stylesheet' === n.type
 						? (function (e, t) {
 								return (function (e, t) {
@@ -38328,7 +38328,7 @@
 					Vi = { '{': '}', '[': ']', '(': ')' }
 				for (const e of Object.keys(Vi));
 				let Ki = 0
-				function Xi(e, t) {
+				function Yi(e, t) {
 					const n = eo(e, t)
 					let r = 0,
 						i = n.length
@@ -38336,7 +38336,7 @@
 					for (; i > r && oo(n[i - 1]); ) i--
 					return [t[0] + r, t[0] + i]
 				}
-				function Yi(e, t, n) {
+				function Xi(e, t, n) {
 					let r,
 						i,
 						o = n.indexOf(Ui),
@@ -38556,13 +38556,13 @@
 				function Ko(e) {
 					return e.getOption('indentWithTabs') ? '\t' : ' '.repeat(e.getOption('indentUnit') || 0)
 				}
-				let Xo = {}
-				function Yo(e, t, n) {
-					let r = { cache: Xo }
+				let Yo = {}
+				function Xo(e, t, n) {
+					let r = { cache: Yo }
 					const i = { 'output.field': Go(), 'output.format': !n || !n.inline }
 					n && (Object.assign(r, n), n.options && Object.assign(i, n.options)), (r.options = i)
 					const o = ot(e)
-					return o.config && (r = Xr(r, o.config)), Ci(t, r)
+					return o.config && (r = Yr(r, o.config)), Ci(t, r)
 				}
 				function Jo(e, t, n = 'markup', r) {
 					return bi(e, t, Object.assign({ lookAhead: 'stylesheet' !== n, type: n }, r))
@@ -39440,7 +39440,7 @@
 					}
 				}
 				function Ia(e, t, n, r) {
-					Yi(e, n, Yo(e, t, r))
+					Xi(e, n, Xo(e, t, r))
 				}
 				function Fa(e) {
 					if (!da(e)) return ao(e)
@@ -39507,7 +39507,7 @@
 								const { open: r, close: i } = n,
 									o = t[0]
 								if (Wa(r, o) || (i && Wa(i, o))) return [r[0], i ? i[1] : r[1]]
-								if (i) return Xi(e, [r[1], i[0]])
+								if (i) return Yi(e, [r[1], i[0]])
 							}
 							return t
 						})(
@@ -39543,8 +39543,8 @@
 						const n = s.value.trim()
 						if (n)
 							try {
-								const t = Yo(e, n, o)
-								Yi(e, i, t), (c = !0), a.classList.contains(za) && ((l.innerHTML = ''), a.classList.remove(za))
+								const t = Xo(e, n, o)
+								Xi(e, i, t), (c = !0), a.classList.contains(za) && ((l.innerHTML = ''), a.classList.remove(za))
 							} catch (e) {
 								;(c = !1), a.classList.add(za), (l.innerHTML = uo(e)), console.error(e)
 							}
@@ -39702,16 +39702,16 @@
 							const t = so(e, n),
 								{ syntax: r } = wo(e, t[0]),
 								i = r && To(r) ? Ua : qa,
-								o = Ya(e, t[0])
+								o = Xa(e, t[0])
 							if (o && o.commentStart) Va(e, o)
 							else if (o && fo(t)) {
 								let t = 0
-								for (const n of Xa(e, o.range, i).reverse()) t += Va(e, n)
+								for (const n of Ya(e, o.range, i).reverse()) t += Va(e, n)
 								Ka(e, [o.range[0], o.range[1] - t], i)
 							} else if (fo(t)) {
 								const t = e.getLine(n.anchor.line),
 									r = so(e, { anchor: { line: n.anchor.line, ch: 0 }, head: { line: n.anchor.line, ch: t.length } })
-								Ka(e, Xi(e, r), i)
+								Ka(e, Yi(e, r), i)
 							} else Ka(e, t, i)
 						}
 					})
@@ -39732,7 +39732,7 @@
 					const [r, i] = to(e, t)
 					e.replaceRange(' ' + n[1], i, i), e.replaceRange(n[0] + ' ', r, r)
 				}
-				function Xa(e, t, n) {
+				function Ya(e, t, n) {
 					const r = [],
 						i = eo(e, t)
 					let o = t[0],
@@ -39748,7 +39748,7 @@
 					}
 					return r
 				}
-				function Ya(e, t) {
+				function Xa(e, t) {
 					const { syntax: n } = wo(e, t)
 					if (n) {
 						if (Eo(n))
@@ -39934,7 +39934,7 @@
 										let o = Math.abs(r).toFixed(n)
 										return (o = o.replace(/\.?0+$/, '')), ('.' !== e[0] && !e.startsWith('-.')) || '0' !== o[0] || (o = o.slice(1)), (i ? '-' : '') + o
 									})(eo(e, r), t)
-									Yi(e, r, i), (n = { anchor: e.posFromIndex(r[0]), head: e.posFromIndex(r[0] + i.length) })
+									Xi(e, r, i), (n = { anchor: e.posFromIndex(r[0]), head: e.posFromIndex(r[0] + i.length) })
 								}
 								return n
 							})
@@ -39955,10 +39955,10 @@
 								if (n) {
 									!(function (e, { open: t, close: n }) {
 										if (n) {
-											const r = Xi(e, [t[1], n[0]])
-											if (fo(r)) Yi(e, [t[0], n[1]], '')
+											const r = Yi(e, [t[1], n[0]])
+											if (fo(r)) Xi(e, [t[0], n[1]], '')
 											else {
-												Yi(e, [r[1], n[1]], '')
+												Xi(e, [r[1], n[1]], '')
 												const i = e.posFromIndex(t[0]),
 													o = e.posFromIndex(n[1])
 												if (i.line !== o.line) {
@@ -39968,12 +39968,12 @@
 													for (; n <= o.line; ) {
 														const t = e.indexFromPos({ line: n, ch: 0 }),
 															r = [t, t + s.length]
-														oo(eo(e, r)) && (console.log('replace "%s" with "%s"', eo(e, r), a), Yi(e, r, a)), n++
+														oo(eo(e, r)) && (console.log('replace "%s" with "%s"', eo(e, r), a), Xi(e, r, a)), n++
 													}
 												}
-												Yi(e, [t[0], r[0]], '')
+												Xi(e, [t[0], r[0]], '')
 											}
-										} else Yi(e, t, '')
+										} else Xi(e, t, '')
 									})(e, n)
 									const t = e.posFromIndex(n.open[0])
 									return { anchor: t, head: t }
@@ -40022,15 +40022,15 @@
 							if (o) {
 								const { open: t, close: r } = o
 								if (r) {
-									Yi(e, [t[1], r[1]], '')
+									Xi(e, [t[1], r[1]], '')
 									let i = oo(cs(e, t[1] - 2)) ? '/' : ' /'
-									Yi(e, [t[1] - 1, t[1] - 1], i), n.push(fs(e, t[1] + i.length))
+									Xi(e, [t[1] - 1, t[1] - 1], i), n.push(fs(e, t[1] + i.length))
 								} else {
 									const r = `</${o.name}>`
-									if ((Yi(e, [t[1], t[1]], r), '/' === cs(e, t[1] - 2))) {
+									if ((Xi(e, [t[1], t[1]], r), '/' === cs(e, t[1] - 2))) {
 										let r = t[1] - 2,
 											i = t[1] - 1
-										oo(cs(e, r - 1)) && r--, Yi(e, [r, i], ''), n.push(fs(e, t[1] - i + r))
+										oo(cs(e, r - 1)) && r--, Xi(e, [r, i], ''), n.push(fs(e, t[1] - i + r))
 									} else n.push(fs(e, t[1]))
 								}
 							} else n.push(r)
@@ -40285,7 +40285,7 @@
 									u.defineMode('emmet-css-abbreviation', La),
 									u.defineMode('emmet-snippet', Pa),
 									u.defineExtension('expandAbbreviation', function (e, t = ra(this, 0)) {
-										return Yo(this, e, t)
+										return Xo(this, e, t)
 									}),
 									u.defineExtension('emmetOptions', function (e = 0) {
 										return ra(this, e)
@@ -40305,8 +40305,8 @@
 														displayText: r,
 														hint: () => {
 															pa(e)
-															const r = Yo(e, t, n.config)
-															Yi(e, n.range, r)
+															const r = Xo(e, t, n.config)
+															Xi(e, n.range, r)
 														},
 														from: e.posFromIndex(n.range[0]),
 														to: e.posFromIndex(n.range[1]),
@@ -53137,10 +53137,12 @@
 			var O = __webpack_require__(4365),
 				M = __webpack_require__(9669),
 				D = __webpack_require__.n(M)
-			const I = JSON.parse('{"i8":"2.3.1","Mt":[{"name":"zeankun.dev","url":"https://zeankundev.github.io"},{"name":"and many more...","url":"#"}]}')
+			const I = JSON.parse(
+				'{"i8":"2.3.2","Mt":[{"name":"zeankun.dev","url":"https://zeankundev.github.io"},{"name":"RPiNews (AmogOS dev)","url":"https://github.com/mobilegmYT"},{"name":"Screecharan (5R33CH4)","url":"https://github.com/5R33CH4"}]}',
+			)
 			var F = __webpack_require__(1249),
 				B = __webpack_require__.n(F)
-			const R = JSON.parse('{"hT":"Mon Sep 06 2021","C2":"dev","OB":"production"}')
+			const R = JSON.parse('{"hT":"Thu Sep 16 2021","C2":"dev","OB":"production"}')
 			var j
 			!(function (e) {
 				;(e.dev = 'devVersion'), (e.beta = 'betaVersion'), (e.stable = 'stableVersion')
@@ -53210,10 +53212,10 @@
 		<Input mounted="${G}" :keyup="${U}" placeHolder="Search" class="${q}"/>
 	`
 				}
-			var X = __webpack_require__(6688)
-			function Y({ component: t }) {
+			var Y = __webpack_require__(6688)
+			function X({ component: t }) {
 				return e.element`<div :loaded="${function () {
-					0 === this.children.length && (0, e.render)((0, e.element)({ addons: [(0, e.lang)(X.B)] })`<div>${t()}</div>`, this)
+					0 === this.children.length && (0, e.render)((0, e.element)({ addons: [(0, e.lang)(Y.B)] })`<div>${t()}</div>`, this)
 				}}"/>`
 			}
 			var J = __webpack_require__(4946)
@@ -53604,9 +53606,9 @@
 				if (t.disabled) return !1
 				switch (t.type) {
 					case 'title':
-						return (0, e.element)({ components: { H4: p.Titles.h4 }, addons: [(0, e.lang)(X.B)] })`<H4 class="section" lang-string="${t.label}"/>`
+						return (0, e.element)({ components: { H4: p.Titles.h4 }, addons: [(0, e.lang)(Y.B)] })`<H4 class="section" lang-string="${t.label}"/>`
 					case 'switch':
-						return (0, e.element)({ components: { Switch: Se }, addons: [(0, e.lang)(X.B)] })`<Switch mounted="${function () {
+						return (0, e.element)({ components: { Switch: Se }, addons: [(0, e.lang)(Y.B)] })`<Switch mounted="${function () {
 							t.liveUpdate &&
 								T.Z.keyChanged(t.key, e => {
 									this.toggle(e)
@@ -53617,7 +53619,7 @@
 						}}" data="${{ default: T.Z.data[t.key], label: t.label }}"/>`
 					case 'radioGroup':
 						let n = !0
-						const r = (0, e.element)({ components: { RadioGroup: p.RadioGroup }, addons: [(0, e.lang)(X.B)] })`
+						const r = (0, e.element)({ components: { RadioGroup: p.RadioGroup }, addons: [(0, e.lang)(Y.B)] })`
 				<RadioGroup mounted="${function () {
 					t.liveUpdate &&
 						T.Z.keyChanged(t.key, e => {
@@ -53637,16 +53639,16 @@
 						}}" styled="${null == t.styled || t.styled}" options="${t.radios}"/>`
 						return 'horizontally' === t.direction ? e.element`<div style="overflow: auto; padding: 4px 0px;">${r}</div>` : r
 					case 'button':
-						return (0, e.element)({ components: { Button: p.Button }, addons: [(0, e.lang)(X.B)] })`<Button :click="${function (e) {
+						return (0, e.element)({ components: { Button: p.Button }, addons: [(0, e.lang)(Y.B)] })`<Button :click="${function (e) {
 							t.onClick.bind(this)(e, { getComponentFromScheme: Me })
 						}}" lang-string="${t.label}"/>`
 					case 'section':
 						const i = t.content.map(e => Me(e)).filter(Boolean)
-						return (0, e.element)({ components: { Section: Te }, addons: [(0, e.lang)(X.B)] })`<Section>${i}</Section>`
+						return (0, e.element)({ components: { Section: Te }, addons: [(0, e.lang)(Y.B)] })`<Section>${i}</Section>`
 					case 'text':
-						return (0, e.element)({ components: { Text: p.Text }, addons: [(0, e.lang)(X.B)] })`<Text class="section" lang-string="${t.label}"/>`
+						return (0, e.element)({ components: { Text: p.Text }, addons: [(0, e.lang)(Y.B)] })`<Text class="section" lang-string="${t.label}"/>`
 					case 'slider':
-						return (0, e.element)({ components: { Slider: Le }, addons: [(0, e.lang)(X.B)] })`<Slider :change="${function (e) {
+						return (0, e.element)({ components: { Slider: Le }, addons: [(0, e.lang)(Y.B)] })`<Slider :change="${function (e) {
 							const n = e.detail.value
 							n !== T.Z.data[t.key] && (T.Z.data[t.key] = n)
 						}}" min="${t.min}" max="${t.max}" step="${t.step}" value="${t.default}" class="section" data="${{ label: t.label }}"/>`
@@ -53805,7 +53807,7 @@
 					o = new $.Z({
 						title: 'settings',
 						component: function () {
-							return (0, e.element)({ components: { H1: p.Titles.h1, SideMenu: Z.Z, SideMenuSearcher: K, SideMenuPage: Y } })`
+							return (0, e.element)({ components: { H1: p.Titles.h1, SideMenu: Z.Z, SideMenuSearcher: K, SideMenuPage: X } })`
 			<SideMenu default="customization">
 				<div>
 					<H1 lang-string="windows.Settings.Settings"/>
@@ -53937,7 +53939,7 @@
 	</div>
 	`
 				},
-				Xe = t.css`
+				Ye = t.css`
 	& .content {
 		overflow: hidden;
 	}
@@ -54001,7 +54003,7 @@
 		border-radius: 6px;
 	}
 `,
-				Ye = t.css`
+				Xe = t.css`
 	padding: 3px 11px !important;
 	& > div {
 		height: 85px;
@@ -54069,7 +54071,7 @@
 				<H1>${this.usefulPackage.name}</H1>
 				<label to="about" lang-string="misc.About"/>
 			</div>
-			<div class="${Xe}">
+			<div class="${Ye}">
 				<div href="about" class="content">
 					<div>
 						<div class="horizontal_view">
@@ -54177,7 +54179,7 @@
 					;(this.localPackage = je(this.remotePackage.id)), this.init()
 				}
 			})(r, o, i, t)
-		}}" class="${Ye}">
+		}}" class="${Xe}">
 			<div>
 				<Icon class="plugin_icon"/>
 				<div>
@@ -54529,8 +54531,22 @@
 			const {
 					electron: { ipcRenderer: vt },
 				} = n.Z,
-				{ openExternal: bt } = n.Z,
-				_t = t.css`
+				bt = function () {
+					const e = Math.random()
+					let t = !1
+					const n = new gt.Z({ name: 'Debug Window' })
+					n.on('start', () => {
+						t || (vt.invoke('create-debug-window', e), (t = !0))
+					}),
+						n.on('reload', () => {
+							vt.invoke('reload-debug-window', e)
+						}),
+						n.on('stop', () => {
+							vt.invoke('close-debug-window', e)
+						})
+				},
+				{ openExternal: _t } = n.Z,
+				yt = t.css`
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -54546,14 +54562,14 @@
 		margin-top: 20px;
 	}
 `
-			function yt() {
+			function xt() {
 				const t = (0, e.element)({ components: { H2: p.Titles.h2, Text: p.Text, Button: p.Button } })`
-		<div class="${_t}">
+		<div class="${yt}">
 			<div>
 				<H2 lang-string="windows.BrowserWelcome.WelcomeTitle"/>
 				<Text lang-string="windows.BrowserWelcome.WelcomeMessage"/>
 				<Button lang-string="misc.JoinTheDiscussion" :click="${() => {
-					bt('https://github.com/Graviton-Code-Editor/Graviton-App/discussions/221'), n.close()
+					_t('https://github.com/Graviton-Code-Editor/Graviton-App/discussions/221'), n.close()
 				}}"/>
 				<Button lang-string="misc.Understood" :click="${() => n.close()}"/>
 			</div>
@@ -54563,16 +54579,16 @@
 				return n
 			}
 			const {
-					electron: { ipcRenderer: xt, clipboard: wt },
-					openExternal: kt,
+					electron: { ipcRenderer: wt, clipboard: kt },
+					openExternal: Ct,
 				} = n.Z,
-				Ct = i.Z.data.isBrowser
-			function St(e) {
+				St = i.Z.data.isBrowser
+			function Et(e) {
 				new H.Z({
 					button: e,
 					list: [
 						(() => {
-							if (!Ct)
+							if (!St)
 								return {
 									label: 'menus.Help.CheckForUpdates',
 									action() {
@@ -54583,11 +54599,11 @@
 								}
 						})(),
 						(() => {
-							if (Ct)
+							if (St)
 								return {
 									label: 'menus.Help.ShowWelcome',
 									action() {
-										yt().launch()
+										xt().launch()
 									},
 								}
 						})(),
@@ -54599,295 +54615,6 @@
 						},
 					],
 				})
-			}
-			const Et = function () {
-				'darwin' === r.Z && St('Graviton'),
-					Ct ||
-						new H.Z({
-							button: 'menus.File.File',
-							list: [
-								{
-									label: 'menus.File.OpenFile',
-									action: () => {
-										;(0, nt.ZB)().then(function (e) {
-											i.Z.emit('loadFile', { filePath: e })
-										})
-									},
-								},
-								{
-									label: 'menus.File.OpenFolder',
-									action: () => {
-										;(0, nt.$W)().then(function (e) {
-											i.Z.emit('addFolderToRunningWorkspace', { folderPath: e, replaceOldExplorer: !0, workspacePath: null })
-										})
-									},
-								},
-								{},
-								{
-									label: 'menus.File.SaveFile',
-									action: () => {
-										i.Z.emit('command.saveCurrentFile')
-									},
-								},
-								{},
-								{
-									label: 'menus.File.Projects.Projects',
-									list: [
-										{
-											label: 'menus.File.Projects.OpenProjects',
-											action: () => {
-												ft().launch()
-											},
-										},
-									],
-								},
-								{
-									label: 'menus.File.Workspaces.Workspaces',
-									list: [
-										{
-											label: 'menus.File.Workspaces.OpenWorkspaces',
-											action: () => {
-												ft({ defaultPage: 'workspaces' }).launch()
-											},
-										},
-										{
-											label: 'menus.File.Workspaces.OpenFromFile',
-											action: () => {
-												i.Z.emit('openWorkspaceDialog')
-											},
-										},
-										{},
-										{
-											label: 'menus.File.Workspaces.AddFolderToWorkspace',
-											action: () => {
-												i.Z.emit('addFolderToRunningWorkspaceDialog', { replaceOldExplorer: !1 })
-											},
-										},
-										{
-											label: 'menus.File.Workspaces.SaveWorkspace',
-											action: () => {
-												i.Z.emit('saveCurrentWorkspace')
-											},
-										},
-									],
-								},
-							],
-						}),
-					new H.Z({
-						button: 'menus.Edit.Edit',
-						list: [
-							{
-								label: 'menus.Edit.Undo',
-								action: () => {
-									if (!i.Z.data.focusedEditor) return
-									const { client: e, instance: t } = i.Z.data.focusedEditor
-									e.do('executeUndo', { instance: t })
-								},
-							},
-							{
-								label: 'menus.Edit.Redo',
-								action: () => {
-									if (!i.Z.data.focusedEditor) return
-									const { client: e, instance: t } = i.Z.data.focusedEditor
-									e.do('executeRedo', { instance: t })
-								},
-							},
-							{},
-							{
-								label: 'misc.Copy',
-								accelerator: 'CmdOrCtrl+C',
-								selector: 'copy:',
-								action: () => {
-									if (!i.Z.data.focusedEditor) return
-									const { client: e, instance: t } = i.Z.data.focusedEditor,
-										n = e.do('getSelection', { instance: t, action: () => i.Z.emit('hideAllFloatingComps') })
-									wt.writeText(n),
-										i.Z.emit('writeToClipboard', n),
-										setTimeout(() => {
-											e.do('doFocus', { instance: t })
-										}, 10)
-								},
-							},
-							{
-								label: 'misc.Paste',
-								accelerator: 'CmdOrCtrl+V',
-								selector: 'paste:',
-								action: () => {
-									if (!i.Z.data.focusedEditor) return
-									const { client: e, instance: t } = i.Z.data.focusedEditor,
-										{ line: n, ch: r } = e.do('getCursorPosition', { instance: t })
-									e.do('pasteContent', { instance: t, from: { line: n - 1, ch: r - 1 }, text: wt.readText() }),
-										setTimeout(() => {
-											e.do('doFocus', { instance: t })
-										}, 10)
-								},
-							},
-							{},
-							{
-								label: 'menus.Edit.FontSize.FontSize',
-								list: [
-									{
-										label: 'menus.Edit.FontSize.Increase',
-										action: () => {
-											i.Z.emit('command.increaseFontSize')
-										},
-									},
-									{
-										label: 'menus.Edit.FontSize.Decrease',
-										action: () => {
-											i.Z.emit('command.decreaseFontSize')
-										},
-									},
-								],
-							},
-							{},
-							{
-								label: 'menus.Edit.Find',
-								action: () => {
-									if (!i.Z.data.focusedEditor) return
-									const { client: e, instance: t } = i.Z.data.focusedEditor
-									e.do('openFind', { instance: t })
-								},
-							},
-							{
-								label: 'menus.Edit.Replace',
-								action: () => {
-									if (!i.Z.data.focusedEditor) return
-									const { client: e, instance: t } = i.Z.data.focusedEditor
-									e.do('openReplace', { instance: t })
-								},
-							},
-							{},
-							{
-								label: 'menus.Edit.FormatDocument',
-								action: () => {
-									if (!i.Z.data.focusedEditor) return
-									const { client: e, instance: t } = i.Z.data.focusedEditor
-									e.do('doIndent', { instance: t })
-								},
-							},
-						],
-					}),
-					new H.Z({
-						button: 'menus.Tools.Tools',
-						list: [
-							{ label: 'menus.Tools.OpenSettings', action: () => De().launch() },
-							(() => {
-								if (!Ct) return { label: 'menus.Tools.OpenStore', action: () => tt().launch() }
-							})(),
-							{},
-							{
-								label: 'menus.Tools.Panels.Panels',
-								list: [
-									{ label: 'menus.Tools.Panels.NewPanel', action: () => i.Z.emit('command.newPanel') },
-									{ label: 'menus.Tools.Panels.CloseCurrentPanel', action: () => i.Z.emit('command.closeCurrentPanel') },
-								],
-							},
-						],
-					}),
-					new H.Z({
-						button: 'menus.View.View',
-						list: [
-							{
-								type: 'checkbox',
-								label: 'menus.View.Sidebar',
-								checked: T.Z.data.appEnableSidebar,
-								mounted({ setChecked: e }) {
-									T.Z.keyChanged('appEnableSidebar', t => {
-										e(t)
-									})
-								},
-								action: () => (T.Z.data.appEnableSidebar = !T.Z.data.appEnableSidebar),
-							},
-							{
-								type: 'checkbox',
-								label: 'menus.View.Sidepanel',
-								checked: T.Z.data.appEnableSidepanel,
-								mounted({ setChecked: e }) {
-									T.Z.keyChanged('appEnableSidepanel', t => {
-										e(t)
-									})
-								},
-								action: () => (T.Z.data.appEnableSidepanel = !T.Z.data.appEnableSidepanel),
-							},
-							{},
-							{
-								type: 'checkbox',
-								label: 'menus.View.Terminal',
-								checked: T.Z.data.appShowTerminal,
-								mounted({ setChecked: e }) {
-									T.Z.keyChanged('appShowTerminal', t => {
-										e(t)
-									})
-								},
-								action: () => (T.Z.data.appShowTerminal = !T.Z.data.appShowTerminal),
-							},
-							{},
-							{ label: 'menus.View.CommandPrompt', action: () => i.Z.emit('command.openCommandPrompt') },
-							{ label: 'menus.View.ExplorerPrompt', action: () => i.Z.emit('command.openExplorerCommandPrompt') },
-						],
-					}),
-					Ct ||
-						new H.Z({
-							button: 'menus.Window.Window',
-							list: [
-								{
-									label: 'menus.Window.Zoom.Zoom',
-									list: [
-										{
-											label: 'menus.Window.Zoom.DefaultZoom',
-											action: () => {
-												T.Z.data.appZoom = 1
-											},
-										},
-										{
-											label: 'menus.Window.Zoom.IncreaseZoom',
-											action: () => {
-												T.Z.data.appZoom += 0.1
-											},
-										},
-										{
-											label: 'menus.Window.Zoom.DecreaseZoom',
-											action: () => {
-												T.Z.data.appZoom -= 0.1
-											},
-										},
-									],
-								},
-								{},
-								(() => {
-									if (!i.Z.data.isDebug)
-										return {
-											label: 'menus.Window.Debug.Debug',
-											list: [
-												{
-													label: 'menus.Window.Debug.OpenDebugWindow',
-													action: () =>
-														(function () {
-															const e = Math.random()
-															let t = !1
-															const n = new gt.Z({ name: 'Debug Window' })
-															n.on('start', () => {
-																t || (vt.invoke('create-debug-window', e), (t = !0))
-															}),
-																n.on('reload', () => {
-																	vt.invoke('reload-debug-window', e)
-																}),
-																n.on('stop', () => {
-																	vt.invoke('close-debug-window', e)
-																})
-														})(),
-												},
-											],
-										}
-								})(),
-								(() => {
-									if (!i.Z.data.isDebug) return {}
-								})(),
-								{ label: 'menus.Window.OpenDevTools', action: () => xt.invoke('toggle-devtools') },
-							],
-						}),
-					'darwin' !== r.Z && St('menus.Help.Help')
 			}
 			var Tt = __webpack_require__(3405),
 				At = __webpack_require__(7563)
@@ -55153,7 +54880,7 @@
 			var Gt = __webpack_require__(3071),
 				Vt = __webpack_require__(4968),
 				Kt = __webpack_require__.n(Vt)
-			const Xt = t.css`
+			const Yt = t.css`
 	& rect, path{
 		fill:var(--iconFill);
 	}
@@ -55162,7 +54889,7 @@
 		stroke: var(--iconFill);
 	}
 `,
-				Yt = e => (e.length > 25 ? '25+' : e.slice(0, 25).length),
+				Xt = e => (e.length > 25 ? '25+' : e.slice(0, 25).length),
 				Jt = (e, t) => {
 					let n = 0
 					return (
@@ -55302,12 +55029,12 @@
 												},
 												{
 													label: 'Last 25 Commits',
-													decorator: { label: Yt(p), color: 'var(--explorerItemGitIndicatorText)', background: 'var(--explorerItemGitNotAddedText)' },
+													decorator: { label: Xt(p), color: 'var(--explorerItemGitIndicatorText)', background: 'var(--explorerItemGitNotAddedText)' },
 													mounted({ setItems: e, setDecorator: t }) {
 														const n = i.Z.on('gitStatusUpdated', async ({ parentFolder: n, gitChanges: r }) => {
 															if (c === n) {
 																const { all: n } = await d.getGitAllCommits(c)
-																e(en(n), !1), t({ label: Yt(n).toString() })
+																e(en(n), !1), t({ label: Xt(n).toString() })
 															}
 														})
 														m.push(n), e(en(p), !1)
@@ -55326,7 +55053,7 @@
 						icon: n => (
 							(t = n.setDecorator),
 							e.element`
-		<svg class="${Xt}" width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<svg class="${Yt}" width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<rect x="6.17116" y="7.25673" width="2.17115" height="11.9413"/>
 			<circle cx="7.25672" cy="20.2836" r="2.25672" stroke-width="1.5"/>
 			<path d="M2.30285 3.83809C1.87891 3.41415 1.87891 2.7268 2.30285 2.30286V2.30286C2.72679 1.87891 3.41414 1.87891 3.83808 2.30286L16.3943 14.8591L14.8591 16.3943L2.30285 3.83809Z"/>
@@ -56008,7 +55735,320 @@
 				})
 			var Fn = 'src/interface/defaults'
 			const { fs: Bn } = n.Z
-			const Rn = t.css`
+			async function Rn() {
+				if (
+					('darwin' === r.Z && Et('Graviton'),
+					St ||
+						new H.Z({
+							button: 'menus.File.File',
+							list: [
+								{
+									label: 'menus.File.OpenFile',
+									action: () => {
+										;(0, nt.ZB)().then(function (e) {
+											i.Z.emit('loadFile', { filePath: e })
+										})
+									},
+								},
+								{
+									label: 'menus.File.OpenFolder',
+									action: () => {
+										;(0, nt.$W)().then(function (e) {
+											i.Z.emit('addFolderToRunningWorkspace', { folderPath: e, replaceOldExplorer: !0, workspacePath: null })
+										})
+									},
+								},
+								{},
+								{
+									label: 'menus.File.SaveFile',
+									action: () => {
+										i.Z.emit('command.saveCurrentFile')
+									},
+								},
+								{},
+								{
+									label: 'menus.File.Projects.Projects',
+									list: [
+										{
+											label: 'menus.File.Projects.OpenProjects',
+											action: () => {
+												ft().launch()
+											},
+										},
+									],
+								},
+								{
+									label: 'menus.File.Workspaces.Workspaces',
+									list: [
+										{
+											label: 'menus.File.Workspaces.OpenWorkspaces',
+											action: () => {
+												ft({ defaultPage: 'workspaces' }).launch()
+											},
+										},
+										{
+											label: 'menus.File.Workspaces.OpenFromFile',
+											action: () => {
+												i.Z.emit('openWorkspaceDialog')
+											},
+										},
+										{},
+										{
+											label: 'menus.File.Workspaces.AddFolderToWorkspace',
+											action: () => {
+												i.Z.emit('addFolderToRunningWorkspaceDialog', { replaceOldExplorer: !1 })
+											},
+										},
+										{
+											label: 'menus.File.Workspaces.SaveWorkspace',
+											action: () => {
+												i.Z.emit('saveCurrentWorkspace')
+											},
+										},
+									],
+								},
+							],
+						}),
+					new H.Z({
+						button: 'menus.Edit.Edit',
+						list: [
+							{
+								label: 'menus.Edit.Undo',
+								action: () => {
+									if (!i.Z.data.focusedEditor) return
+									const { client: e, instance: t } = i.Z.data.focusedEditor
+									e.do('executeUndo', { instance: t })
+								},
+							},
+							{
+								label: 'menus.Edit.Redo',
+								action: () => {
+									if (!i.Z.data.focusedEditor) return
+									const { client: e, instance: t } = i.Z.data.focusedEditor
+									e.do('executeRedo', { instance: t })
+								},
+							},
+							{},
+							{
+								label: 'misc.Copy',
+								accelerator: 'CmdOrCtrl+C',
+								selector: 'copy:',
+								action: () => {
+									if (!i.Z.data.focusedEditor) return
+									const { client: e, instance: t } = i.Z.data.focusedEditor,
+										n = e.do('getSelection', { instance: t, action: () => i.Z.emit('hideAllFloatingComps') })
+									kt.writeText(n),
+										i.Z.emit('writeToClipboard', n),
+										setTimeout(() => {
+											e.do('doFocus', { instance: t })
+										}, 10)
+								},
+							},
+							{
+								label: 'misc.Paste',
+								accelerator: 'CmdOrCtrl+V',
+								selector: 'paste:',
+								action: () => {
+									if (!i.Z.data.focusedEditor) return
+									const { client: e, instance: t } = i.Z.data.focusedEditor,
+										{ line: n, ch: r } = e.do('getCursorPosition', { instance: t })
+									e.do('pasteContent', { instance: t, from: { line: n - 1, ch: r - 1 }, text: kt.readText() }),
+										setTimeout(() => {
+											e.do('doFocus', { instance: t })
+										}, 10)
+								},
+							},
+							{},
+							{
+								label: 'menus.Edit.FontSize.FontSize',
+								list: [
+									{
+										label: 'menus.Edit.FontSize.Increase',
+										action: () => {
+											i.Z.emit('command.increaseFontSize')
+										},
+									},
+									{
+										label: 'menus.Edit.FontSize.Decrease',
+										action: () => {
+											i.Z.emit('command.decreaseFontSize')
+										},
+									},
+								],
+							},
+							{},
+							{
+								label: 'menus.Edit.Find',
+								action: () => {
+									if (!i.Z.data.focusedEditor) return
+									const { client: e, instance: t } = i.Z.data.focusedEditor
+									e.do('openFind', { instance: t })
+								},
+							},
+							{
+								label: 'menus.Edit.Replace',
+								action: () => {
+									if (!i.Z.data.focusedEditor) return
+									const { client: e, instance: t } = i.Z.data.focusedEditor
+									e.do('openReplace', { instance: t })
+								},
+							},
+							{},
+							{
+								label: 'menus.Edit.FormatDocument',
+								action: () => {
+									if (!i.Z.data.focusedEditor) return
+									const { client: e, instance: t } = i.Z.data.focusedEditor
+									e.do('doIndent', { instance: t })
+								},
+							},
+						],
+					}),
+					new H.Z({
+						button: 'menus.Tools.Tools',
+						list: [
+							{ label: 'menus.Tools.OpenSettings', action: () => De().launch() },
+							{ label: 'menus.Window.Debug.OpenDebugWindow', action: () => bt() },
+							(() => {
+								if (!St) return { label: 'menus.Tools.OpenStore', action: () => tt().launch() }
+							})(),
+							{},
+							{
+								label: 'menus.Tools.Panels.Panels',
+								list: [
+									{ label: 'menus.Tools.Panels.NewPanel', action: () => i.Z.emit('command.newPanel') },
+									{ label: 'menus.Tools.Panels.CloseCurrentPanel', action: () => i.Z.emit('command.closeCurrentPanel') },
+								],
+							},
+						],
+					}),
+					new H.Z({
+						button: 'menus.View.View',
+						list: [
+							{
+								type: 'checkbox',
+								label: 'menus.View.Sidebar',
+								checked: T.Z.data.appEnableSidebar,
+								mounted({ setChecked: e }) {
+									T.Z.keyChanged('appEnableSidebar', t => {
+										e(t)
+									})
+								},
+								action: () => (T.Z.data.appEnableSidebar = !T.Z.data.appEnableSidebar),
+							},
+							{
+								type: 'checkbox',
+								label: 'menus.View.Sidepanel',
+								checked: T.Z.data.appEnableSidepanel,
+								mounted({ setChecked: e }) {
+									T.Z.keyChanged('appEnableSidepanel', t => {
+										e(t)
+									})
+								},
+								action: () => (T.Z.data.appEnableSidepanel = !T.Z.data.appEnableSidepanel),
+							},
+							{},
+							{
+								type: 'checkbox',
+								label: 'menus.View.Terminal',
+								checked: T.Z.data.appShowTerminal,
+								mounted({ setChecked: e }) {
+									T.Z.keyChanged('appShowTerminal', t => {
+										e(t)
+									})
+								},
+								action: () => (T.Z.data.appShowTerminal = !T.Z.data.appShowTerminal),
+							},
+							{},
+							{ label: 'menus.View.CommandPrompt', action: () => i.Z.emit('command.openCommandPrompt') },
+							{ label: 'menus.View.ExplorerPrompt', action: () => i.Z.emit('command.openExplorerCommandPrompt') },
+						],
+					}),
+					St ||
+						new H.Z({
+							button: 'menus.Window.Window',
+							list: [
+								{
+									label: 'menus.Window.Zoom.Zoom',
+									list: [
+										{
+											label: 'menus.Window.Zoom.DefaultZoom',
+											action: () => {
+												T.Z.data.appZoom = 1
+											},
+										},
+										{
+											label: 'menus.Window.Zoom.IncreaseZoom',
+											action: () => {
+												T.Z.data.appZoom += 0.1
+											},
+										},
+										{
+											label: 'menus.Window.Zoom.DecreaseZoom',
+											action: () => {
+												T.Z.data.appZoom -= 0.1
+											},
+										},
+									],
+								},
+								{},
+								(() => {
+									if (!i.Z.data.isDebug) return { label: 'menus.Window.Debug.Debug', list: [{ label: 'menus.Window.Debug.OpenDebugWindow', action: () => bt() }] }
+								})(),
+								(() => {
+									if (!i.Z.data.isDebug) return {}
+								})(),
+								{ label: 'menus.Window.OpenDevTools', action: () => wt.invoke('toggle-devtools') },
+							],
+						}),
+					'darwin' !== r.Z && Et('menus.Help.Help'),
+					new w(),
+					i.Z.data.isBrowser)
+				) {
+					;(0, He.a6)(Object.assign({ PATH: 'Graviton' }, L)), (0, He.a6)(Object.assign({ PATH: 'Graviton' }, P)), (0, He.a6)(Object.assign({ PATH: 'Graviton' }, W))
+					const e = await __webpack_require__.e(197).then(__webpack_require__.t.bind(__webpack_require__, 6197, 23)),
+						t = await __webpack_require__.e(291).then(__webpack_require__.t.bind(__webpack_require__, 7291, 19))
+					;(0, He.a6)(t, e)
+				} else
+					T.Z.keyChanged('experimentalEditorLSP', e => {
+						e && new _.Z({ title: 'dialogs.experimentalFeature.title', content: 'dialogs.experimentalFeature.content', buttons: [{ label: 'misc.Understood' }] }).launch()
+					}),
+						(0, He.a6)(Object.assign({ PATH: S.join(Fn, '../../../Arctic') }, L)),
+						(0, He.a6)(Object.assign({ PATH: S.join(Fn, '../../../Night') }, P)),
+						(0, He.a6)(Object.assign({ PATH: S.join(Fn, '../../../Graviton') }, W))
+				i.Z.emit('appLoaded'),
+					T.Z.data.appCheckUpdatesInStartup && N(),
+					!1 === i.Z.data.isDebug &&
+						i.Z.data.arguments[0] &&
+						i.Z.data.arguments.map(e => {
+							const t = S.resolve(process.cwd(), i.Z.data.arguments[0])
+							if (Bn.existsSync(t))
+								if (Bn.lstatSync(t).isDirectory()) i.Z.emit('addFolderToRunningWorkspace', { folderPath: t, replaceOldExplorer: !0, workspacePath: null })
+								else {
+									const e = (0, Tt.Z)(t),
+										n = S.parse(t).name
+									'gvp' === e
+										? (new A.default({ title: 'Store', content: `Installing ${n}` }),
+										  (function ({ path: e, name: t }) {
+												return new Promise((n, r) => {
+													Ze.invoke('install-gvp', { path: e, name: t, dist: (0, $e.I)() }).then(e => {
+														n(e)
+													})
+												})
+										  })({ path: t, name: n }).then(() => {
+												new A.default({ title: 'Store', content: `Installed ${n}` })
+										  }))
+										: i.Z.emit('loadFile', { filePath: t })
+								}
+							else if (e.includes('graviton:install?')) {
+								const { id: t, url: n } = At.parse(e)
+								qe({ id: t, release: n }).then((e, n) => {
+									new A.default({ author: 'Graviton', title: `Installed ${t}` })
+								})
+							}
+						})
+			}
+			const jn = t.css`
 	& {
 		width: 100%;
 		display: flex;
@@ -56039,7 +56079,7 @@
 		}
 }
 `
-			function jn({ pages: t, closeWindow: n }) {
+			function zn({ pages: t, closeWindow: n }) {
 				let r = 0
 				const i = function () {
 						r++, this.parentElement.parentElement.children[0].update(), this.parentElement.update()
@@ -56047,8 +56087,8 @@
 					o = function () {
 						r--, this.parentElement.parentElement.children[0].update(), this.parentElement.update()
 					}
-				return (0, e.element)({ addons: [(0, e.lang)(X.B)], components: { Button: p.Button } })`
-	<div class="${Rn}">
+				return (0, e.element)({ addons: [(0, e.lang)(Y.B)], components: { Button: p.Button } })`
+	<div class="${jn}">
 		<div class="pages">
 			${() => t[r]()}
 		</div>
@@ -56067,7 +56107,7 @@
 	</div>
 	`
 			}
-			const zn = t.css`
+			const Nn = t.css`
 	&  {
 		display: flex;
 		justify-content: center;
@@ -56111,12 +56151,12 @@
 	}
 	
 `
-			function Nn() {
-				return e.element`<div class="${zn}"/>`
-			}
 			function Wn() {
+				return e.element`<div class="${Nn}"/>`
+			}
+			function Hn() {
 				const t = Object.keys(_e.Z).map(e => ({ label: _e.Z[e].name, key: e, checked: T.Z.data.appLanguage === e }))
-				return (0, e.element)({ addons: [(0, e.lang)(X.B)], components: { Title: p.Titles.h2, Text: p.Text, IntroductionPage: Nn, RadioGroup: p.RadioGroup } })`
+				return (0, e.element)({ addons: [(0, e.lang)(Y.B)], components: { Title: p.Titles.h2, Text: p.Text, IntroductionPage: Wn, RadioGroup: p.RadioGroup } })`
 		<IntroductionPage>
 			<Title class="title" lang-string="misc.Languages"/>
 			<div style="overflow: auto; width: 90%;">
@@ -56128,8 +56168,8 @@
 		</IntroductionPage>
 	`
 			}
-			const { openExternal: Hn } = n.Z,
-				$n = t.css`
+			const { openExternal: $n } = n.Z,
+				Zn = t.css`
 	& {
 		color: var(--textColor);
 		padding: 6px;
@@ -56141,13 +56181,13 @@
 		}
 	}
 `,
-				Zn = function ({ to: t }) {
+				qn = function ({ to: t }) {
 					return e.element`
-		<a :click="${() => Hn(t)}" class="${$n}"/>
+		<a :click="${() => $n(t)}" class="${Zn}"/>
 	`
 				}
-			function qn() {
-				return (0, e.element)({ addons: [(0, e.lang)(X.B)], components: { Title: p.Titles.h2, Text: p.Text, Link: Zn, IntroductionPage: Nn } })`
+			function Un() {
+				return (0, e.element)({ addons: [(0, e.lang)(Y.B)], components: { Title: p.Titles.h2, Text: p.Text, Link: qn, IntroductionPage: Wn } })`
 		<IntroductionPage>
 			<Title class="title" lang-string="windows.Introduction.Welcome.WelcomeToGraviton" string="{{windows.Introduction.Welcome.WelcomeToGraviton}} 🎉" />
 			<Text lang-string="windows.Settings.About.GravitonDescription"/>
@@ -56164,12 +56204,12 @@
 		</IntroductionPage>
 	`
 			}
-			function Un() {
+			function Gn() {
 				const t = J.Z.registry.data.list,
 					n = t.Night,
 					r = t.Arctic,
 					i = e => (T.Z.data.appTheme = e)
-				return (0, e.element)({ addons: [(0, e.lang)(X.B)], components: { ThemeCard: ae, Title: p.Titles.h2, IntroductionPage: Nn } })`
+				return (0, e.element)({ addons: [(0, e.lang)(Y.B)], components: { ThemeCard: ae, Title: p.Titles.h2, IntroductionPage: Wn } })`
 	<IntroductionPage>
 		<Title class="title" lang-string="windows.Introduction.Theming.SelectATheme"/>
 		<div class="theme_cards">
@@ -56179,15 +56219,15 @@
 	</IntroductionPage>
 	`
 			}
-			function Gn() {
-				return (0, e.element)({ addons: [(0, e.lang)(X.B)], components: { Title: p.Titles.h2, Text: p.Text, IntroductionPage: Nn } })`
+			function Vn() {
+				return (0, e.element)({ addons: [(0, e.lang)(Y.B)], components: { Title: p.Titles.h2, Text: p.Text, IntroductionPage: Wn } })`
 		<IntroductionPage>
 			<Title class="title" lang-string="windows.Introduction.Finished.Finished" string="{{windows.Introduction.Finished.Finished}} 🎉"/>
 			<Text lang-string="windows.Introduction.Finished.HaveAGreatExperience"/>
 		</IntroductionPage>
 	`
 			}
-			const Vn = t.css`
+			const Kn = t.css`
 	&{
 		user-select: none;
 		&[direction="horizontally"]{
@@ -56201,7 +56241,7 @@
 		padding:3px;
 	}
 `
-			function Kn() {
+			function Yn() {
 				const e = this,
 					t = e.getAttribute('direction')
 				let n = 0
@@ -56254,7 +56294,7 @@
 		justify-content:flex-end;
 	}
 `,
-				Yn = t.css`
+				Jn = t.css`
 		& > div{
 			height: 100%;
 		}
@@ -56372,10 +56412,10 @@
 			height: auto;
 		}
   `
-			var Jn = __webpack_require__(2320),
-				Qn = __webpack_require__(2617),
-				er = __webpack_require__(3623)
-			const tr = t.css`
+			var Qn = __webpack_require__(2320),
+				er = __webpack_require__(2617),
+				tr = __webpack_require__(3623)
+			const nr = t.css`
 	& {
 		transform: rotate(45deg);
 		max-height: 17px !important;
@@ -56390,15 +56430,15 @@
 		stroke:var(--tabIconHoveringFill);
 	}
 `,
-				nr = function () {
+				rr = function () {
 					return e.element`
-		<svg width="50" height="50" viewBox="0 0 174 174" class="${tr}" xmlns="http://www.w3.org/2000/svg">
+		<svg width="50" height="50" viewBox="0 0 174 174" class="${nr}" xmlns="http://www.w3.org/2000/svg">
 			<rect x="40.3309" y="127.305" width="123" height="9" rx="4.5" transform="rotate(-45 40.3309 127.305)" />
 			<rect x="127.305" y="133.669" width="123" height="9" rx="4.5" transform="rotate(-135 127.305 133.669)"  />
 		</svg>
 	`
 				},
-				rr = t.css`
+				ir = t.css`
 	& {
 		border: 0;
 		padding: 2px;
@@ -56412,17 +56452,17 @@
 		}
 	}
 `,
-				ir = function () {
+				or = function () {
 					return e.element`
-		<button class="${rr}"/>
+		<button class="${ir}"/>
 	`
 				}
-			var or = __webpack_require__(6929),
-				ar = __webpack_require__(4850),
-				sr = __webpack_require__.n(ar)
-			kn()(sr(), { insert: 'head', singleton: !1 }), sr().locals
-			let lr = 0
-			const cr = t.css`
+			var ar = __webpack_require__(6929),
+				sr = __webpack_require__(4850),
+				lr = __webpack_require__.n(sr)
+			kn()(lr(), { insert: 'head', singleton: !1 }), lr().locals
+			let cr = 0
+			const fr = t.css`
 	max-width: 100%;
 	margin: 0;
 	position: relative;
@@ -56481,7 +56521,7 @@
 		}
 	}
 `,
-				fr = t.css`
+				ur = t.css`
   min-width: calc(100% - 30px);
 	max-width: calc(100% - 30px);
 	margin: 0;
@@ -56541,28 +56581,28 @@
 				i.Z.on('addLocalTerminalAccessory', ({ menu: e }) => {
 					i.Z.data.localTerminalAccessories.push({ menu: e })
 				})
-			const ur = () => ({
+			const dr = () => ({
 				fontFamily: 'UbuntuMono',
 				theme: {
-					background: gr('terminalBackground'),
-					foreground: gr('terminalForeground'),
-					cursor: gr('terminalCursor'),
-					cursorAccent: gr('terminalCursorAccent'),
-					selection: gr('terminalSelection'),
-					black: gr('terminalBlack'),
-					red: gr('terminalRed'),
-					green: gr('terminalGreen'),
-					yellow: gr('terminalYellow'),
-					blue: gr('terminalBlue'),
-					magenta: gr('terminalMagenta'),
-					cyan: gr('terminalCyan'),
-					white: gr('terminalWhite'),
-					brightGreen: gr('terminalBrightGreen'),
-					brightYellow: gr('terminalBrightYellow'),
-					brightBlue: gr('terminalBrightBlue'),
-					brightMagenta: gr('terminalMagenta'),
-					brightCyan: gr('terminalCyan'),
-					brightWhite: gr('terminalWhite'),
+					background: vr('terminalBackground'),
+					foreground: vr('terminalForeground'),
+					cursor: vr('terminalCursor'),
+					cursorAccent: vr('terminalCursorAccent'),
+					selection: vr('terminalSelection'),
+					black: vr('terminalBlack'),
+					red: vr('terminalRed'),
+					green: vr('terminalGreen'),
+					yellow: vr('terminalYellow'),
+					blue: vr('terminalBlue'),
+					magenta: vr('terminalMagenta'),
+					cyan: vr('terminalCyan'),
+					white: vr('terminalWhite'),
+					brightGreen: vr('terminalBrightGreen'),
+					brightYellow: vr('terminalBrightYellow'),
+					brightBlue: vr('terminalBrightBlue'),
+					brightMagenta: vr('terminalMagenta'),
+					brightCyan: vr('terminalCyan'),
+					brightWhite: vr('terminalWhite'),
 				},
 				cursorStyle: 'bar',
 				cursorBlink: !0,
@@ -56570,23 +56610,23 @@
 				lineHeight: 1.4,
 				windowsMode: 'win32' === r.Z,
 			})
-			let dr
-			function pr() {
-				return (0, e.element)({ components: { TerminalBar: mr } })`
-		<div class="${cr}">
+			let pr
+			function hr() {
+				return (0, e.element)({ components: { TerminalBar: gr } })`
+		<div class="${fr}">
 			<TerminalBar/>
 			<div id="terms_stack" mounted="${function () {
-				dr = new w(this, { autoFocus: !1 }).element
+				pr = new w(this, { autoFocus: !1 }).element
 			}}"/>
 		</div>
 	`
 			}
-			function hr({ shell: t = null } = {}) {
-				lr++
-				const n = new e.state({ shell: null, name: `Session ${lr}` })
+			function mr({ shell: t = null } = {}) {
+				cr++
+				const n = new e.state({ shell: null, name: `Session ${cr}` })
 				i.Z.data.openedTerminals.push({ name: n.data.name, state: n }), (i.Z.data.focusedTerminal = n.data.name), i.Z.emit('aTerminalHasBeenCreated')
 				const r = e.element`
-		<div class="terminal_container ${fr}" mounted="${async function () {
+		<div class="terminal_container ${ur}" mounted="${async function () {
 						n.on('shellSelected').then(async () => {
 							const e = n.data.shell(n),
 								t = o.tabState.on('focusedMe', () => {
@@ -56598,20 +56638,20 @@
 								o.addContextMenuListener(t => {
 									new b.Z({ list: e.accessories.map(e => e.menu(n)).flat(), event: t, parent: document.body })
 								})
-							const r = new Jn.Terminal(ur()),
-								a = new Qn.FitAddon()
+							const r = new Qn.Terminal(dr()),
+								a = new er.FitAddon()
 							var s
 							;(s = r),
 								T.Z.keyChanged('appTheme', () => {
 									;(e => {
-										const t = ur()
+										const t = dr()
 										Object.keys(t).forEach(n => {
 											e.setOption(n, t[n])
 										})
 									})(s)
 								}),
 								r.loadAddon(a),
-								r.loadAddon(new er()),
+								r.loadAddon(new tr()),
 								n.on('write', e => {
 									r.write(e)
 								}),
@@ -56674,14 +56714,14 @@
 			<div>
 		</div>
 	`,
-					o = new ce.Z({ panel: dr, title: `Session ${lr}`, component: () => r, id: Math.random().toString() })
+					o = new ce.Z({ panel: pr, title: `Session ${cr}`, component: () => r, id: Math.random().toString() })
 			}
-			function mr() {
+			function gr() {
 				return (
 					i.Z.on('createTerminalSession', ({ shell: e }) => {
-						hr({ shell: e })
+						mr({ shell: e })
 					}),
-					(0, e.element)({ components: { Button: p.Button, AddTermIcon: nr, ButtonIcon: ir, CrossIcon: or.Z } })`
+					(0, e.element)({ components: { Button: p.Button, AddTermIcon: rr, ButtonIcon: or, CrossIcon: ar.Z } })`
 		<div class="bar">
 			<div id="terminal_accessories"/>
 			<div class="buttons">
@@ -56691,7 +56731,7 @@
 					<CrossIcon/>
 				</ButtonIcon>
 				<ButtonIcon :click="${function () {
-					hr()
+					mr()
 				}}">
 					<AddTermIcon/>
 				</ButtonIcon>
@@ -56700,10 +56740,10 @@
 	`
 				)
 			}
-			function gr(e) {
+			function vr(e) {
 				return ie(e, ee.data) || ne(e)
 			}
-			const vr = t.css`
+			const br = t.css`
 	position: relative;
 	min-height: 100px;
 	max-height: calc(100% - 2px);
@@ -56712,7 +56752,7 @@
 	border-top: 1px solid var(--panelBorder);
 	overflow: hidden;
 `
-			function br(e, t) {
+			function _r(e, t) {
 				const n = e.previousElementSibling
 				t
 					? ((e.style.display = 'block'),
@@ -56721,12 +56761,12 @@
 					  0 !== i.Z.data.openedTerminals.length || i.Z.data.isBrowser || i.Z.emit('createTerminalSession', { shell: T.Z.data.terminalDefaultShell }))
 					: ((e.style.display = 'none'), (n.style.display = 'none'))
 			}
-			var _r = __webpack_require__(1144),
-				yr = __webpack_require__.n(_r)
-			kn()(yr(), { insert: 'head', singleton: !1 }), yr().locals
-			let xr = !1
+			var yr = __webpack_require__(1144),
+				xr = __webpack_require__.n(yr)
+			kn()(xr(), { insert: 'head', singleton: !1 }), xr().locals
+			let wr = !1
 			document.body.setAttribute('browser', i.Z.data.isBrowser.toString())
-			const wr = (0, e.element)({
+			const kr = (0, e.element)({
 				components: {
 					TitleBar: function () {
 						return (0, e.element)({ components: { Buttons: c } })`
@@ -56765,24 +56805,24 @@
 										this.setAttribute('blocked', !e), e || (this.style.width = '0')
 								  })
 								: this.setAttribute('blocked', 'false')
-						}}" :mousedown="${Kn}" class="${Vn}"/>
+						}}" :mousedown="${Yn}" class="${Kn}"/>
 	`
 					},
 					AppBody: function () {
-						return e.element`<div class="${Yn}"/>`
+						return e.element`<div class="${Jn}"/>`
 					},
 					MainBox: function () {
-						return (0, e.element)({ components: { Terminal: pr } })`
+						return (0, e.element)({ components: { Terminal: hr } })`
 		<div :resized="${function () {
 			i.Z.emit('mainBoxHasBeenResized')
 		}}" mounted="${function () {
 							i.Z.once('allPluginsLoaded', () => {
-								br(this, T.Z.data.appShowTerminal)
+								_r(this, T.Z.data.appShowTerminal)
 							}),
 								T.Z.keyChanged('appShowTerminal', e => {
-									br(this, e)
+									_r(this, e)
 								})
-						}}" class="${vr}">
+						}}" class="${br}">
 			<Terminal/>
 		</div>
 	`
@@ -56791,51 +56831,7 @@
 			})`
   <AppBody mounted="${function () {
 		window.addEventListener('load', async function () {
-			await (async function () {
-				if ((Et(), new w(), i.Z.data.isBrowser)) {
-					;(0, He.a6)(Object.assign({ PATH: 'Graviton' }, L)), (0, He.a6)(Object.assign({ PATH: 'Graviton' }, P)), (0, He.a6)(Object.assign({ PATH: 'Graviton' }, W))
-					const e = await __webpack_require__.e(197).then(__webpack_require__.t.bind(__webpack_require__, 6197, 23)),
-						t = await __webpack_require__.e(291).then(__webpack_require__.t.bind(__webpack_require__, 7291, 19))
-					;(0, He.a6)(t, e)
-				} else
-					T.Z.keyChanged('experimentalEditorLSP', e => {
-						e && new _.Z({ title: 'dialogs.experimentalFeature.title', content: 'dialogs.experimentalFeature.content', buttons: [{ label: 'misc.Understood' }] }).launch()
-					}),
-						(0, He.a6)(Object.assign({ PATH: S.join(Fn, '../../../Arctic') }, L)),
-						(0, He.a6)(Object.assign({ PATH: S.join(Fn, '../../../Night') }, P)),
-						(0, He.a6)(Object.assign({ PATH: S.join(Fn, '../../../Graviton') }, W))
-				i.Z.emit('appLoaded'),
-					T.Z.data.appCheckUpdatesInStartup && N(),
-					!1 === i.Z.data.isDebug &&
-						i.Z.data.arguments[0] &&
-						i.Z.data.arguments.map(e => {
-							const t = S.resolve(process.cwd(), i.Z.data.arguments[0])
-							if (Bn.existsSync(t))
-								if (Bn.lstatSync(t).isDirectory()) i.Z.emit('addFolderToRunningWorkspace', { folderPath: t, replaceOldExplorer: !0, workspacePath: null })
-								else {
-									const e = (0, Tt.Z)(t),
-										n = S.parse(t).name
-									'gvp' === e
-										? (new A.default({ title: 'Store', content: `Installing ${n}` }),
-										  (function ({ path: e, name: t }) {
-												return new Promise((n, r) => {
-													Ze.invoke('install-gvp', { path: e, name: t, dist: (0, $e.I)() }).then(e => {
-														n(e)
-													})
-												})
-										  })({ path: t, name: n }).then(() => {
-												new A.default({ title: 'Store', content: `Installed ${n}` })
-										  }))
-										: i.Z.emit('loadFile', { filePath: t })
-								}
-							else if (e.includes('graviton:install?')) {
-								const { id: t, url: n } = At.parse(e)
-								qe({ id: t, release: n }).then((e, n) => {
-									new A.default({ author: 'Graviton', title: `Installed ${t}` })
-								})
-							}
-						})
-			})()
+			await Rn()
 			const e = i.Z.data.isBrowser,
 				t = i.Z.data.isDev,
 				{ appOpenDashboardInStartup: n, appOpenIntroductionInStartup: r } = T.Z.data
@@ -56845,7 +56841,7 @@
 					const e = new $.Z({
 						title: 'introduction',
 						component: function () {
-							return jn({ pages: [Wn, qn, Un, Gn], closeWindow: () => e.close() })
+							return zn({ pages: [Hn, Un, Gn, Vn], closeWindow: () => e.close() })
 						},
 						height: '400px',
 						width: '550px',
@@ -56855,7 +56851,7 @@
 				o.launch(),
 				(T.Z.data.appOpenIntroductionInStartup = !1)),
 				((!t && null == i.Z.data.arguments[0]) || t) && !e && n && (a = ft),
-				e && (a = yt),
+				e && (a = xt),
 				o
 					? o.WindowState.on('closed', () => {
 							a().launch()
@@ -56868,10 +56864,10 @@
 				t = document.getElementById('sidepanel'),
 				n = document.getElementById('mainpanel')
 			i.Z.keyChanged('openedWindows', e => {
-				;(xr = !(e <= 0)), this.update()
+				;(wr = !(e <= 0)), this.update()
 			}),
 				T.Z.keyChanged('appBlurEffect', e => {
-					xr && this.update()
+					wr && this.update()
 				}),
 				T.Z.keyChanged('appEnableSidebar', r => {
 					e.update(), n.update(), t.update()
@@ -56880,7 +56876,7 @@
 					;(t.style.display = r ? 'block' : 'none'), t.update(), e.update(), n.update()
 				})
 		}}" style="${function () {
-				return xr ? `filter: blur(${T.Z.data.appBlurEffect}px); transition: 0s;` : ''
+				return wr ? `filter: blur(${T.Z.data.appBlurEffect}px); transition: 0s;` : ''
 			}}">
 			<TitleBar/>
 			<div id="body">
@@ -56946,6 +56942,6 @@
 			T.Z.keyChanged('appShowTerminal', e => {
 				e || (document.getElementById('panels_stack').style.height = '100%')
 			}),
-				(0, e.render)(wr, document.getElementById('App'))
+				(0, e.render)(kr, document.getElementById('App'))
 		})()
 })()

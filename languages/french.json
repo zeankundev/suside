@@ -64,7 +64,7 @@
 				},
 				"Debug": {
 					"Debug": "Débogage",
-					"OpenDebugWindow": "Ouvrir la fenêtre de débogage"
+					"OpenDebugWindow": "Fenêtre de débogage"
 				},
 				"OpenDevTools": "Outils de développement"
 			},

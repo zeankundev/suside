@@ -1,6 +1,6 @@
 {
 	"name": "suside",
-	"version": "2.3.1",
+	"version": "2.3.2",
 	"description": "A code editor.",
 	"repository": "https://github.com/Graviton-Code-Editor/Graviton-App",
 	"homepage": "https://zeankundev.github.io/suside-website",
@@ -17,8 +17,12 @@
 			"url": "https://zeankundev.github.io"
 		},
 		{
-			"name": "and many more...",
-			"url": "#"
+			"name": "RPiNews (AmogOS dev)",
+			"url": "https://github.com/mobilegmYT"
+		},
+		{
+			"name": "Screecharan (5R33CH4)",
+			"url": "https://github.com/5R33CH4"
 		}
 	],
 	"scripts": {

@@ -62,7 +62,7 @@
 				},
 				"Debug": {
 					"Debug": "Depurar",
-					"OpenDebugWindow": "Abrir ventana de depuración"
+					"OpenDebugWindow": "Ventana de depuración"
 				},
 				"OpenDevTools": "Herramientas de desarrollador"
 			},

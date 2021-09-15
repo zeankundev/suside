@@ -63,7 +63,7 @@
 				},
 				"Debug": {
 					"Debug": "Hata Ayıklama",
-					"OpenDebugWindow": "Hata Ayıklama penceresini aç"
+					"OpenDebugWindow": "Ayıklama penceresini aç"
 				},
 				"OpenDevTools": "Geliştirici Araçlarını aç"
 			},
