@@ -7,7 +7,21 @@ You will need the following.
 * node-gyp (Python)
 
 ## Clone the git repository
-Clone the git repository by typing this.
+For best results or if you want to make a PR, fork this repo.
+Then, clone your forked repository
+```shell
+git clone https://github.com/your-username/suside.git
+```
+Then, you can also merge your forked repo with the upstream (the official repo) commits.
+```
+cd suside
+git checkout main
+git pull https://github.com/zeankundev/suside.git main
+```
+
+**OR**
+
+If you don't want to make a PR and just modify the entire Suside code, you can type this..
 ```shell
 git clone https://github.com/zeankundev/suside.git
 ```
