@@ -1,12 +1,12 @@
-# How to build Suside
-## Prerequirisites
+# 🛠 How to build Suside
+## ❗ Prerequirisites
 You will need the following.
 * Node.js LTS
 * Yarn
 * Git
 * node-gyp (Python)
 
-## Clone the git repository
+## 📡 Clone the git repository
 For best results or if you want to make a PR, fork this repo.
 Then, clone your forked repository
 ```shell
@@ -42,7 +42,7 @@ or
 ```
 yarn install
 ```
-## Running
+## 😇 Running
 You can run by typing this
 ```
 yarn start
@@ -51,13 +51,13 @@ Or, run the web version by typing this
 ```
 yarn start:experimental:browser
 ```
-## Building
-### Browser
+## 🏭 Building
+### 🌏 Browser
 You can type this to build the browser version
 ```
 yarn build:experimental:browser
 ```
-### Desktop app
+### 💻 Desktop app
 Just type this command.
 ```
 yarn build
