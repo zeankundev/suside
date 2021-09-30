@@ -29,7 +29,7 @@ In case if you want the latest commit, type the following after the latest commi
 ```
 git pull
 ```
-## Install all dependencies
+## 🔧 Install all dependencies
 You have to get inside the source folder by typing the following
 ```shell
 cd suside
