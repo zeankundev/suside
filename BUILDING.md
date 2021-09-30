@@ -76,7 +76,10 @@ Replace ```<plat>``` with the following:
 * AppImage
 * p2p
 
-You can also build OS specific
+### 🖥 OS specific
+Note that this build system update only applies for Suside v2.3.1 or newer.
+
+You can also build OS specific. Type this. Replace <os> with your target OS.
 ```
 yarn build:electron --info os=<os>
 ```
