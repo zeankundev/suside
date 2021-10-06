@@ -1,6 +1,6 @@
 {
 	"name": "suside",
-	"version": "2.3.2",
+	"version": "2.3.3",
 	"description": "A code editor.",
 	"repository": "https://github.com/Graviton-Code-Editor/Graviton-App",
 	"homepage": "https://zeankundev.github.io/suside-website",
@@ -152,8 +152,8 @@
 		"webpack": "^5.11.1"
 	},
 	"build": {
-		"appId": "graviton-editor",
-		"productName": "Suside Editor",
+		"appId": "suside",
+		"productName": "Suside",
 		"artifactName": "${productName}_Installer_${version}_${os}_${arch}.${ext}",
 		"extraResources": "pluginsDist",
 		"asar": true,
