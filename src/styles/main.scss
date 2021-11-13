@@ -11,7 +11,7 @@ body {
 	overflow: hidden;
 	--puffinFont: mainFont;
 	background: var(--bodyBackground);
-	--codeFont: UbuntuMono;
+	--codeFont: Cascadia;
 	*:not(.xterm) {
 		outline: 0;
 		text-rendering: optimizeLegibility !important;
@@ -35,8 +35,8 @@ body {
 	src: url(../../assets/googlesanstext_bold.woff2) format('woff2');
 }
 @font-face {
-	font-family: UbuntuMono;
-	src: url(../../assets/UbuntuMono.woff2) format('woff2');
+	font-family: Cascadia;
+	src: url(../../assets/CascadiaMono.woff2) format('woff2');
 }
 
 @mixin customScrollBars {

@@ -29,7 +29,7 @@ const defaultConfig = {
 		editorAutocomplete: true,
 		editorIndentation: 'space',
 		editorTabSize: 2,
-		editorFontFamily: 'UbuntuMono',
+		editorFontFamily: 'Cascadia',
 		editorWrapLines: false,
 		appPlatform: 'auto',
 		appEnableProjectInspector: true,

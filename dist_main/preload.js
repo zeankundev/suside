@@ -1,36 +1,203 @@
-/*! For license information please see preload.js.LICENSE.txt */
-!(function (e, r) {
-	if ('object' == typeof exports && 'object' == typeof module) module.exports = r(require('fs-extra'))
-	else if ('function' == typeof define && define.amd) define(['fs-extra'], r)
+!(function (e, t) {
+	if ('object' == typeof exports && 'object' == typeof module) module.exports = t(require('fs-extra'))
+	else if ('function' == typeof define && define.amd) define(['fs-extra'], t)
 	else {
-		var n = 'object' == typeof exports ? r(require('fs-extra')) : r(e['fs-extra'])
-		for (var t in n) ('object' == typeof exports ? exports : e)[t] = n[t]
+		var r = 'object' == typeof exports ? t(require('fs-extra')) : t(e['fs-extra'])
+		for (var n in r) ('object' == typeof exports ? exports : e)[n] = r[n]
 	}
-})(global, function (__WEBPACK_EXTERNAL_MODULE_fs_extra__) {
+})(global, function (e) {
 	return (() => {
 		'use strict'
-		var __webpack_modules__ = {
-				'./src/app/preload.ts': function (__unused_webpack_module, exports, __webpack_require__) {
-					eval(
-						'\r\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\r\n}) : (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    o[k2] = m[k];\r\n}));\r\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\r\n    Object.defineProperty(o, "default", { enumerable: true, value: v });\r\n}) : function(o, v) {\r\n    o["default"] = v;\r\n});\r\nvar __importStar = (this && this.__importStar) || function (mod) {\r\n    if (mod && mod.__esModule) return mod;\r\n    var result = {};\r\n    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\r\n    __setModuleDefault(result, mod);\r\n    return result;\r\n};\r\nvar __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {\r\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\r\n    return new (P || (P = Promise))(function (resolve, reject) {\r\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\r\n        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }\r\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\r\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\r\n    });\r\n};\r\nvar __generator = (this && this.__generator) || function (thisArg, body) {\r\n    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;\r\n    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;\r\n    function verb(n) { return function (v) { return step([n, v]); }; }\r\n    function step(op) {\r\n        if (f) throw new TypeError("Generator is already executing.");\r\n        while (_) try {\r\n            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;\r\n            if (y = 0, t) op = [op[0] & 2, t.value];\r\n            switch (op[0]) {\r\n                case 0: case 1: t = op; break;\r\n                case 4: _.label++; return { value: op[1], done: false };\r\n                case 5: _.label++; y = op[1]; op = [0]; continue;\r\n                case 7: op = _.ops.pop(); _.trys.pop(); continue;\r\n                default:\r\n                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }\r\n                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }\r\n                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }\r\n                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }\r\n                    if (t[2]) _.ops.pop();\r\n                    _.trys.pop(); continue;\r\n            }\r\n            op = body.call(thisArg, _);\r\n        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }\r\n        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };\r\n    }\r\n};\r\nObject.defineProperty(exports, "__esModule", ({ value: true }));\r\nvar path = __importStar(__webpack_require__(/*! path */ "path"));\r\nvar fs = __importStar(__webpack_require__(/*! fs-extra */ "fs-extra"));\r\nvar electron_1 = __webpack_require__(/*! electron */ "electron");\r\nvar CustomWindow = window;\r\nvar getConfig = function () {\r\n    return electron_1.ipcRenderer.invoke(\'get-config\');\r\n};\r\nvar getDefaultConfig = function () {\r\n    return electron_1.ipcRenderer.invoke(\'get-default-config\');\r\n};\r\nvar isDev = function () {\r\n    return electron_1.ipcRenderer.invoke(\'is-dev\');\r\n};\r\nvar getProcessArguments = function () {\r\n    return electron_1.ipcRenderer.invoke(\'get-process-arguments\');\r\n};\r\nprocess.once(\'loaded\', function () { return __awaiter(void 0, void 0, void 0, function () {\r\n    var config, _a, gravitonConfigPath, gravitonPluginsPath;\r\n    var _b, _c;\r\n    return __generator(this, function (_d) {\r\n        switch (_d.label) {\r\n            case 0: return [4 /*yield*/, getConfig()];\r\n            case 1:\r\n                config = _d.sent();\r\n                _a = CustomWindow;\r\n                _b = {\r\n                    AppConfig: config\r\n                };\r\n                return [4 /*yield*/, getDefaultConfig()];\r\n            case 2:\r\n                _b.DefaultAppConfig = _d.sent();\r\n                _c = {};\r\n                return [4 /*yield*/, isDev()];\r\n            case 3:\r\n                _c.isDev = _d.sent();\r\n                return [4 /*yield*/, getProcessArguments()];\r\n            case 4:\r\n                _a.graviton = (_b.runtime = (_c.processArguments = _d.sent(),\r\n                    _c),\r\n                    _b);\r\n                gravitonConfigPath = config.appConfigPath;\r\n                gravitonPluginsPath = path.join(gravitonConfigPath, \'plugins\');\r\n                if (!!fs.existsSync(gravitonConfigPath)) return [3 /*break*/, 6];\r\n                return [4 /*yield*/, fs.mkdir(gravitonConfigPath)];\r\n            case 5:\r\n                _d.sent();\r\n                _d.label = 6;\r\n            case 6:\r\n                if (!!fs.existsSync(gravitonPluginsPath)) return [3 /*break*/, 8];\r\n                return [4 /*yield*/, fs.mkdir(gravitonPluginsPath)];\r\n            case 7:\r\n                _d.sent();\r\n                _d.label = 8;\r\n            case 8: return [2 /*return*/];\r\n        }\r\n    });\r\n}); });\r\n\n\n//# sourceURL=webpack://suside/./src/app/preload.ts?',
-					)
+		var t = {
+				280: function (e, t, r) {
+					var n =
+							(this && this.__createBinding) ||
+							(Object.create
+								? function (e, t, r, n) {
+										void 0 === n && (n = r),
+											Object.defineProperty(e, n, {
+												enumerable: !0,
+												get: function () {
+													return t[r]
+												},
+											})
+								  }
+								: function (e, t, r, n) {
+										void 0 === n && (n = r), (e[n] = t[r])
+								  }),
+						o =
+							(this && this.__setModuleDefault) ||
+							(Object.create
+								? function (e, t) {
+										Object.defineProperty(e, 'default', { enumerable: !0, value: t })
+								  }
+								: function (e, t) {
+										e.default = t
+								  }),
+						i =
+							(this && this.__importStar) ||
+							function (e) {
+								if (e && e.__esModule) return e
+								var t = {}
+								if (null != e) for (var r in e) 'default' !== r && Object.prototype.hasOwnProperty.call(e, r) && n(t, e, r)
+								return o(t, e), t
+							},
+						u =
+							(this && this.__awaiter) ||
+							function (e, t, r, n) {
+								return new (r || (r = Promise))(function (o, i) {
+									function u(e) {
+										try {
+											c(n.next(e))
+										} catch (e) {
+											i(e)
+										}
+									}
+									function a(e) {
+										try {
+											c(n.throw(e))
+										} catch (e) {
+											i(e)
+										}
+									}
+									function c(e) {
+										var t
+										e.done
+											? o(e.value)
+											: ((t = e.value),
+											  t instanceof r
+													? t
+													: new r(function (e) {
+															e(t)
+													  })).then(u, a)
+									}
+									c((n = n.apply(e, t || [])).next())
+								})
+							},
+						a =
+							(this && this.__generator) ||
+							function (e, t) {
+								var r,
+									n,
+									o,
+									i,
+									u = {
+										label: 0,
+										sent: function () {
+											if (1 & o[0]) throw o[1]
+											return o[1]
+										},
+										trys: [],
+										ops: [],
+									}
+								return (
+									(i = { next: a(0), throw: a(1), return: a(2) }),
+									'function' == typeof Symbol &&
+										(i[Symbol.iterator] = function () {
+											return this
+										}),
+									i
+								)
+								function a(i) {
+									return function (a) {
+										return (function (i) {
+											if (r) throw new TypeError('Generator is already executing.')
+											for (; u; )
+												try {
+													if (((r = 1), n && (o = 2 & i[0] ? n.return : i[0] ? n.throw || ((o = n.return) && o.call(n), 0) : n.next) && !(o = o.call(n, i[1])).done)) return o
+													switch (((n = 0), o && (i = [2 & i[0], o.value]), i[0])) {
+														case 0:
+														case 1:
+															o = i
+															break
+														case 4:
+															return u.label++, { value: i[1], done: !1 }
+														case 5:
+															u.label++, (n = i[1]), (i = [0])
+															continue
+														case 7:
+															;(i = u.ops.pop()), u.trys.pop()
+															continue
+														default:
+															if (!((o = (o = u.trys).length > 0 && o[o.length - 1]) || (6 !== i[0] && 2 !== i[0]))) {
+																u = 0
+																continue
+															}
+															if (3 === i[0] && (!o || (i[1] > o[0] && i[1] < o[3]))) {
+																u.label = i[1]
+																break
+															}
+															if (6 === i[0] && u.label < o[1]) {
+																;(u.label = o[1]), (o = i)
+																break
+															}
+															if (o && u.label < o[2]) {
+																;(u.label = o[2]), u.ops.push(i)
+																break
+															}
+															o[2] && u.ops.pop(), u.trys.pop()
+															continue
+													}
+													i = t.call(e, u)
+												} catch (e) {
+													;(i = [6, e]), (n = 0)
+												} finally {
+													r = o = 0
+												}
+											if (5 & i[0]) throw i[1]
+											return { value: i[0] ? i[1] : void 0, done: !0 }
+										})([i, a])
+									}
+								}
+							}
+					Object.defineProperty(t, '__esModule', { value: !0 })
+					var c = i(r(622)),
+						s = i(r(298)),
+						f = r(933),
+						l = window
+					process.once('loaded', function () {
+						return u(void 0, void 0, void 0, function () {
+							var e, t, r, n, o, i
+							return a(this, function (u) {
+								switch (u.label) {
+									case 0:
+										return [4, f.ipcRenderer.invoke('get-config')]
+									case 1:
+										return (e = u.sent()), (t = l), (o = { AppConfig: e }), [4, f.ipcRenderer.invoke('get-default-config')]
+									case 2:
+										return (o.DefaultAppConfig = u.sent()), (i = {}), [4, f.ipcRenderer.invoke('is-dev')]
+									case 3:
+										return (i.isDev = u.sent()), [4, f.ipcRenderer.invoke('get-process-arguments')]
+									case 4:
+										return (t.graviton = ((o.runtime = ((i.processArguments = u.sent()), i)), o)), (r = e.appConfigPath), (n = c.join(r, 'plugins')), s.existsSync(r) ? [3, 6] : [4, s.mkdir(r)]
+									case 5:
+										u.sent(), (u.label = 6)
+									case 6:
+										return s.existsSync(n) ? [3, 8] : [4, s.mkdir(n)]
+									case 7:
+										u.sent(), (u.label = 8)
+									case 8:
+										return [2]
+								}
+							})
+						})
+					})
 				},
-				electron: module => {
-					eval('module.exports = require("electron");;\n\n//# sourceURL=webpack://suside/external_%22electron%22?')
+				933: e => {
+					e.exports = require('electron')
 				},
-				'fs-extra': module => {
-					eval('module.exports = __WEBPACK_EXTERNAL_MODULE_fs_extra__;\n\n//# sourceURL=webpack://suside/external_%22fs-extra%22?')
+				298: t => {
+					t.exports = e
 				},
-				path: module => {
-					eval('module.exports = require("path");;\n\n//# sourceURL=webpack://suside/external_%22path%22?')
+				622: e => {
+					e.exports = require('path')
 				},
 			},
-			__webpack_module_cache__ = {}
-		function __webpack_require__(e) {
-			if (__webpack_module_cache__[e]) return __webpack_module_cache__[e].exports
-			var r = (__webpack_module_cache__[e] = { exports: {} })
-			return __webpack_modules__[e].call(r.exports, r, r.exports, __webpack_require__), r.exports
-		}
-		return __webpack_require__('./src/app/preload.ts')
+			r = {}
+		return (function e(n) {
+			if (r[n]) return r[n].exports
+			var o = (r[n] = { exports: {} })
+			return t[n].call(o.exports, o, o.exports, e), o.exports
+		})(280)
 	})()
 })

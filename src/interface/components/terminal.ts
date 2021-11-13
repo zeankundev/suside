@@ -147,7 +147,7 @@ RunningConfig.on('addLocalTerminalAccessory', ({ menu }) => {
 
 const getConfig = () => {
 	return {
-		fontFamily: 'UbuntuMono',
+		fontFamily: 'Cascadia',
 		theme: {
 			background: getProp('terminalBackground'),
 			foreground: getProp('terminalForeground'),
